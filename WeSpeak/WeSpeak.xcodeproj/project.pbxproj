@@ -8,23 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		00F130901DD20E6E0017C6EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F1308F1DD20E6E0017C6EC /* AppDelegate.swift */; };
-		00F130921DD20E6E0017C6EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F130911DD20E6E0017C6EC /* ViewController.swift */; };
 		00F130951DD20E6E0017C6EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00F130931DD20E6E0017C6EC /* Main.storyboard */; };
 		00F130981DD20E6E0017C6EC /* WeSpeak.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 00F130961DD20E6E0017C6EC /* WeSpeak.xcdatamodeld */; };
 		00F1309A1DD20E6E0017C6EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F130991DD20E6E0017C6EC /* Assets.xcassets */; };
 		00F1309D1DD20E6E0017C6EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00F1309B1DD20E6E0017C6EC /* LaunchScreen.storyboard */; };
+		00F130AE1DD211F70017C6EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00F130AD1DD211F70017C6EC /* GoogleService-Info.plist */; };
+		00F130B41DD216AF0017C6EC /* FireBaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F130B31DD216AF0017C6EC /* FireBaseClient.swift */; };
+		00F130B61DD217460017C6EC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F130B51DD217460017C6EC /* User.swift */; };
+		00F130B81DD217F10017C6EC /* Gift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F130B71DD217F10017C6EC /* Gift.swift */; };
+		00F130BA1DD2181A0017C6EC /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F130B91DD2181A0017C6EC /* Stats.swift */; };
+		00F130BC1DD2195C0017C6EC /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F130BB1DD2195C0017C6EC /* Review.swift */; };
+		00F130BE1DD2237D0017C6EC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F130BD1DD2237D0017C6EC /* Message.swift */; };
 		5E769EC5D181E6F36EFC677A /* Pods_WeSpeak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 829B73B27F981E070F83022B /* Pods_WeSpeak.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		00F1308C1DD20E6E0017C6EC /* WeSpeak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeSpeak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F1308F1DD20E6E0017C6EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		00F130911DD20E6E0017C6EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		00F130941DD20E6E0017C6EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		00F130971DD20E6E0017C6EC /* WeSpeak.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeSpeak.xcdatamodel; sourceTree = "<group>"; };
 		00F130991DD20E6E0017C6EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00F1309C1DD20E6E0017C6EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00F1309E1DD20E6E0017C6EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00F130AD1DD211F70017C6EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		00F130B31DD216AF0017C6EC /* FireBaseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FireBaseClient.swift; path = Net/FireBaseClient.swift; sourceTree = "<group>"; };
+		00F130B51DD217460017C6EC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		00F130B71DD217F10017C6EC /* Gift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gift.swift; path = Models/Gift.swift; sourceTree = "<group>"; };
+		00F130B91DD2181A0017C6EC /* Stats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stats.swift; path = Models/Stats.swift; sourceTree = "<group>"; };
+		00F130BB1DD2195C0017C6EC /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Review.swift; path = Models/Review.swift; sourceTree = "<group>"; };
+		00F130BD1DD2237D0017C6EC /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Models/Message.swift; sourceTree = "<group>"; };
 		05408D933F175F93A914647F /* Pods-WeSpeak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeSpeak.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeSpeak/Pods-WeSpeak.debug.xcconfig"; sourceTree = "<group>"; };
 		1826582A4073FF8DAE502F50 /* Pods-WeSpeak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeSpeak.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeSpeak/Pods-WeSpeak.release.xcconfig"; sourceTree = "<group>"; };
 		829B73B27F981E070F83022B /* Pods_WeSpeak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeSpeak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,15 +75,69 @@
 		00F1308E1DD20E6E0017C6EC /* WeSpeak */ = {
 			isa = PBXGroup;
 			children = (
+				00F130B21DD216690017C6EC /* Net */,
+				00F130B11DD2157E0017C6EC /* Helpers */,
+				00F130A61DD2109B0017C6EC /* Models */,
+				00F130AF1DD2155F0017C6EC /* Views */,
+				00F130B01DD215690017C6EC /* View Controllers */,
+				00F130A41DD2100C0017C6EC /* Support Files */,
 				00F1308F1DD20E6E0017C6EC /* AppDelegate.swift */,
-				00F130911DD20E6E0017C6EC /* ViewController.swift */,
 				00F130931DD20E6E0017C6EC /* Main.storyboard */,
-				00F130991DD20E6E0017C6EC /* Assets.xcassets */,
 				00F1309B1DD20E6E0017C6EC /* LaunchScreen.storyboard */,
-				00F1309E1DD20E6E0017C6EC /* Info.plist */,
+				00F130991DD20E6E0017C6EC /* Assets.xcassets */,
 				00F130961DD20E6E0017C6EC /* WeSpeak.xcdatamodeld */,
 			);
 			path = WeSpeak;
+			sourceTree = "<group>";
+		};
+		00F130A41DD2100C0017C6EC /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				00F130AD1DD211F70017C6EC /* GoogleService-Info.plist */,
+				00F1309E1DD20E6E0017C6EC /* Info.plist */,
+			);
+			name = "Support Files";
+			sourceTree = "<group>";
+		};
+		00F130A61DD2109B0017C6EC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				00F130B51DD217460017C6EC /* User.swift */,
+				00F130B71DD217F10017C6EC /* Gift.swift */,
+				00F130B91DD2181A0017C6EC /* Stats.swift */,
+				00F130BB1DD2195C0017C6EC /* Review.swift */,
+				00F130BD1DD2237D0017C6EC /* Message.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		00F130AF1DD2155F0017C6EC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		00F130B01DD215690017C6EC /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		00F130B11DD2157E0017C6EC /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		00F130B21DD216690017C6EC /* Net */ = {
+			isa = PBXGroup;
+			children = (
+				00F130B31DD216AF0017C6EC /* FireBaseClient.swift */,
+			);
+			name = Net;
 			sourceTree = "<group>";
 		};
 		C8395A852C778DC5C6227C1C /* Frameworks */ = {
@@ -154,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00F1309D1DD20E6E0017C6EC /* LaunchScreen.storyboard in Resources */,
+				00F130AE1DD211F70017C6EC /* GoogleService-Info.plist in Resources */,
 				00F1309A1DD20E6E0017C6EC /* Assets.xcassets in Resources */,
 				00F130951DD20E6E0017C6EC /* Main.storyboard in Resources */,
 			);
@@ -214,8 +281,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00F130B61DD217460017C6EC /* User.swift in Sources */,
+				00F130BA1DD2181A0017C6EC /* Stats.swift in Sources */,
+				00F130BC1DD2195C0017C6EC /* Review.swift in Sources */,
+				00F130B81DD217F10017C6EC /* Gift.swift in Sources */,
+				00F130B41DD216AF0017C6EC /* FireBaseClient.swift in Sources */,
+				00F130BE1DD2237D0017C6EC /* Message.swift in Sources */,
 				00F130981DD20E6E0017C6EC /* WeSpeak.xcdatamodeld in Sources */,
-				00F130921DD20E6E0017C6EC /* ViewController.swift in Sources */,
 				00F130901DD20E6E0017C6EC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +411,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WeSpeak/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.WeSpeak.WeSpeak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -352,6 +425,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WeSpeak/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.WeSpeak.WeSpeak;
 				PRODUCT_NAME = "$(TARGET_NAME)";

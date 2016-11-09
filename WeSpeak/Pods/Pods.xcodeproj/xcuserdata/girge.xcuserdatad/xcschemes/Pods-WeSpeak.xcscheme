@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'D772EF0AA8581B689713A39320F55AE5'
+               BlueprintIdentifier = '98944F36920613655231B237835CCCE8'
                BlueprintName = 'Pods-WeSpeak'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods-WeSpeak.framework'>

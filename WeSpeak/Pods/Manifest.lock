@@ -1,3 +1,78 @@
-PODFILE CHECKSUM: f7ab8b43a9e308cf0d0fc876ffc6f4d8e5f73175
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - Firebase/Auth (3.7.1):
+    - Firebase/Core
+    - FirebaseAuth (= 3.0.5)
+  - Firebase/Core (3.7.1):
+    - FirebaseAnalytics (= 3.4.4)
+    - FirebaseCore (= 3.4.3)
+  - Firebase/Database (3.7.1):
+    - Firebase/Core
+    - FirebaseDatabase (= 3.0.3)
+  - FirebaseAnalytics (3.4.4):
+    - FirebaseCore (~> 3.4)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
+  - FirebaseAuth (3.0.5):
+    - FirebaseAnalytics (~> 3.3)
+    - GoogleNetworkingUtilities (~> 1.2)
+    - GoogleUtilities (~> 1.2)
+  - FirebaseCore (3.4.3):
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleUtilities (~> 1.2)
+  - FirebaseDatabase (3.0.3):
+    - FirebaseAnalytics (~> 3.3)
+  - FirebaseInstanceID (1.0.8)
+  - GoogleInterchangeUtilities (1.2.2):
+    - GoogleSymbolUtilities (~> 1.1)
+  - GoogleNetworkingUtilities (1.2.2):
+    - GoogleSymbolUtilities (~> 1.1)
+  - GoogleSymbolUtilities (1.1.2)
+  - GoogleUtilities (1.3.2):
+    - GoogleSymbolUtilities (~> 1.1)
+  - MBProgressHUD (1.0.0)
+  - Realm (2.0.2):
+    - Realm/Headers (= 2.0.2)
+  - Realm/Headers (2.0.2)
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.1)
+  - Firebase/Auth
+  - Firebase/Core
+  - Firebase/Database
+  - MBProgressHUD (~> 1.0)
+  - Realm (~> 2.0)
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Firebase: be473484f0d515e72ffd04acf22f981773c23e58
+  FirebaseAnalytics: 0533a00b681e08fd0b2cd0444b7ddf0ef9fd7a1a
+  FirebaseAuth: 75a062bbf2d3c97d1e6e55bbc110e13a6853e25d
+  FirebaseCore: 5a885548bbc5f0c410b04f8e9ac9d73ff1221907
+  FirebaseDatabase: 750a4a0fe18ef114318876fd654b2d9c671e0992
+  FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
+  GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
+  GoogleNetworkingUtilities: 3edd3a8161347494f2da60ea0deddc8a472d94cb
+  GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
+  GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  Realm: 0f5a194af0b7e6158b83db41b4ee1a00be7ddf1a
+
+PODFILE CHECKSUM: 9e3bcf93a4a66e093de1828e1c311e64bce881d7
 
 COCOAPODS: 1.1.0.rc.3
