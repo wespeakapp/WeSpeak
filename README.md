@@ -10,8 +10,7 @@ The following **required** functionality is completed:
  - Profile display:
        + Basic info.
        + Statistics: Tips, number of conversations, total hours spent, user skill ratings, reviews.
- - History conversations: Display all history conversations, user can see detail each conversation about ratings, comments      
-The following **optional** features are implemented: 
+ - History conversations: Display all history conversations, user can see detail each conversation about ratings, comments      The following **optional** features are implemented: 
  - User can record conversation
  - History Conversations: User can play record conversations.
  - Video call/Chat 
