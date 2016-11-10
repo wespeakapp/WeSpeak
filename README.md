@@ -3,18 +3,17 @@
 
 ## User Stories
 The following **required** functionality is completed:
- - Update basic info: Name, Country, Age, Photo.
+ - Update basic info: Name, Photo.
  - Find speaker: Random connect to a speaker.
- - Chat/Voice/Video Call with speaker.
- - Users can rating to speakers: questions, reviews, tip.
+ - User can voice call with speaker.
+ - Users can rating to speakers: rating, comment, tip.
  - Profile display:
        + Basic info.
        + Statistics: Tips, number of conversations, total hours spent, user skill ratings, reviews.
-            
-The following **optional** features are implemented:
- - Limit 30 min / converstions.
- - Extend converstion by subscrible.
- - Screen: History Conversations (request connect again with speakers).
+ - History conversations: Display all history conversations, user can see detail each conversation about ratings, comments          
+The following **optional** features are implemented: 
+ - User can record conversation  
+ - History Conversations: User can play record conversations.
  - Screen: Ranking board ( Top 50 learners).
  - Notifications: noti user for remind them use app.
 
