@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E8C6412002051F1BD691D5C60C384422AD90D8D9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E8C6412002051F1BD691D5C60C384422AD90D8D9" : 9223372036854775807,
+    "48B3FD3282AE6323310766963049AB1E21C64737" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "434029BB-6EBD-48AC-9CD2-4B818F2B70E1",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E8C6412002051F1BD691D5C60C384422AD90D8D9" : "WeSpeak_FinalProject\/",
+    "48B3FD3282AE6323310766963049AB1E21C64737" : ".."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "WeSpeak",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "WeSpeak\/WeSpeak.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/quochuyngo\/TipCalculator.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "48B3FD3282AE6323310766963049AB1E21C64737"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/wespeakapp\/WeSpeak.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E8C6412002051F1BD691D5C60C384422AD90D8D9"
+    }
+  ]
+}

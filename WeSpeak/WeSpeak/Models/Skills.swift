@@ -1,14 +1,14 @@
 //
-//  Stats.swift
+//  Skills.swift
 //  WeSpeak
 //
-//  Created by Girge on 11/8/16.
+//  Created by Quoc Huy Ngo on 11/11/16.
 //  Copyright © 2016 WeSpeak. All rights reserved.
 //
 
 import UIKit
 
-class Stats: NSObject {
+class Skill:NSObject{
     var listening: Double?
     var pronounciation: Double?
     var fluency: Double?

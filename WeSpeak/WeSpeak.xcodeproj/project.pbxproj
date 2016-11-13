@@ -19,6 +19,34 @@
 		00F130BA1DD2181A0017C6EC /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F130B91DD2181A0017C6EC /* Stats.swift */; };
 		00F130BC1DD2195C0017C6EC /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F130BB1DD2195C0017C6EC /* Review.swift */; };
 		00F130BE1DD2237D0017C6EC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F130BD1DD2237D0017C6EC /* Message.swift */; };
+		5A4426951DD5629100B7C398 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4426941DD5629100B7C398 /* InfoCell.swift */; };
+		5A4426971DD5655800B7C398 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4426961DD5655800B7C398 /* QuestionCell.swift */; };
+		5A4426991DD56D2A00B7C398 /* TipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4426981DD56D2A00B7C398 /* TipCell.swift */; };
+		5A44269B1DD5778900B7C398 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A44269A1DD5778900B7C398 /* CommentCell.swift */; };
+		5A44269D1DD57C5200B7C398 /* SubmitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A44269C1DD57C5200B7C398 /* SubmitCell.xib */; };
+		5A44269F1DD57CFF00B7C398 /* SubmitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A44269E1DD57CFF00B7C398 /* SubmitCell.swift */; };
+		5A4426A11DD582E600B7C398 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4426A01DD582E600B7C398 /* ProfileViewController.swift */; };
+		5ABF90F61DD5ADBD00EC0655 /* QuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ABF90F51DD5ADBD00EC0655 /* QuestionCell.xib */; };
+		5ABF90F81DD5AEDA00EC0655 /* TipCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ABF90F71DD5AEDA00EC0655 /* TipCell.xib */; };
+		5ABF90FA1DD5B54B00EC0655 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ABF90F91DD5B54B00EC0655 /* CommentCell.xib */; };
+		5ABF90FC1DD5BA6600EC0655 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABF90FB1DD5BA6600EC0655 /* Keys.swift */; };
+		5ABF90FE1DD5BB6200EC0655 /* Skills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABF90FD1DD5BB6200EC0655 /* Skills.swift */; };
+		5ACC0ABB1DD70F2900C4CED1 /* PlayRecord.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ACC0ABA1DD70F2800C4CED1 /* PlayRecord.xib */; };
+		5ACC0ABD1DD711DC00C4CED1 /* PlayRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACC0ABC1DD711DC00C4CED1 /* PlayRecordCell.swift */; };
+		5AE8A3BA1DD6D05F00F2C8B9 /* SpeakerRatingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AE8A3B91DD6D05F00F2C8B9 /* SpeakerRatingCell.xib */; };
+		5AE8A3BC1DD6D11300F2C8B9 /* SperkerRatingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE8A3BB1DD6D11300F2C8B9 /* SperkerRatingCell.swift */; };
+		5AE8A3BE1DD6D44900F2C8B9 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE8A3BD1DD6D44900F2C8B9 /* HistoryViewController.swift */; };
+		5AE8A3C01DD6D7CA00F2C8B9 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE8A3BF1DD6D7CA00F2C8B9 /* DetailsViewController.swift */; };
+		5AE8A3C21DD6ED4600F2C8B9 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE8A3C11DD6ED4600F2C8B9 /* HistoryCell.swift */; };
+		5AEACF611DD6117F002482AA /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AEACF601DD6117F002482AA /* InfoCell.xib */; };
+		5AEACF631DD61F3A002482AA /* RatingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AEACF621DD61F3A002482AA /* RatingCell.xib */; };
+		5AEACF651DD62048002482AA /* RatingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEACF641DD62048002482AA /* RatingCell.swift */; };
+		5AEACF671DD6299B002482AA /* AverageRating.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AEACF661DD6299B002482AA /* AverageRating.xib */; };
+		5AEACF691DD62B8B002482AA /* AverageRatingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEACF681DD62B8B002482AA /* AverageRatingCell.swift */; };
+		5AEACF6B1DD631FE002482AA /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AEACF6A1DD631FE002482AA /* ItemCell.xib */; };
+		5AEACF6D1DD63451002482AA /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEACF6C1DD63451002482AA /* ItemCell.swift */; };
+		5AECDAB01DD5555800770F1F /* Second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AECDAAF1DD5555800770F1F /* Second.storyboard */; };
+		5AECDABC1DD556D400770F1F /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AECDABB1DD556D400770F1F /* RatingViewController.swift */; };
 		5E769EC5D181E6F36EFC677A /* Pods_WeSpeak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 829B73B27F981E070F83022B /* Pods_WeSpeak.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +67,34 @@
 		00F130BD1DD2237D0017C6EC /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Models/Message.swift; sourceTree = "<group>"; };
 		05408D933F175F93A914647F /* Pods-WeSpeak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeSpeak.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeSpeak/Pods-WeSpeak.debug.xcconfig"; sourceTree = "<group>"; };
 		1826582A4073FF8DAE502F50 /* Pods-WeSpeak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeSpeak.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeSpeak/Pods-WeSpeak.release.xcconfig"; sourceTree = "<group>"; };
+		5A4426941DD5629100B7C398 /* InfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoCell.swift; path = Views/InfoCell.swift; sourceTree = "<group>"; };
+		5A4426961DD5655800B7C398 /* QuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionCell.swift; path = Views/QuestionCell.swift; sourceTree = "<group>"; };
+		5A4426981DD56D2A00B7C398 /* TipCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipCell.swift; path = Views/TipCell.swift; sourceTree = "<group>"; };
+		5A44269A1DD5778900B7C398 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentCell.swift; path = Views/CommentCell.swift; sourceTree = "<group>"; };
+		5A44269C1DD57C5200B7C398 /* SubmitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SubmitCell.xib; path = Views/SubmitCell.xib; sourceTree = "<group>"; };
+		5A44269E1DD57CFF00B7C398 /* SubmitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubmitCell.swift; path = Views/SubmitCell.swift; sourceTree = "<group>"; };
+		5A4426A01DD582E600B7C398 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = Views/ProfileViewController.swift; sourceTree = "<group>"; };
+		5ABF90F51DD5ADBD00EC0655 /* QuestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QuestionCell.xib; path = Views/QuestionCell.xib; sourceTree = "<group>"; };
+		5ABF90F71DD5AEDA00EC0655 /* TipCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipCell.xib; sourceTree = "<group>"; };
+		5ABF90F91DD5B54B00EC0655 /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CommentCell.xib; path = Views/CommentCell.xib; sourceTree = "<group>"; };
+		5ABF90FB1DD5BA6600EC0655 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		5ABF90FD1DD5BB6200EC0655 /* Skills.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Skills.swift; path = Models/Skills.swift; sourceTree = "<group>"; };
+		5ACC0ABA1DD70F2800C4CED1 /* PlayRecord.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlayRecord.xib; path = Views/PlayRecord.xib; sourceTree = "<group>"; };
+		5ACC0ABC1DD711DC00C4CED1 /* PlayRecordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayRecordCell.swift; path = Views/PlayRecordCell.swift; sourceTree = "<group>"; };
+		5AE8A3B91DD6D05F00F2C8B9 /* SpeakerRatingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SpeakerRatingCell.xib; path = Views/SpeakerRatingCell.xib; sourceTree = "<group>"; };
+		5AE8A3BB1DD6D11300F2C8B9 /* SperkerRatingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SperkerRatingCell.swift; path = Views/SperkerRatingCell.swift; sourceTree = "<group>"; };
+		5AE8A3BD1DD6D44900F2C8B9 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryViewController.swift; path = ViewControllers/HistoryViewController.swift; sourceTree = "<group>"; };
+		5AE8A3BF1DD6D7CA00F2C8B9 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		5AE8A3C11DD6ED4600F2C8B9 /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryCell.swift; path = Views/HistoryCell.swift; sourceTree = "<group>"; };
+		5AEACF601DD6117F002482AA /* InfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InfoCell.xib; path = Views/InfoCell.xib; sourceTree = "<group>"; };
+		5AEACF621DD61F3A002482AA /* RatingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RatingCell.xib; path = Views/RatingCell.xib; sourceTree = "<group>"; };
+		5AEACF641DD62048002482AA /* RatingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RatingCell.swift; path = Views/RatingCell.swift; sourceTree = "<group>"; };
+		5AEACF661DD6299B002482AA /* AverageRating.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AverageRating.xib; path = Views/AverageRating.xib; sourceTree = "<group>"; };
+		5AEACF681DD62B8B002482AA /* AverageRatingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AverageRatingCell.swift; path = Views/AverageRatingCell.swift; sourceTree = "<group>"; };
+		5AEACF6A1DD631FE002482AA /* ItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ItemCell.xib; path = Views/ItemCell.xib; sourceTree = "<group>"; };
+		5AEACF6C1DD63451002482AA /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCell.swift; path = Views/ItemCell.swift; sourceTree = "<group>"; };
+		5AECDAAF1DD5555800770F1F /* Second.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Second.storyboard; sourceTree = "<group>"; };
+		5AECDABB1DD556D400770F1F /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RatingViewController.swift; path = ViewControllers/RatingViewController.swift; sourceTree = "<group>"; };
 		829B73B27F981E070F83022B /* Pods_WeSpeak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeSpeak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -83,6 +139,7 @@
 				00F130A41DD2100C0017C6EC /* Support Files */,
 				00F1308F1DD20E6E0017C6EC /* AppDelegate.swift */,
 				00F130931DD20E6E0017C6EC /* Main.storyboard */,
+				5AECDAAF1DD5555800770F1F /* Second.storyboard */,
 				00F1309B1DD20E6E0017C6EC /* LaunchScreen.storyboard */,
 				00F130991DD20E6E0017C6EC /* Assets.xcassets */,
 				00F130961DD20E6E0017C6EC /* WeSpeak.xcdatamodeld */,
@@ -107,6 +164,7 @@
 				00F130B91DD2181A0017C6EC /* Stats.swift */,
 				00F130BB1DD2195C0017C6EC /* Review.swift */,
 				00F130BD1DD2237D0017C6EC /* Message.swift */,
+				5ABF90FD1DD5BB6200EC0655 /* Skills.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -114,6 +172,27 @@
 		00F130AF1DD2155F0017C6EC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5A4426941DD5629100B7C398 /* InfoCell.swift */,
+				5A4426961DD5655800B7C398 /* QuestionCell.swift */,
+				5A4426981DD56D2A00B7C398 /* TipCell.swift */,
+				5A44269A1DD5778900B7C398 /* CommentCell.swift */,
+				5A44269C1DD57C5200B7C398 /* SubmitCell.xib */,
+				5A44269E1DD57CFF00B7C398 /* SubmitCell.swift */,
+				5ABF90F51DD5ADBD00EC0655 /* QuestionCell.xib */,
+				5ABF90F71DD5AEDA00EC0655 /* TipCell.xib */,
+				5ABF90F91DD5B54B00EC0655 /* CommentCell.xib */,
+				5AEACF601DD6117F002482AA /* InfoCell.xib */,
+				5AEACF621DD61F3A002482AA /* RatingCell.xib */,
+				5AEACF641DD62048002482AA /* RatingCell.swift */,
+				5AEACF661DD6299B002482AA /* AverageRating.xib */,
+				5AEACF681DD62B8B002482AA /* AverageRatingCell.swift */,
+				5AEACF6A1DD631FE002482AA /* ItemCell.xib */,
+				5AEACF6C1DD63451002482AA /* ItemCell.swift */,
+				5AE8A3B91DD6D05F00F2C8B9 /* SpeakerRatingCell.xib */,
+				5AE8A3BB1DD6D11300F2C8B9 /* SperkerRatingCell.swift */,
+				5AE8A3C11DD6ED4600F2C8B9 /* HistoryCell.swift */,
+				5ACC0ABA1DD70F2800C4CED1 /* PlayRecord.xib */,
+				5ACC0ABC1DD711DC00C4CED1 /* PlayRecordCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -121,6 +200,10 @@
 		00F130B01DD215690017C6EC /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5AECDABB1DD556D400770F1F /* RatingViewController.swift */,
+				5A4426A01DD582E600B7C398 /* ProfileViewController.swift */,
+				5AE8A3BD1DD6D44900F2C8B9 /* HistoryViewController.swift */,
+				5AE8A3BF1DD6D7CA00F2C8B9 /* DetailsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -128,6 +211,7 @@
 		00F130B11DD2157E0017C6EC /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				5ABF90FB1DD5BA6600EC0655 /* Keys.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -220,8 +304,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				00F1309D1DD20E6E0017C6EC /* LaunchScreen.storyboard in Resources */,
+				5AEACF611DD6117F002482AA /* InfoCell.xib in Resources */,
+				5AEACF631DD61F3A002482AA /* RatingCell.xib in Resources */,
+				5ABF90F81DD5AEDA00EC0655 /* TipCell.xib in Resources */,
+				5AEACF6B1DD631FE002482AA /* ItemCell.xib in Resources */,
+				5ABF90F61DD5ADBD00EC0655 /* QuestionCell.xib in Resources */,
 				00F130AE1DD211F70017C6EC /* GoogleService-Info.plist in Resources */,
+				5AEACF671DD6299B002482AA /* AverageRating.xib in Resources */,
 				00F1309A1DD20E6E0017C6EC /* Assets.xcassets in Resources */,
+				5A44269D1DD57C5200B7C398 /* SubmitCell.xib in Resources */,
+				5AE8A3BA1DD6D05F00F2C8B9 /* SpeakerRatingCell.xib in Resources */,
+				5ABF90FA1DD5B54B00EC0655 /* CommentCell.xib in Resources */,
+				5ACC0ABB1DD70F2900C4CED1 /* PlayRecord.xib in Resources */,
+				5AECDAB01DD5555800770F1F /* Second.storyboard in Resources */,
 				00F130951DD20E6E0017C6EC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,14 +376,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A44269B1DD5778900B7C398 /* CommentCell.swift in Sources */,
+				5AE8A3C01DD6D7CA00F2C8B9 /* DetailsViewController.swift in Sources */,
+				5ABF90FC1DD5BA6600EC0655 /* Keys.swift in Sources */,
+				5AEACF691DD62B8B002482AA /* AverageRatingCell.swift in Sources */,
 				00F130B61DD217460017C6EC /* User.swift in Sources */,
+				5AEACF6D1DD63451002482AA /* ItemCell.swift in Sources */,
+				5AE8A3C21DD6ED4600F2C8B9 /* HistoryCell.swift in Sources */,
+				5AE8A3BE1DD6D44900F2C8B9 /* HistoryViewController.swift in Sources */,
+				5ABF90FE1DD5BB6200EC0655 /* Skills.swift in Sources */,
+				5ACC0ABD1DD711DC00C4CED1 /* PlayRecordCell.swift in Sources */,
 				00F130BA1DD2181A0017C6EC /* Stats.swift in Sources */,
 				00F130BC1DD2195C0017C6EC /* Review.swift in Sources */,
+				5AEACF651DD62048002482AA /* RatingCell.swift in Sources */,
 				00F130B81DD217F10017C6EC /* Gift.swift in Sources */,
 				00F130B41DD216AF0017C6EC /* FireBaseClient.swift in Sources */,
 				00F130BE1DD2237D0017C6EC /* Message.swift in Sources */,
+				5A44269F1DD57CFF00B7C398 /* SubmitCell.swift in Sources */,
+				5AE8A3BC1DD6D11300F2C8B9 /* SperkerRatingCell.swift in Sources */,
+				5AECDABC1DD556D400770F1F /* RatingViewController.swift in Sources */,
+				5A4426971DD5655800B7C398 /* QuestionCell.swift in Sources */,
 				00F130981DD20E6E0017C6EC /* WeSpeak.xcdatamodeld in Sources */,
+				5A4426991DD56D2A00B7C398 /* TipCell.swift in Sources */,
+				5A4426A11DD582E600B7C398 /* ProfileViewController.swift in Sources */,
 				00F130901DD20E6E0017C6EC /* AppDelegate.swift in Sources */,
+				5A4426951DD5629100B7C398 /* InfoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
