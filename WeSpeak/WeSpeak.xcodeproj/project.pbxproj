@@ -47,6 +47,7 @@
 		5AEACF6D1DD63451002482AA /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEACF6C1DD63451002482AA /* ItemCell.swift */; };
 		5AECDAB01DD5555800770F1F /* Second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AECDAAF1DD5555800770F1F /* Second.storyboard */; };
 		5AECDABC1DD556D400770F1F /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AECDABB1DD556D400770F1F /* RatingViewController.swift */; };
+		5AFBB0191DD8BE2100F4C720 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBB0181DD8BE2100F4C720 /* TestViewController.swift */; };
 		5E769EC5D181E6F36EFC677A /* Pods_WeSpeak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 829B73B27F981E070F83022B /* Pods_WeSpeak.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,7 @@
 		5AEACF6C1DD63451002482AA /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCell.swift; path = Views/ItemCell.swift; sourceTree = "<group>"; };
 		5AECDAAF1DD5555800770F1F /* Second.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Second.storyboard; sourceTree = "<group>"; };
 		5AECDABB1DD556D400770F1F /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RatingViewController.swift; path = ViewControllers/RatingViewController.swift; sourceTree = "<group>"; };
+		5AFBB0181DD8BE2100F4C720 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestViewController.swift; path = ViewControllers/TestViewController.swift; sourceTree = "<group>"; };
 		829B73B27F981E070F83022B /* Pods_WeSpeak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeSpeak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -204,6 +206,7 @@
 				5A4426A01DD582E600B7C398 /* ProfileViewController.swift */,
 				5AE8A3BD1DD6D44900F2C8B9 /* HistoryViewController.swift */,
 				5AE8A3BF1DD6D7CA00F2C8B9 /* DetailsViewController.swift */,
+				5AFBB0181DD8BE2100F4C720 /* TestViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				00F130BE1DD2237D0017C6EC /* Message.swift in Sources */,
 				5A44269F1DD57CFF00B7C398 /* SubmitCell.swift in Sources */,
 				5AE8A3BC1DD6D11300F2C8B9 /* SperkerRatingCell.swift in Sources */,
+				5AFBB0191DD8BE2100F4C720 /* TestViewController.swift in Sources */,
 				5AECDABC1DD556D400770F1F /* RatingViewController.swift in Sources */,
 				5A4426971DD5655800B7C398 /* QuestionCell.swift in Sources */,
 				00F130981DD20E6E0017C6EC /* WeSpeak.xcdatamodeld in Sources */,
