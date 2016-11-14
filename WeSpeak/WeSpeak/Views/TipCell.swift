@@ -24,4 +24,16 @@ class TipCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func tipSegmentedChanged(_ sender: AnyObject) {
+        let index = tipSegmented.selectedSegmentIndex
+        print("index: \(index)")
+        switch index {
+        case 0:
+            Singleton.sharedInstance.partner.review.gift.coke += 1
+        case 1:
+            Singleton.sharedInstance.partner.review.gift.beer += 1
+        default:
+            break
+        }
+    }
 }

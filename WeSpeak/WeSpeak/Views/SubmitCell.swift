@@ -29,5 +29,6 @@ class SubmitCell: UITableViewCell {
         submitButton.layer.cornerRadius = 7
     }
     @IBAction func onSubmitTouchDown(_ sender: AnyObject) {
+        print("Submit")
     }
 }

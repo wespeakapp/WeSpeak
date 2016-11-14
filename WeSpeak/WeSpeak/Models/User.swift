@@ -20,11 +20,16 @@ class User {
     var name: String?
     var email: String?
     var password: String?
-//    var birthDay: Date?
-//    var country: String?
     var _photoUrl: URL?
     var conversation: Int?
     var totalHours: Double?
     var stats: Stats?
     var reviews: [Review]?
+    var review:Review
+    
+    init (){
+        stats = Stats()
+        review = Review()
+        reviews = [Review]()
+    }
 }

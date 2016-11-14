@@ -27,6 +27,9 @@
                         <segment title="No drink"/>
                     </segments>
                     <color key="tintColor" red="0.054901960784313725" green="0.62745098039215685" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="tipSegmentedChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="kXg-ni-7mD"/>
+                    </connections>
                 </segmentedControl>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

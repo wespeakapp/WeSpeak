@@ -9,8 +9,15 @@
 import UIKit
 
 class Stats: NSObject {
-    var listening: Double?
-    var pronounciation: Double?
-    var fluency: Double?
-    var vocabulary: Double?
+    var listening: Double
+    var pronounciation: Double
+    var fluency: Double
+    var vocabulary: Double
+    
+    override init() {
+        listening = 0
+        pronounciation = 0
+        fluency = 0
+        vocabulary = 0
+    }
 }

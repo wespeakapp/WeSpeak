@@ -19,6 +19,7 @@
 		00F130BA1DD2181A0017C6EC /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F130B91DD2181A0017C6EC /* Stats.swift */; };
 		00F130BC1DD2195C0017C6EC /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F130BB1DD2195C0017C6EC /* Review.swift */; };
 		00F130BE1DD2237D0017C6EC /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F130BD1DD2237D0017C6EC /* Message.swift */; };
+		5A005A0E1DD9E92F00A7BDA3 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A005A0D1DD9E92F00A7BDA3 /* Singleton.swift */; };
 		5A4426951DD5629100B7C398 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4426941DD5629100B7C398 /* InfoCell.swift */; };
 		5A4426971DD5655800B7C398 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4426961DD5655800B7C398 /* QuestionCell.swift */; };
 		5A4426991DD56D2A00B7C398 /* TipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4426981DD56D2A00B7C398 /* TipCell.swift */; };
@@ -68,6 +69,7 @@
 		00F130BD1DD2237D0017C6EC /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Models/Message.swift; sourceTree = "<group>"; };
 		05408D933F175F93A914647F /* Pods-WeSpeak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeSpeak.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeSpeak/Pods-WeSpeak.debug.xcconfig"; sourceTree = "<group>"; };
 		1826582A4073FF8DAE502F50 /* Pods-WeSpeak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeSpeak.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeSpeak/Pods-WeSpeak.release.xcconfig"; sourceTree = "<group>"; };
+		5A005A0D1DD9E92F00A7BDA3 /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		5A4426941DD5629100B7C398 /* InfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoCell.swift; path = Views/InfoCell.swift; sourceTree = "<group>"; };
 		5A4426961DD5655800B7C398 /* QuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionCell.swift; path = Views/QuestionCell.swift; sourceTree = "<group>"; };
 		5A4426981DD56D2A00B7C398 /* TipCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipCell.swift; path = Views/TipCell.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				5ABF90FB1DD5BA6600EC0655 /* Keys.swift */,
+				5A005A0D1DD9E92F00A7BDA3 /* Singleton.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				5AE8A3BE1DD6D44900F2C8B9 /* HistoryViewController.swift in Sources */,
 				5ABF90FE1DD5BB6200EC0655 /* Skills.swift in Sources */,
 				5ACC0ABD1DD711DC00C4CED1 /* PlayRecordCell.swift in Sources */,
+				5A005A0E1DD9E92F00A7BDA3 /* Singleton.swift in Sources */,
 				00F130BA1DD2181A0017C6EC /* Stats.swift in Sources */,
 				00F130BC1DD2195C0017C6EC /* Review.swift in Sources */,
 				5AEACF651DD62048002482AA /* RatingCell.swift in Sources */,
