@@ -22,7 +22,13 @@ class QuestionCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        ratingControl.didFinishTouchingCosmos = valueChanged
+    
         // Configure the view for the selected state
     }
+    
+    func valueChanged(value:Double){
+        Singleton.sharedInstance.partner.review.rating = value
+    }
+
 }

@@ -9,6 +9,11 @@
 import UIKit
 
 class Gift: NSObject {
-    var bear: Int?
-    var water: Int?
+    var beer:Int
+    var coke:Int
+    
+    override init () {
+        beer = 0
+        coke = 0
+    }
 }

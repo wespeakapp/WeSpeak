@@ -15,6 +15,11 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(Singleton.sharedInstance.partner.review.gift.coke)
+        print(Singleton.sharedInstance.partner.review.gift.beer)
+        print(Singleton.sharedInstance.partner.review.comment)
+        print(Singleton.sharedInstance.partner.review.rating)
+        
         loadNib()
         profileTableView.delegate = self
         profileTableView.dataSource = self

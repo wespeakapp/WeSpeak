@@ -15,10 +15,11 @@ class CommentCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
-        
+        commentTextView.delegate = self
         commentTextView.text = "Your comment"
         commentTextView.layer.borderColor = UIColor.gray.cgColor
         commentTextView.layer.borderWidth = 0.5
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -26,5 +27,14 @@ class CommentCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+}
 
+extension CommentCell:UITextViewDelegate{
+    public func textViewDidEndEditing(_ textView: UITextView){
+        Singleton.sharedInstance.partner.review.comment = textView.text
+    }
+    func textViewDidChange(_ textView: UITextView) {
+        Singleton.sharedInstance.partner.review.comment = textView.text
+    }
 }

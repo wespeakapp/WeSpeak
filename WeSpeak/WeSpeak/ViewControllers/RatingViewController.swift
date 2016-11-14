@@ -16,8 +16,15 @@ class RatingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        User.current.type = UserType.speaker
-        //User.current.type = UserType.learner
+        //User.current.type = UserType.speaker
+        User.current.type = UserType.learner
+        if User.current.type == UserType.learner{
+            Singleton.sharedInstance.partner.type = UserType.speaker
+        }
+        else{
+            Singleton.sharedInstance.partner.type = UserType.learner
+        }
+        
         loadNib()
 
         reviewTableView.delegate = self
@@ -26,6 +33,7 @@ class RatingViewController: UIViewController {
         //reviewTableView.estimatedRowHeight = 80
         //reviewTableView.rowHeight = UITableViewAutomaticDimension
     }
+    
     
     func loadNib(){
          reviewTableView.register(UINib(nibName: "InfoCell", bundle: nil), forCellReuseIdentifier: "InfoCell")

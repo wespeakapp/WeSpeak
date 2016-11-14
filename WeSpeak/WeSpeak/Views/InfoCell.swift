@@ -32,4 +32,5 @@ class InfoCell: UITableViewCell {
         //profileImageView.layer.borderWidth = 1
         //profileImageView.image = UIImage(named: "display_photo")
     }
+
 }
