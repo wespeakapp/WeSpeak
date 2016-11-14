@@ -13,4 +13,6 @@ class Stats: NSObject {
     var pronounciation: Double?
     var fluency: Double?
     var vocabulary: Double?
+    var feeling: Double?
+    
 }
