@@ -46,8 +46,8 @@ class FireBaseClient {
     }
     
     func onLearnerMatch(completion: @escaping (_ session: String, _ token: String) -> Void) {
-        dataReference.child("available/learners").child(User.current.uid!).setValue(true)
-        dataReference.child("available/learners").child(User.current.uid!).observeSingleEvent(of: .childAdded, with: { (snapshot) in
+        dataReference.child("available/learners").child(User.current.uid).setValue(true)
+        dataReference.child("available/learners").child(User.current.uid).observeSingleEvent(of: .childAdded, with: { (snapshot) in
             if let sessionId = snapshot.value as? String {
                 self.dataReference.child("sessions/\(sessionId)/token").observeSingleEvent(of: .value, with: { (snapshot) in
                     if let token = snapshot.value as? String {

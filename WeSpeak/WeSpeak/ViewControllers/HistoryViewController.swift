@@ -22,16 +22,26 @@ class HistoryViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem
+        let nc = segue.destination as! UINavigationController
+        let vc = nc.topViewController as! DetailsViewController
+        let index = historyTableView.indexPathForSelectedRow?.row
+        vc.review = User.current.reviews[index!]
+    }
 
 }
 
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return User.current.reviews.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell") as! HistoryCell
+        cell.nameLabel.text = User.current.reviews[indexPath.row].partner
         return cell
     }
     

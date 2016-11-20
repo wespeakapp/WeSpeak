@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		000E8A601DDB566B0089CC08 /* HerokuClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000E8A5F1DDB566B0089CC08 /* HerokuClient.swift */; };
+		00A6BECE1DE197AC00BB8A8A /* HerokuClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6BECD1DE197AC00BB8A8A /* HerokuClient.swift */; };
 		00C113811DDA253B00EB329D /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C113801DDA253B00EB329D /* MatchViewController.swift */; };
 		00C113831DDA26BB00EB329D /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C113821DDA26BB00EB329D /* Constant.swift */; };
 		00C113851DDA2CC200EB329D /* CallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C113841DDA2CC200EB329D /* CallViewController.swift */; };
@@ -31,6 +31,8 @@
 		5A44269D1DD57C5200B7C398 /* SubmitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A44269C1DD57C5200B7C398 /* SubmitCell.xib */; };
 		5A44269F1DD57CFF00B7C398 /* SubmitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A44269E1DD57CFF00B7C398 /* SubmitCell.swift */; };
 		5A4426A11DD582E600B7C398 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4426A01DD582E600B7C398 /* ProfileViewController.swift */; };
+		5A7AB2461DDAB311002D7510 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7AB2451DDAB311002D7510 /* WelcomeViewController.swift */; };
+		5A9435B71DDD94FE00DF3283 /* RealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9435B61DDD94FE00DF3283 /* RealmObject.swift */; };
 		5ABF90F61DD5ADBD00EC0655 /* QuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ABF90F51DD5ADBD00EC0655 /* QuestionCell.xib */; };
 		5ABF90F81DD5AEDA00EC0655 /* TipCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ABF90F71DD5AEDA00EC0655 /* TipCell.xib */; };
 		5ABF90FA1DD5B54B00EC0655 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ABF90F91DD5B54B00EC0655 /* CommentCell.xib */; };
@@ -52,12 +54,14 @@
 		5AEACF6D1DD63451002482AA /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEACF6C1DD63451002482AA /* ItemCell.swift */; };
 		5AECDAB01DD5555800770F1F /* Second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AECDAAF1DD5555800770F1F /* Second.storyboard */; };
 		5AECDABC1DD556D400770F1F /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AECDABB1DD556D400770F1F /* RatingViewController.swift */; };
+		5AF5DF1A1DDC0232008ECFD8 /* LearnerSignIn.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AF5DF191DDC0232008ECFD8 /* LearnerSignIn.xib */; };
+		5AF5DF1C1DDC0A0C008ECFD8 /* LearnerSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5DF1B1DDC0A0C008ECFD8 /* LearnerSignIn.swift */; };
 		5AFBB0191DD8BE2100F4C720 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBB0181DD8BE2100F4C720 /* TestViewController.swift */; };
 		5E769EC5D181E6F36EFC677A /* Pods_WeSpeak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 829B73B27F981E070F83022B /* Pods_WeSpeak.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		000E8A5F1DDB566B0089CC08 /* HerokuClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HerokuClient.swift; path = Net/HerokuClient.swift; sourceTree = "<group>"; };
+		00A6BECD1DE197AC00BB8A8A /* HerokuClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HerokuClient.swift; path = Net/HerokuClient.swift; sourceTree = "<group>"; };
 		00C113801DDA253B00EB329D /* MatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MatchViewController.swift; path = ViewControllers/MatchViewController.swift; sourceTree = "<group>"; };
 		00C113821DDA26BB00EB329D /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constant.swift; path = Helpers/Constant.swift; sourceTree = "<group>"; };
 		00C113841DDA2CC200EB329D /* CallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CallViewController.swift; path = ViewControllers/CallViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 		5A44269C1DD57C5200B7C398 /* SubmitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SubmitCell.xib; path = Views/SubmitCell.xib; sourceTree = "<group>"; };
 		5A44269E1DD57CFF00B7C398 /* SubmitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubmitCell.swift; path = Views/SubmitCell.swift; sourceTree = "<group>"; };
 		5A4426A01DD582E600B7C398 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = Views/ProfileViewController.swift; sourceTree = "<group>"; };
+		5A7AB2451DDAB311002D7510 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = ViewControllers/WelcomeViewController.swift; sourceTree = "<group>"; };
+		5A9435B61DDD94FE00DF3283 /* RealmObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmObject.swift; sourceTree = "<group>"; };
 		5ABF90F51DD5ADBD00EC0655 /* QuestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QuestionCell.xib; path = Views/QuestionCell.xib; sourceTree = "<group>"; };
 		5ABF90F71DD5AEDA00EC0655 /* TipCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipCell.xib; sourceTree = "<group>"; };
 		5ABF90F91DD5B54B00EC0655 /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CommentCell.xib; path = Views/CommentCell.xib; sourceTree = "<group>"; };
@@ -106,6 +112,8 @@
 		5AEACF6C1DD63451002482AA /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCell.swift; path = Views/ItemCell.swift; sourceTree = "<group>"; };
 		5AECDAAF1DD5555800770F1F /* Second.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Second.storyboard; sourceTree = "<group>"; };
 		5AECDABB1DD556D400770F1F /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RatingViewController.swift; path = ViewControllers/RatingViewController.swift; sourceTree = "<group>"; };
+		5AF5DF191DDC0232008ECFD8 /* LearnerSignIn.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LearnerSignIn.xib; path = Views/LearnerSignIn.xib; sourceTree = "<group>"; };
+		5AF5DF1B1DDC0A0C008ECFD8 /* LearnerSignIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LearnerSignIn.swift; path = Views/LearnerSignIn.swift; sourceTree = "<group>"; };
 		5AFBB0181DD8BE2100F4C720 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestViewController.swift; path = ViewControllers/TestViewController.swift; sourceTree = "<group>"; };
 		829B73B27F981E070F83022B /* Pods_WeSpeak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeSpeak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -177,6 +185,7 @@
 				00F130BB1DD2195C0017C6EC /* Review.swift */,
 				00F130BD1DD2237D0017C6EC /* Message.swift */,
 				5ABF90FD1DD5BB6200EC0655 /* Skills.swift */,
+				5A9435B61DDD94FE00DF3283 /* RealmObject.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -205,6 +214,8 @@
 				5AE8A3C11DD6ED4600F2C8B9 /* HistoryCell.swift */,
 				5ACC0ABA1DD70F2800C4CED1 /* PlayRecord.xib */,
 				5ACC0ABC1DD711DC00C4CED1 /* PlayRecordCell.swift */,
+				5AF5DF191DDC0232008ECFD8 /* LearnerSignIn.xib */,
+				5AF5DF1B1DDC0A0C008ECFD8 /* LearnerSignIn.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -219,6 +230,7 @@
 				5AFBB0181DD8BE2100F4C720 /* TestViewController.swift */,
 				00C113801DDA253B00EB329D /* MatchViewController.swift */,
 				00C113841DDA2CC200EB329D /* CallViewController.swift */,
+				5A7AB2451DDAB311002D7510 /* WelcomeViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -237,7 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				00F130B31DD216AF0017C6EC /* FireBaseClient.swift */,
-				000E8A5F1DDB566B0089CC08 /* HerokuClient.swift */,
+				00A6BECD1DE197AC00BB8A8A /* HerokuClient.swift */,
 			);
 			name = Net;
 			sourceTree = "<group>";
@@ -294,7 +306,7 @@
 				TargetAttributes = {
 					00F1308B1DD20E6D0017C6EC = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = TW9QQRUDNE;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -325,6 +337,7 @@
 				00F1309D1DD20E6E0017C6EC /* LaunchScreen.storyboard in Resources */,
 				5AEACF611DD6117F002482AA /* InfoCell.xib in Resources */,
 				5AEACF631DD61F3A002482AA /* RatingCell.xib in Resources */,
+				5AF5DF1A1DDC0232008ECFD8 /* LearnerSignIn.xib in Resources */,
 				5ABF90F81DD5AEDA00EC0655 /* TipCell.xib in Resources */,
 				5AEACF6B1DD631FE002482AA /* ItemCell.xib in Resources */,
 				5ABF90F61DD5ADBD00EC0655 /* QuestionCell.xib in Resources */,
@@ -400,15 +413,18 @@
 				5ABF90FC1DD5BA6600EC0655 /* Keys.swift in Sources */,
 				5AEACF691DD62B8B002482AA /* AverageRatingCell.swift in Sources */,
 				00F130B61DD217460017C6EC /* User.swift in Sources */,
+				5A9435B71DDD94FE00DF3283 /* RealmObject.swift in Sources */,
 				5AEACF6D1DD63451002482AA /* ItemCell.swift in Sources */,
 				5AE8A3C21DD6ED4600F2C8B9 /* HistoryCell.swift in Sources */,
 				5AE8A3BE1DD6D44900F2C8B9 /* HistoryViewController.swift in Sources */,
 				5ABF90FE1DD5BB6200EC0655 /* Skills.swift in Sources */,
-				000E8A601DDB566B0089CC08 /* HerokuClient.swift in Sources */,
+				5A7AB2461DDAB311002D7510 /* WelcomeViewController.swift in Sources */,
 				5ACC0ABD1DD711DC00C4CED1 /* PlayRecordCell.swift in Sources */,
 				00C113831DDA26BB00EB329D /* Constant.swift in Sources */,
+				5AF5DF1C1DDC0A0C008ECFD8 /* LearnerSignIn.swift in Sources */,
 				5A005A0E1DD9E92F00A7BDA3 /* Singleton.swift in Sources */,
 				00F130BA1DD2181A0017C6EC /* Stats.swift in Sources */,
+				00A6BECE1DE197AC00BB8A8A /* HerokuClient.swift in Sources */,
 				00F130BC1DD2195C0017C6EC /* Review.swift in Sources */,
 				5AEACF651DD62048002482AA /* RatingCell.swift in Sources */,
 				00F130B81DD217F10017C6EC /* Gift.swift in Sources */,
@@ -547,7 +563,6 @@
 			baseConfigurationReference = 05408D933F175F93A914647F /* Pods-WeSpeak.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = TW9QQRUDNE;
 				INFOPLIST_FILE = WeSpeak/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -562,7 +577,6 @@
 			baseConfigurationReference = 1826582A4073FF8DAE502F50 /* Pods-WeSpeak.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = TW9QQRUDNE;
 				INFOPLIST_FILE = WeSpeak/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

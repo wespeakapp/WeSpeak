@@ -7,18 +7,17 @@
 //
 
 import UIKit
+import RealmSwift
 
-class Review: NSObject {
-    var speakerName: String?
-    var comment: String?
-    var stats: Stats
-    var gift: Gift
-    var rating:Double
+class Review: Object {
+    dynamic var partner: String = ""
+    dynamic var comment: String = ""
+    dynamic var stats: Stats?
+    dynamic var gift: Gift?
+    dynamic var rating:Double = 0
     
-    override init() {
+    func initReview(){
         stats = Stats()
         gift = Gift()
-        rating = 0
     }
-    
 }

@@ -19,6 +19,9 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7d-JC-1Fr">
                     <state key="normal" backgroundImage="play"/>
+                    <connections>
+                        <action selector="onRecordButtonTouch:" destination="iN0-l3-epB" eventType="touchDown" id="Ip2-fj-hAc"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qcf-jb-TAr">
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>

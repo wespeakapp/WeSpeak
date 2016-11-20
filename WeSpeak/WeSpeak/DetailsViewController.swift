@@ -10,6 +10,7 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
+    var review:Review?
     @IBOutlet weak var detailTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,7 @@ class DetailsViewController: UIViewController {
         detailTableView.reloadData()
     }
     
+
     func loadNib(){
        detailTableView.register(UINib(nibName: CellIdentifier.RatingCell, bundle: nil), forCellReuseIdentifier: CellIdentifier.RatingCell)
         
@@ -30,6 +32,9 @@ class DetailsViewController: UIViewController {
         
         detailTableView.register(UINib(nibName: CellIdentifier.SpeakerRatingCell, bundle: nil), forCellReuseIdentifier: CellIdentifier.SpeakerRatingCell)
         
+    }
+    @IBAction func onBackButton(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -53,7 +58,7 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource{
         default:
             return 1
         }
-        return 0
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,13 +68,27 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource{
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.AverageRatingCell) as! AverageRatingCell
                 cell.totalRatingsLabel.isHidden = true
+                cell.review = review
                 return cell
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.RatingCell) as! RatingCell
+                cell.skillLabel.text = Singleton.skills[indexPath.row]
+                switch indexPath.row{
+                case 0:
+                    cell.ratingControl.rating = (review?.stats?.listening)!
+                case 1:
+                    cell.ratingControl.rating = (review?.stats?.pronounciation)!
+                case 2:
+                    cell.ratingControl.rating = (review?.stats?.fluency)!
+                case 3:
+                    cell.ratingControl.rating = (review?.stats?.vocabulary)!
+                default:
+                    break
+                }
                 return cell
             case 2:
                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.CommentCell) as! CommentCell
-                cell.commentTextView.text = "Your prouncaition very good but you need to care more about ending sounds."
+                cell.commentTextView.text = review?.comment
                 cell.commentTextView.isEditable = false
                 return cell
             case 3:
@@ -83,10 +102,13 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource{
             switch indexPath.section {
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.SpeakerRatingCell) as! SperkerRatingCell
+                cell.ratingControl.rating = (review?.rating)!
                 cell.totalRatingsLabel.isHidden = true
                 return cell
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.CommentCell) as! CommentCell
+                cell.commentTextView.text = review?.comment
+                cell.commentTextView.isEditable = false
                 return cell
             case 2:
                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.PlayRecordCell) as! PlayRecordCell
@@ -114,6 +136,8 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource{
             switch indexPath.section {
             case 0:
                 return 80
+            case 1:
+                return 120
             default:
                 return 60
             }

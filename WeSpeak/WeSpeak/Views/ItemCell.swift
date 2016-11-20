@@ -10,6 +10,16 @@ import UIKit
 
 class ItemCell: UITableViewCell {
 
+    @IBOutlet weak var conversationsLabel: UILabel!
+    @IBOutlet weak var hoursLabel: UILabel!
+    
+    var user:User?{
+        didSet{
+            //hoursLabel.text = "\(user?.totalHours)"
+            //conversationsLabel.text = "\(user?.conversations)"
+            //beersLabel.text = "\(user?.review?.gift?.beer)"
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

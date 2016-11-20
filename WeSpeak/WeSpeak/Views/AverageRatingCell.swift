@@ -14,6 +14,17 @@ class AverageRatingCell: UITableViewCell {
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var circlePoint: UIView!
     @IBOutlet weak var circlePoint1: UIView!
+    
+    var review:Review?{
+        didSet{
+            let point = ((review?.stats?.listening)! + (review?.stats?.listening)! + (review?.stats?.fluency)! + (review?.stats?.vocabulary)!)/4
+            let roundedPoint = round(point*2)/2
+            pointsLabel.text = "\(roundedPoint)"
+            
+            //totalRatingsLabel.text = review
+        }
+        
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

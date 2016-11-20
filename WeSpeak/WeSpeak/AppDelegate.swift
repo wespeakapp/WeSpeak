@@ -8,6 +8,9 @@
 
 import UIKit
 import CoreData
+import RealmSwift
+
+let realm = try! Realm()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,16 +21,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         // config firebase
+        
+//        let user_type = UserDefaults.standard.string(forKey: Keys.type)
+//        if user_type != nil{
+//            let objects = try! realm.objects(User.self)
+//            if objects.count > 0{
+//                User.current = objects.first!
+//                try! realm.write {
+//                     User.current.review = Review()
+//                }
+//                if user_type == "learner"{
+//                    User.current.type = UserType.learner
+//          
+//                }
+//                else{
+//                    User.current.type = UserType.speaker
+//                }
+//            }
+//            self.window?.rootViewController = Singleton.getTabbar()
+//        }
+        
         FireBaseClient.configure()
-//        FireBaseClient.shared.signIn(email: "datlt@magik.vn", password: "123456789", completion: {(user, error) in
-//            User.current.uid = user?.uid
-//        User.current.type = UserType.speaker
-//        })
+        //        FireBaseClient.shared.signIn(email: "datlt@magik.vn", password: "123456789", completion: {(user, error) in
+        //        if let userId = user?.uid {
+        //            User.current.uid = userId
+        //        }
+        //        User.current.type = UserType.speaker
+        //        })
         
         FireBaseClient.shared.signIn(email: "datlt.uit@gmail.com", password: "123456789", completion: {(user, error) in
-            User.current.uid = user?.uid
+            if let userId = user?.uid {
+                User.current.uid = userId
+            }
             User.current.type = UserType.learner
         })
+        
         return true
     }
 

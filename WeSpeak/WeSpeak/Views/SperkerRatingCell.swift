@@ -13,6 +13,7 @@ class SperkerRatingCell: UITableViewCell {
 
     @IBOutlet weak var totalRatingsLabel: UILabel!
     @IBOutlet weak var ratingControl: CosmosView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         ratingControl.settings.updateOnTouch = false

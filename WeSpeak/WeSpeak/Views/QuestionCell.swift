@@ -17,6 +17,7 @@ class QuestionCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
+        ratingControl.rating = 0
         // Initialization code
     }
 
@@ -27,8 +28,25 @@ class QuestionCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func valueChanged(value:Double){
-        Singleton.sharedInstance.partner.review.rating = value
+    func valueChanged(_ value:Double){
+        if Singleton.sharedInstance.partner.type == UserType.speaker{
+            Singleton.sharedInstance.partner.review?.rating = value
+        }
+        else{
+            let skill = questionLabel.text
+            if skill == "Listening"{
+                Singleton.sharedInstance.partner.review?.stats?.listening = value
+            }
+            else if skill == "Pronounciation"{
+                Singleton.sharedInstance.partner.review?.stats?.pronounciation = value
+            }
+            else if skill == "Fluency"{
+                Singleton.sharedInstance.partner.review?.stats?.fluency = value
+            }
+            else{
+                Singleton.sharedInstance.partner.review?.stats?.vocabulary = value
+            }
+        }
     }
 
 }

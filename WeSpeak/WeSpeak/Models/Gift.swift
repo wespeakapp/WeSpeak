@@ -7,13 +7,8 @@
 //
 
 import UIKit
-
-class Gift: NSObject {
-    var beer:Int
-    var coke:Int
-    
-    override init () {
-        beer = 0
-        coke = 0
-    }
+import RealmSwift
+class Gift: Object {
+    dynamic var beer:Int = 0
+    dynamic var coke:Int = 0
 }

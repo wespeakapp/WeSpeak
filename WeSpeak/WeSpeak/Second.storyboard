@@ -44,7 +44,6 @@
                     </view>
                     <connections>
                         <outlet property="reviewTableView" destination="XSq-Pr-gCt" id="eBl-w7-HE1"/>
-                        <segue destination="lRz-Mp-7Yz" kind="show" identifier="SegueProfile" id="Uy5-sy-giQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vUU-lf-dA4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -54,7 +53,7 @@
         <!--Profile View Controller-->
         <scene sceneID="9hN-jQ-U4a">
             <objects>
-                <viewController id="lRz-Mp-7Yz" customClass="ProfileViewController" customModule="WeSpeak" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileVC" id="lRz-Mp-7Yz" customClass="ProfileViewController" customModule="WeSpeak" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RKy-tc-iKI"/>
                         <viewControllerLayoutGuide type="bottom" id="8sy-qI-hdQ"/>
@@ -65,18 +64,7 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vlo-cd-1JY">
                                 <items>
-                                    <navigationItem title="Profile" id="ISH-jn-Mda">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="pNH-Tf-aG2">
-                                            <connections>
-                                                <action selector="backButton:" destination="lRz-Mp-7Yz" id="zeN-fJ-G9L"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="History" id="bZZ-54-B7k">
-                                            <connections>
-                                                <action selector="historyButton:" destination="lRz-Mp-7Yz" id="qOg-sh-OsF"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem title="Profile" id="ISH-jn-Mda"/>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="z6h-gV-K3Y">
@@ -96,7 +84,6 @@
                     </view>
                     <connections>
                         <outlet property="profileTableView" destination="z6h-gV-K3Y" id="ZbV-bp-en9"/>
-                        <segue destination="5jJ-hX-MM3" kind="show" identifier="SegueHistory" id="6iD-sK-Dll"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jeu-CA-bSq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -106,7 +93,7 @@
         <!--History View Controller-->
         <scene sceneID="uMy-Uq-yHQ">
             <objects>
-                <viewController id="5jJ-hX-MM3" customClass="HistoryViewController" customModule="WeSpeak" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HistoryVC" id="5jJ-hX-MM3" customClass="HistoryViewController" customModule="WeSpeak" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="etV-dr-VKu"/>
                         <viewControllerLayoutGuide type="bottom" id="MCy-qq-UIQ"/>
@@ -124,10 +111,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryCell" rowHeight="76" id="XYx-ON-ypq" customClass="HistoryCell" customModule="WeSpeak" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="76"/>
+                                        <rect key="frame" x="0.0" y="28" width="1000" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XYx-ON-ypq" id="sqt-n0-LfK">
-                                            <frame key="frameInset" width="375" height="76"/>
+                                            <frame key="frameInset" width="1000" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kaity" translatesAutoresizingMaskIntoConstraints="NO" id="dTA-Va-0Nm">
@@ -170,14 +157,14 @@
                     </view>
                     <connections>
                         <outlet property="historyTableView" destination="HTy-7R-AxD" id="TM4-EW-K3n"/>
-                        <segue destination="G0d-es-dM6" kind="show" identifier="SegueDetail" id="w2h-Qp-Ejj"/>
+                        <segue destination="G0d-es-dM6" kind="show" identifier="SegueDetail" id="fJV-Os-mNa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="knY-NM-yUV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1696.8" y="-125.4872563718141"/>
         </scene>
-        <!--Details View Controller-->
+        <!--Detail-->
         <scene sceneID="V9F-au-CK7">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="NlF-cP-cx9" customClass="DetailsViewController" customModule="WeSpeak" customModuleProvider="target" sceneMemberID="viewController">
@@ -201,7 +188,13 @@
                             <constraint firstItem="war-bv-5hh" firstAttribute="top" secondItem="8H2-PH-ZgF" secondAttribute="bottom" id="p61-pE-LKO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="pox-RW-pqR"/>
+                    <navigationItem key="navigationItem" title="Detail" id="pox-RW-pqR">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="w68-4c-edY">
+                            <connections>
+                                <action selector="onBackButton:" destination="NlF-cP-cx9" id="jWR-Bd-2S7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="detailTableView" destination="war-bv-5hh" id="dpI-v7-aKt"/>
                     </connections>
@@ -209,6 +202,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S49-2B-7KD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3484" y="-125.4872563718141"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="Nbb-dv-zI1">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SecondStoryboard" id="4OZ-Vl-eHO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vyg-1a-XZM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4142" y="-136"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hao-7b-fLe">

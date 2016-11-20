@@ -26,9 +26,8 @@ class SubmitCell: UITableViewCell {
     
     func setRoundedButton(){
         submitButton.clipsToBounds = true
-        submitButton.layer.cornerRadius = 7
+        submitButton.layer.cornerRadius = 6
     }
     @IBAction func onSubmitTouchDown(_ sender: AnyObject) {
-        print("Submit")
     }
 }

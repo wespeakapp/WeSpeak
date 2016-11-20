@@ -13,6 +13,13 @@ class InfoCell: UITableViewCell {
 
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    
+    var user:User?{
+        didSet{
+            nameLabel.text = user?.name
+            profileImageView.image = UIImage(named: (user?.profilePhoto)!)
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none

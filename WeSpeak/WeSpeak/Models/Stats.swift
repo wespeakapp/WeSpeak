@@ -7,18 +7,10 @@
 //
 
 import UIKit
-
-class Stats: NSObject {
-    var listening: Double
-    var pronounciation: Double
-    var fluency: Double
-    var vocabulary: Double
-    var feeling: Double?
-    
-    override init() {
-        listening = 0
-        pronounciation = 0
-        fluency = 0
-        vocabulary = 0
-    }
+import RealmSwift
+class Stats: Object{
+    dynamic var listening: Double = 0
+    dynamic var pronounciation: Double = 0
+    dynamic var fluency: Double = 0
+    dynamic var vocabulary: Double = 0
 }

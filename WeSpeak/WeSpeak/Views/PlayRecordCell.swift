@@ -21,4 +21,6 @@ class PlayRecordCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func onRecordButtonTouch(_ sender: AnyObject) {
+    }
 }

@@ -17,6 +17,7 @@ class CommentCell: UITableViewCell {
         selectionStyle = .none
         commentTextView.delegate = self
         commentTextView.text = "Your comment"
+        commentTextView.textColor = UIColor.gray
         commentTextView.layer.borderColor = UIColor.gray.cgColor
         commentTextView.layer.borderWidth = 0.5
         
@@ -32,9 +33,21 @@ class CommentCell: UITableViewCell {
 
 extension CommentCell:UITextViewDelegate{
     public func textViewDidEndEditing(_ textView: UITextView){
-        Singleton.sharedInstance.partner.review.comment = textView.text
+        Singleton.sharedInstance.partner.review?.comment = textView.text
+        if textView.text == ""{
+            commentTextView.text = "Your comment"
+            commentTextView.textColor = UIColor.gray
+        }
     }
-    func textViewDidChange(_ textView: UITextView) {
-        Singleton.sharedInstance.partner.review.comment = textView.text
+    
+    public func textViewDidChange(_ textView: UITextView) {
+        Singleton.sharedInstance.partner.review?.comment = textView.text
+    }
+    
+    public func textViewDidBeginEditing(_ textView: UITextView){
+        if textView.text == "Your comment"{
+            textView.text = ""
+            textView.textColor = UIColor.darkText
+        }
     }
 }

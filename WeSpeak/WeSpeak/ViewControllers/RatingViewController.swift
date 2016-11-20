@@ -12,21 +12,16 @@ class RatingViewController: UIViewController {
     
     
     @IBOutlet weak var reviewTableView: UITableView!
-    let skills:[String] = ["Listening", "Pronounciation", "Fluency", "Vocabulary"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //User.current.type = UserType.speaker
-        User.current.type = UserType.learner
-        if User.current.type == UserType.learner{
-            Singleton.sharedInstance.partner.type = UserType.speaker
-        }
-        else{
-            Singleton.sharedInstance.partner.type = UserType.learner
-        }
         
         loadNib()
+        NotificationCenter.default.addObserver(self, selector: #selector(RatingViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(RatingViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
+        
         reviewTableView.delegate = self
         reviewTableView.dataSource = self
         reviewTableView.reloadData()
@@ -43,6 +38,29 @@ class RatingViewController: UIViewController {
         reviewTableView.register(UINib(nibName: "SubmitCell", bundle: nil), forCellReuseIdentifier: "SubmitCell")
     }
     
+    func keyboardWillShow(notification: NSNotification) {
+        /*bottomConstraint.constant = 250
+         UIView.animate(withDuration: 0.3) {
+         self.view.layoutIfNeeded()
+         }*/
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height/1.2
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        /*bottomConstraint.constant = 149
+         UIView.animate(withDuration: 0.3) {
+         self.view.layoutIfNeeded()
+         }*/
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height/1.2
+            }
+        }
+    }
 }
 
 extension RatingViewController: UITableViewDelegate, UITableViewDataSource{
@@ -67,12 +85,14 @@ extension RatingViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let type:UserType = (User.current.type)!
+        let type:UserType = (Singleton.sharedInstance.partner.type)!
         switch type {
-        case .learner:
+        case .speaker:
             switch indexPath.section {
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell") as! InfoCell
+                cell.nameLabel.text = Singleton.sharedInstance.partner.name
+                 cell.profileImageView.image = UIImage(named: Singleton.sharedInstance.partner.profilePhoto)
                 return cell
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionCell") as! QuestionCell
@@ -90,14 +110,16 @@ extension RatingViewController: UITableViewDelegate, UITableViewDataSource{
             default:
                 return UITableViewCell()
             }
-        case .speaker:
+        case .learner:
             switch indexPath.section {
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell") as! InfoCell
+                cell.nameLabel.text = Singleton.sharedInstance.partner.name
+                cell.profileImageView.image = UIImage(named: Singleton.sharedInstance.partner.profilePhoto)
                 return cell
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionCell") as! QuestionCell
-                cell.questionLabel.text = skills[indexPath.row]
+                cell.questionLabel.text = Singleton.skills[indexPath.row]
 
                 return cell
             case 2:
@@ -122,7 +144,7 @@ extension RatingViewController: UITableViewDelegate, UITableViewDataSource{
             return 70
         case 2:
             if User.current.type == UserType.speaker{
-                return 90
+                return 100
             }
             else{
                 return 80
@@ -141,8 +163,43 @@ extension RatingViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func submitTouchDown(_ sender: UIButton){
-        print("touch down")
-        performSegue(withIdentifier: "SegueProfile", sender: self)
+        //performSegue(withIdentifier: "SegueProfile", sender: self)
+        //let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        //appDelegate.window?.rootViewController = Singleton.getTabbar() //sharedInstance.tabBarController
+        //appDelegate.window?.makeKeyAndVisible()
+        
+        //let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        //let tabbar = storyboard.instantiateViewController(withIdentifier: "MatchVC") as! MatchViewController
+        if(User.current.type == UserType.learner){
+            let review = Review()
+            review.partner = "Gabi Diamond"
+            review.comment = "He speaking english flucency but need to focus on pronounciation."
+            let l = arc4random_uniform(5)
+            let v = arc4random_uniform(5)
+            let p = arc4random_uniform(5)
+            let f = arc4random_uniform(5)
+            let average = (l+v+p+f)/4
+            review.rating = round(Double(average*2))/2
+            review.stats = Stats(value: [l, p, f, v])
+            try! realm.write {
+                User.current.reviews.append(review)
+                User.current.conversations += 1
+            }
+
+        }
+        else{
+            let review = Review()
+            review.partner = "Huy Ngo"
+            review.comment = "She friendly and so cute. I love her accent, hope see you!"
+            let r = arc4random_uniform(5)
+            review.rating = Double(r)
+            try! realm.write {
+                User.current.reviews.append(review)
+                User.current.conversations += 1
+            }
+            
+        }
+        present(Singleton.getTabbar(), animated: true, completion: nil)
     }
 
 }

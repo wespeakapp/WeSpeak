@@ -7,25 +7,26 @@
 //
 
 import UIKit
+import RealmSwift
 
 enum UserType {
     case learner
     case speaker
 }
 
-class User {
+class User: Object {
     static var current: User = User()
-    var uid: String?
+    dynamic var uid: String = ""
     var type: UserType?
-    var name: String?
-    var email: String?
-    var password: String?
-    var _photoUrl: URL?
-    var conversation: Int?
-    var totalHours: Double?
-    var stats: Stats?
-    var reviews: [Review]?
-    var review:Review
+    dynamic var name: String = ""
+    dynamic var email: String = ""
+    dynamic var password: String = ""
+    //var _photoUrl: URL?
+    dynamic var profilePhoto:String = "huy"
+    dynamic var conversations: Int = 0
+    dynamic var totalHours: Double = 0
+    dynamic var review:Review? 
+    var reviews = List<Review>()
     
     var isSpeaker: Bool {
         get{
@@ -33,10 +34,7 @@ class User {
         }
     }
     
-    init (){
-//        type = UserType.learner
-        stats = Stats()
-        review = Review()
-        reviews = [Review]()
+    func initUser(){
+       review = Review()
     }
 }

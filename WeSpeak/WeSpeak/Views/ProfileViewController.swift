@@ -7,19 +7,14 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var profileTableView: UITableView!
-    let skills:[String] = ["Listening", "Pronounciation", "Fluency", "Vocabulary"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(Singleton.sharedInstance.partner.review.gift.coke)
-        print(Singleton.sharedInstance.partner.review.gift.beer)
-        print(Singleton.sharedInstance.partner.review.comment)
-        print(Singleton.sharedInstance.partner.review.rating)
-        
         loadNib()
         profileTableView.delegate = self
         profileTableView.dataSource = self
@@ -27,12 +22,6 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func historyButton(_ sender: AnyObject) {
-        performSegue(withIdentifier: SegueIdentifier.SegueHistory, sender: self)
-    }
-    @IBAction func backButton(_ sender: AnyObject) {
-        dismiss(animated: true, completion: nil)
-    }
     func loadNib(){
         profileTableView.register(UINib(nibName: "InfoCell", bundle: nil), forCellReuseIdentifier: "InfoCell")
         profileTableView.register(UINib(nibName: CellIdentifier.ItemCell, bundle: nil), forCellReuseIdentifier: CellIdentifier.ItemCell)
@@ -78,30 +67,50 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell") as! InfoCell
+            cell.user = User.current
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.ItemCell) as! ItemCell
+            cell.user = User.current
             return cell
 
         case 2:
             if User.current.type == UserType.learner{
                  let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.AverageRatingCell) as! AverageRatingCell
+                cell.pointsLabel.text = "3.5"
+                cell.totalRatingsLabel.text = "\(User.current.conversations)"
                 return cell
             }
             else{
                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.SpeakerRatingCell) as! SperkerRatingCell
+                cell.ratingControl.rating = speakerAverageRatings(reviews: User.current.reviews)
+                cell.totalRatingsLabel.text = "\(User.current.conversations)"
                 return cell
             }
             
         case 3:
             if User.current.type == UserType.learner{
                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.RatingCell) as! RatingCell
-                cell.skillLabel.text = skills[indexPath.row]
+                cell.skillLabel.text = Singleton.skills[indexPath.row]
+                switch indexPath.row{
+                case 0:
+                    cell.ratingControl.rating = learnerAvarageSkill(skill: 0, reviews: User.current.reviews)
+                case 1:
+                    cell.ratingControl.rating = learnerAvarageSkill(skill: 1, reviews: User.current.reviews)
+                case 2:
+                    cell.ratingControl.rating = learnerAvarageSkill(skill: 2, reviews: User.current.reviews)
+                case 3:
+                    cell.ratingControl.rating = learnerAvarageSkill(skill: 3, reviews: User.current.reviews)
+                default:
+                    break
+                }
+
                 return cell
             }
             else{
                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.QuestionCell) as! QuestionCell
                 cell.questionLabel.isHidden = true
+                cell.ratingControl.rating = speakerAverageRatings(reviews: User.current.reviews)
                 return cell
             }
         default:
@@ -117,6 +126,60 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
             return 110
         default:
             return 40
+        }
+    }
+    
+    func speakerAverageRatings(reviews: List<Review>) -> Double{
+        var rating:Double = 0
+        if reviews.count != 0{
+            for review in reviews{
+                print(review.rating)
+                rating += review.rating
+            }
+            rating /= Double(reviews.count)
+        }
+        
+        return round(rating*2)/2
+    }
+    
+    func learnerAverageRating(reviews:List<Review>) -> Double{
+        var rating:Double = 0
+        for review in reviews{
+            rating += (review.stats?.listening)! + (review.stats?.pronounciation)! + (review.stats?.fluency)! + (review.stats?.vocabulary)!
+        }
+        rating /= Double(reviews.count)
+        return round(rating*2)/2
+    }
+    
+    func learnerAvarageSkill(skill:Int, reviews:List<Review>)->Double{
+        var rating:Double = 0
+        switch skill{
+        case 0:
+            for review in reviews{
+                rating += (review.stats?.listening)!
+            }
+            rating /= Double(reviews.count)
+            return round(rating*2)/2
+        case 1:
+            for review in reviews{
+                rating += (review.stats?.pronounciation)!
+            }
+            rating /= Double(reviews.count)
+            return round(rating*2)/2
+        case 2:
+            for review in reviews{
+                rating += (review.stats?.fluency)!
+            }
+            rating /= Double(reviews.count)
+            return round(rating*2)/2
+        case 3:
+            for review in reviews{
+                rating += (review.stats?.vocabulary)!
+            }
+            rating /= Double(reviews.count)
+            return round(rating*2)/2
+        default:
+            return 0
         }
     }
 }

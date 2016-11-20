@@ -9,7 +9,7 @@
 import UIKit
 
 class Skill:NSObject{
-    var listening: Double?
+    var listening: Double = 0.0
     var pronounciation: Double?
     var fluency: Double?
     var vocabulary: Double?

@@ -9,7 +9,6 @@
 import UIKit
 import OpenTok
 
-
 class CallViewController: UIViewController {
     @IBOutlet weak var hangUpButton: UIButton!
     @IBOutlet weak var muteButton: UIButton!
@@ -25,7 +24,7 @@ class CallViewController: UIViewController {
     var session: OTSession!
     var publisher: OTPublisher!
     var subcriber: OTSubscriber!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,7 +56,7 @@ class CallViewController: UIViewController {
             self.countdownLabel.text = "0\(m):" + (s > 9 ? "\(s)" : "0\(s)")
         })
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -120,3 +119,4 @@ extension CallViewController: OTSubscriberDelegate {
         subcriberView.addSubview(subcriber.view)
     }
 }
+

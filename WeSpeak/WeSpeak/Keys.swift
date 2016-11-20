@@ -11,6 +11,8 @@ import Foundation
 struct SegueIdentifier{
     static let SegueHistory = "SegueHistory"
     static let SegueDetail = "SegueDetail"
+    static let SegueCall = "SegueCall"
+    static let SegueMatch = "SegueMatch"
 }
 
 struct CellIdentifier{
@@ -32,4 +34,11 @@ struct Skills{
     static let pronounciation = "Pronounciation"
     static let fluency = "Fluency"
     static let vocabulary = "Vocabulary"
+}
+
+struct Keys{
+    static let type = "type"
+    static let name = "name"
+    static let email = "email"
+    static let password = "password"
 }

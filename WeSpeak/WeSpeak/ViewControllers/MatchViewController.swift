@@ -11,14 +11,14 @@ import UIKit
 class MatchViewController: UIViewController {
     @IBOutlet weak var matchButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // setup match button
         matchButton.layer.borderWidth = 3
         matchButton.layer.borderColor = #colorLiteral(red: 0, green: 0.681361258, blue: 0.6434084773, alpha: 1).cgColor
-        matchButton.layer.cornerRadius = 75
+        matchButton.layer.cornerRadius = matchButton.frame.height / 2
         
         // set title
         if !User.current.isSpeaker {
@@ -27,13 +27,13 @@ class MatchViewController: UIViewController {
             titleLabel.text = WSString.matchViewSpeakerTitle
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     var matched = false
-    @IBAction func onMatch(_ sender: Any) {
+    @IBAction func onMatchButton(_ sender: UIButton) {
         if !matched {
             matched = true
             if User.current.isSpeaker {

@@ -2,7 +2,7 @@
 //  HerokuClient.swift
 //  WeSpeak
 //
-//  Created by Girge on 11/15/16.
+//  Created by Girge on 11/20/16.
 //  Copyright © 2016 WeSpeak. All rights reserved.
 //
 
