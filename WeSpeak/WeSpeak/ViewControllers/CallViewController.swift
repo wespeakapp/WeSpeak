@@ -7,14 +7,24 @@
 //
 
 import UIKit
+import OpenTok
+
 
 class CallViewController: UIViewController {
     @IBOutlet weak var hangUpButton: UIButton!
     @IBOutlet weak var muteButton: UIButton!
     @IBOutlet weak var partnerNameLabel: UILabel!
     @IBOutlet weak var countdownLabel: UILabel!
+    @IBOutlet weak var subcriberView: UIView!
+    @IBOutlet weak var publisherView: UIView!
     
     var countdownSecond = 600
+    var apiKey: String = "45711502"
+    var sessionId: String!
+    var token: String!
+    var session: OTSession!
+    var publisher: OTPublisher!
+    var subcriber: OTSubscriber!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +39,14 @@ class CallViewController: UIViewController {
         partnerNameLabel.text = "Girgez"
         // set countdown
         countdownLabel.text = "10:00"
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         countdown()
+        session = OTSession(apiKey: apiKey, sessionId: sessionId, delegate: self)
+        doConnect()
     }
     
     func countdown() {
@@ -49,15 +63,60 @@ class CallViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func doConnect() {
+        session.connect(withToken: token, error: nil)
     }
-    */
+    
+    func doPublish() {
+        publisher = OTPublisher(delegate: self, name: UIDevice.current.name)
+        session.publish(publisher, error: nil)
+        publisherView.addSubview((publisher?.view)!)
+        let witdhPublisherView = (150 / publisherView.frame.height) * publisherView.frame.width
+        publisher?.view.frame = CGRect(x: publisherView.frame.width - witdhPublisherView - 20, y: publisherView.frame.height - 170, width: witdhPublisherView, height: 150)
+    }
+}
 
+extension CallViewController: OTSessionDelegate {
+    func sessionDidConnect(_ session: OTSession!) {
+        print("connect success")
+        doPublish()
+    }
+    
+    func sessionDidDisconnect(_ session: OTSession!) {
+        print("session disconnect")
+    }
+    
+    func session(_ session: OTSession!, didFailWithError error: OTError!) {
+        print("fail \(error.description)")
+    }
+    
+    func session(_ session: OTSession!, streamCreated stream: OTStream!) {
+        subcriber = OTSubscriber(stream: stream, delegate: self)
+        session.subscribe(subcriber, error: nil)
+    }
+    
+    func session(_ session: OTSession!, streamDestroyed stream: OTStream!) {
+        print("stream destroyed")
+    }
+}
+
+extension CallViewController: OTPublisherDelegate {
+    func publisher(_ publisher: OTPublisherKit!, didFailWithError error: OTError!) {
+        print("publish fail")
+    }
+    func publisher(_ publisher: OTPublisherKit!, streamCreated stream: OTStream!) {
+    }
+}
+
+extension CallViewController: OTSubscriberDelegate {
+    func subscriberDidConnect(toStream subscriber: OTSubscriberKit!) {
+        print("subscribe connect")
+    }
+    func subscriber(_ subscriber: OTSubscriberKit!, didFailWithError error: OTError!) {
+        print("subscibe fail")
+    }
+    func subscriberVideoDataReceived(_ subscriber: OTSubscriber!) {
+        subcriber.view.frame = CGRect(x: 0, y: 0, width: subcriberView.frame.width, height: subcriberView.frame.height)
+        subcriberView.addSubview(subcriber.view)
+    }
 }

@@ -21,7 +21,7 @@ class MatchViewController: UIViewController {
         matchButton.layer.cornerRadius = 75
         
         // set title
-        if User.current.type == UserType.learner {
+        if !User.current.isSpeaker {
             titleLabel.text = WSString.matchViewLearnerTitle
         } else {
             titleLabel.text = WSString.matchViewSpeakerTitle
@@ -32,16 +32,36 @@ class MatchViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    var matched = false
+    @IBAction func onMatch(_ sender: Any) {
+        if !matched {
+            matched = true
+            if User.current.isSpeaker {
+                FireBaseClient.shared.onSpeakerMatch(completion: {(session, token) in
+                    self.sessionId = session
+                    self.token = token
+                    self.performSegue(withIdentifier: "CallSegue", sender: nil)
+                })
+            } else {
+                FireBaseClient.shared.onLearnerMatch(completion: { (session, token) in
+                    print(session)
+                    print(token)
+                    self.sessionId = session
+                    self.token = token
+                    self.performSegue(withIdentifier: "CallSegue", sender: nil)
+                })
+            }
+        }
     }
-    */
-
+    
+    var sessionId: String!
+    var token: String!
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CallSegue" {
+            let callViewController = segue.destination as! CallViewController
+            callViewController.sessionId = sessionId
+            callViewController.token = token
+        }
+    }
 }

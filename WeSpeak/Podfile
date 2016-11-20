@@ -6,7 +6,7 @@ target 'WeSpeak' do
   use_frameworks!
 
   # Pods for WeSpeak
-  #pod 'OpenTok', '~> 2.9'
+#  pod 'OpenTok', '~> 2.9'
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'

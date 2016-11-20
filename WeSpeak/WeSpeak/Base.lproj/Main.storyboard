@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Yd4-1W-fsU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -37,6 +37,9 @@
                                         <state key="normal" title="Match">
                                             <color key="titleColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onMatch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qtx-n9-7P6"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1z-cE-MRB">
                                         <rect key="frame" x="10" y="160" width="268" height="16"/>
@@ -67,6 +70,7 @@
                     <connections>
                         <outlet property="matchButton" destination="Oxv-xR-c2S" id="xBv-oh-PyS"/>
                         <outlet property="titleLabel" destination="f1z-cE-MRB" id="Ied-Dp-FbW"/>
+                        <segue destination="Yd4-1W-fsU" kind="show" identifier="CallSegue" id="DK1-hm-mEk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -85,6 +89,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wq5-sC-BIG" userLabel="subcriberView">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IYN-1Q-Pff" userLabel="publisherView">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tul-v1-PEG">
                                 <rect key="frame" x="260" y="20" width="44" height="44"/>
                                 <state key="normal" image="microphone"/>
@@ -105,7 +115,6 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="hB8-pN-rNR" firstAttribute="leading" secondItem="xcX-qy-M2a" secondAttribute="leading" constant="15" id="I8w-hc-fSs"/>
                                     <constraint firstItem="oiq-iN-Yxx" firstAttribute="leading" secondItem="xcX-qy-M2a" secondAttribute="leading" constant="15" id="Ieh-qP-CMx"/>
@@ -131,19 +140,30 @@
                             <constraint firstItem="eH9-qZ-T0t" firstAttribute="top" secondItem="9AZ-fU-E7F" secondAttribute="bottom" id="AZd-Aa-iCF"/>
                             <constraint firstItem="Tul-v1-PEG" firstAttribute="height" secondItem="eH9-qZ-T0t" secondAttribute="height" id="CWP-p8-QHD"/>
                             <constraint firstItem="xcX-qy-M2a" firstAttribute="leading" secondItem="2mg-gW-GGj" secondAttribute="leadingMargin" id="EUI-E6-mGX"/>
+                            <constraint firstItem="8Oa-gz-kJd" firstAttribute="top" secondItem="IYN-1Q-Pff" secondAttribute="bottom" id="G2b-07-Enc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Tul-v1-PEG" secondAttribute="trailing" id="JNO-Vj-k1M"/>
+                            <constraint firstItem="Wq5-sC-BIG" firstAttribute="leading" secondItem="2mg-gW-GGj" secondAttribute="leading" id="Jnk-si-MP7"/>
                             <constraint firstItem="Tul-v1-PEG" firstAttribute="width" secondItem="eH9-qZ-T0t" secondAttribute="width" id="MYI-v6-XtU"/>
+                            <constraint firstItem="8Oa-gz-kJd" firstAttribute="top" secondItem="Wq5-sC-BIG" secondAttribute="bottom" id="Ng0-MS-TrT"/>
                             <constraint firstItem="xcX-qy-M2a" firstAttribute="centerY" secondItem="2mg-gW-GGj" secondAttribute="centerY" id="Pnz-Au-WN1"/>
                             <constraint firstItem="eH9-qZ-T0t" firstAttribute="leading" secondItem="2mg-gW-GGj" secondAttribute="leadingMargin" id="RYZ-s6-Dpr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xcX-qy-M2a" secondAttribute="trailing" id="W4F-hL-nwX"/>
+                            <constraint firstItem="Wq5-sC-BIG" firstAttribute="top" secondItem="9AZ-fU-E7F" secondAttribute="bottom" id="Wqr-dd-uFK"/>
+                            <constraint firstItem="IYN-1Q-Pff" firstAttribute="top" secondItem="9AZ-fU-E7F" secondAttribute="bottom" id="XHk-GP-Mbo"/>
+                            <constraint firstItem="IYN-1Q-Pff" firstAttribute="leading" secondItem="2mg-gW-GGj" secondAttribute="leading" id="oCf-Ub-KCT"/>
+                            <constraint firstAttribute="trailing" secondItem="IYN-1Q-Pff" secondAttribute="trailing" id="rMz-XJ-Yfn"/>
+                            <constraint firstAttribute="trailing" secondItem="Wq5-sC-BIG" secondAttribute="trailing" id="ti1-I6-auc"/>
                             <constraint firstItem="Tul-v1-PEG" firstAttribute="top" secondItem="eH9-qZ-T0t" secondAttribute="top" id="uC4-jV-Iuy"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="AXj-qs-VHP"/>
                     <connections>
                         <outlet property="countdownLabel" destination="oiq-iN-Yxx" id="jPn-G5-laa"/>
                         <outlet property="hangUpButton" destination="eH9-qZ-T0t" id="yux-KA-mKv"/>
                         <outlet property="muteButton" destination="Tul-v1-PEG" id="k0T-KJ-3ac"/>
                         <outlet property="partnerNameLabel" destination="hB8-pN-rNR" id="vYi-j5-wsE"/>
+                        <outlet property="publisherView" destination="IYN-1Q-Pff" id="kvZ-Ny-VSX"/>
+                        <outlet property="subcriberView" destination="Wq5-sC-BIG" id="hLR-ci-mVF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SBx-Vi-fek" userLabel="First Responder" sceneMemberID="firstResponder"/>

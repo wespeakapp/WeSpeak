@@ -19,7 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         // config firebase
         FireBaseClient.configure()
+//        FireBaseClient.shared.signIn(email: "datlt@magik.vn", password: "123456789", completion: {(user, error) in
+//            User.current.uid = user?.uid
+//        User.current.type = UserType.speaker
+//        })
         
+        FireBaseClient.shared.signIn(email: "datlt.uit@gmail.com", password: "123456789", completion: {(user, error) in
+            User.current.uid = user?.uid
+            User.current.type = UserType.learner
+        })
         return true
     }
 

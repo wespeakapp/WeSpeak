@@ -27,8 +27,14 @@ class User {
     var reviews: [Review]?
     var review:Review
     
+    var isSpeaker: Bool {
+        get{
+            return type == UserType.speaker
+        }
+    }
+    
     init (){
-        type = UserType.learner
+//        type = UserType.learner
         stats = Stats()
         review = Review()
         reviews = [Review]()
