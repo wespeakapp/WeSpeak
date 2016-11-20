@@ -49,12 +49,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //        User.current.type = UserType.speaker
         //        })
         
-        FireBaseClient.shared.signIn(email: "datlt.uit@gmail.com", password: "123456789", completion: {(user, error) in
-            if let userId = user?.uid {
-                User.current.uid = userId
-            }
-            User.current.type = UserType.learner
-        })
+//        FireBaseClient.shared.signIn(email: "datlt.uit@gmail.com", password: "123456789", completion: {(user, error) in
+//            if let userId = user?.uid {
+//                User.current.uid = userId
+//            }
+//            User.current.type = UserType.learner
+//        })
         
         return true
     }

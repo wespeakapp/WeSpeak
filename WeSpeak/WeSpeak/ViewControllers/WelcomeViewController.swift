@@ -34,9 +34,17 @@ class WelcomeViewController: UIViewController {
         User.current.profilePhoto = "gabi"
         User.current.name = "Gabi Diamond"
         Singleton.sharedInstance.partner.type = UserType.learner
-        try! realm.write {
-            realm.add(User.current)
-        }
+        
+        FireBaseClient.shared.signIn(email: "datlt@magik.vn", password: "123456789", completion: {(user, error) in
+            if let userId = user?.uid {
+                User.current.uid = userId
+            }
+            User.current.type = UserType.speaker
+        })
+        
+//        try! realm.write {
+//            realm.add(User.current)
+//        }
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = Singleton.getTabbar()
     }
@@ -56,10 +64,16 @@ class WelcomeViewController: UIViewController {
         User.current.type = UserType.learner
         User.current.name = name
         Singleton.sharedInstance.partner.type = UserType.speaker
+        FireBaseClient.shared.signIn(email: "datlt.uit@gmail.com", password: "123456789", completion: {(user, error) in
+            if let userId = user?.uid {
+                User.current.uid = userId
+            }
+            User.current.type = UserType.learner
+        })
         
-        try! realm.write {
-            realm.add(User.current)
-        }
+//        try! realm.write {
+//            realm.add(User.current)
+//        }
         
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
