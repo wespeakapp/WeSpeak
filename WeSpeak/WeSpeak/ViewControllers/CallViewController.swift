@@ -29,9 +29,9 @@ class CallViewController: UIViewController {
         super.viewDidLoad()
         
         // setup hang up button
-        hangUpButton.layer.cornerRadius = 22
+        hangUpButton.layer.cornerRadius = hangUpButton.frame.height / 2
         // setup mute button
-        muteButton.layer.cornerRadius = 22
+        muteButton.layer.cornerRadius = muteButton.frame.height / 2
         muteButton.layer.borderColor = #colorLiteral(red: 0.6606677175, green: 0.660764873, blue: 0.6606466174, alpha: 1).cgColor
         muteButton.layer.borderWidth = 2
         // set partner's name

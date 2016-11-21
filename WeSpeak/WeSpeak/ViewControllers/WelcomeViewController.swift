@@ -40,13 +40,15 @@ class WelcomeViewController: UIViewController {
                 User.current.uid = userId
             }
             User.current.type = UserType.speaker
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.window?.rootViewController = Singleton.getTabbar()
         })
         
 //        try! realm.write {
 //            realm.add(User.current)
 //        }
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = Singleton.getTabbar()
+        
     }
     
     //var namePopup:LeanerSignIn
@@ -69,6 +71,8 @@ class WelcomeViewController: UIViewController {
                 User.current.uid = userId
             }
             User.current.type = UserType.learner
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.window?.rootViewController = Singleton.getTabbar()
         })
         
 //        try! realm.write {
@@ -76,8 +80,7 @@ class WelcomeViewController: UIViewController {
 //        }
         
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = Singleton.getTabbar()
+        
     }
     
     func saveLearnerInfo(_ name:String, type:String){

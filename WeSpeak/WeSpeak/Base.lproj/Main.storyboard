@@ -133,12 +133,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9k6-GA-V6l">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="c0X-Yp-Bp4">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    </imageView>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="haS-ml-mhl">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="rH9-Or-M05">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <blurEffect style="extraLight"/>
+                                    </visualEffectView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="c0X-Yp-Bp4" firstAttribute="leading" secondItem="9k6-GA-V6l" secondAttribute="leading" id="1DS-6q-IiB"/>
+                                    <constraint firstItem="haS-ml-mhl" firstAttribute="top" secondItem="9k6-GA-V6l" secondAttribute="top" id="1vR-ev-Mtk"/>
+                                    <constraint firstAttribute="trailing" secondItem="c0X-Yp-Bp4" secondAttribute="trailing" id="5Ej-Mt-YGG"/>
+                                    <constraint firstAttribute="bottom" secondItem="c0X-Yp-Bp4" secondAttribute="bottom" id="7GX-EQ-JcW"/>
+                                    <constraint firstItem="c0X-Yp-Bp4" firstAttribute="top" secondItem="9k6-GA-V6l" secondAttribute="top" id="UJz-As-Rt6"/>
+                                    <constraint firstAttribute="bottom" secondItem="haS-ml-mhl" secondAttribute="bottom" id="Xip-D3-wkC"/>
+                                    <constraint firstItem="haS-ml-mhl" firstAttribute="leading" secondItem="9k6-GA-V6l" secondAttribute="leading" id="l6T-zu-VZj"/>
+                                    <constraint firstAttribute="trailing" secondItem="haS-ml-mhl" secondAttribute="trailing" id="nkp-FR-Pi6"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LBQ-bW-YtO">
                                 <rect key="frame" x="16" y="255.5" width="343" height="156"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="findBgButton" translatesAutoresizingMaskIntoConstraints="NO" id="maO-Nn-DtD">
+                                        <rect key="frame" x="106.5" y="0.0" width="130" height="130"/>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oxv-xR-c2S">
                                         <rect key="frame" x="106.5" y="0.0" width="130" height="130"/>
-                                        <color key="backgroundColor" red="0.054901960780000002" green="0.62745098040000002" blue="0.57647058819999997" alpha="0.60037715517241375" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Oxv-xR-c2S" secondAttribute="height" multiplier="1:1" id="ZJE-L3-Amh"/>
                                             <constraint firstAttribute="width" constant="130" id="gV9-IG-rrz"/>
@@ -158,13 +187,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="maO-Nn-DtD" firstAttribute="leading" secondItem="Oxv-xR-c2S" secondAttribute="leading" id="CX0-7p-Cyb"/>
+                                    <constraint firstItem="maO-Nn-DtD" firstAttribute="top" secondItem="Oxv-xR-c2S" secondAttribute="top" id="FaD-cc-bgy"/>
                                     <constraint firstItem="Oxv-xR-c2S" firstAttribute="top" secondItem="LBQ-bW-YtO" secondAttribute="top" id="H0f-Tt-i3g"/>
                                     <constraint firstItem="Oxv-xR-c2S" firstAttribute="centerX" secondItem="LBQ-bW-YtO" secondAttribute="centerX" id="KA8-u1-qqf"/>
                                     <constraint firstItem="f1z-cE-MRB" firstAttribute="leading" secondItem="LBQ-bW-YtO" secondAttribute="leading" constant="10" id="NHM-nu-NK9"/>
+                                    <constraint firstItem="maO-Nn-DtD" firstAttribute="bottom" secondItem="Oxv-xR-c2S" secondAttribute="bottom" id="X2u-dN-6ds"/>
                                     <constraint firstAttribute="trailing" secondItem="f1z-cE-MRB" secondAttribute="trailing" constant="10" id="bQj-nW-O5Y"/>
                                     <constraint firstItem="f1z-cE-MRB" firstAttribute="centerX" secondItem="LBQ-bW-YtO" secondAttribute="centerX" id="doz-wN-5kI"/>
+                                    <constraint firstItem="maO-Nn-DtD" firstAttribute="trailing" secondItem="Oxv-xR-c2S" secondAttribute="trailing" id="hJo-FQ-2Cz"/>
                                     <constraint firstAttribute="bottom" secondItem="f1z-cE-MRB" secondAttribute="bottom" id="nLj-tr-AsY"/>
                                     <constraint firstItem="f1z-cE-MRB" firstAttribute="top" secondItem="Oxv-xR-c2S" secondAttribute="bottom" constant="10" id="u7c-Xm-DZX"/>
                                 </constraints>
@@ -172,20 +204,26 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="9k6-GA-V6l" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Jzy-xv-6bU"/>
+                            <constraint firstItem="9k6-GA-V6l" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="aDH-gS-dfe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LBQ-bW-YtO" secondAttribute="trailing" id="qRp-YO-9ff"/>
                             <constraint firstItem="LBQ-bW-YtO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="rX4-9o-VVp"/>
                             <constraint firstItem="LBQ-bW-YtO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="s8g-hA-iq8"/>
+                            <constraint firstAttribute="trailing" secondItem="9k6-GA-V6l" secondAttribute="trailing" id="sxe-1t-CD0"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9k6-GA-V6l" secondAttribute="bottom" id="tOk-JD-WG2"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="blurView" destination="9k6-GA-V6l" id="dIR-N0-MNg"/>
                         <outlet property="matchButton" destination="Oxv-xR-c2S" id="bCR-qq-HqR"/>
+                        <outlet property="matchButtonBgImageView" destination="maO-Nn-DtD" id="U6v-Zq-HLl"/>
                         <outlet property="titleLabel" destination="f1z-cE-MRB" id="sOS-rG-S7A"/>
                         <segue destination="Yd4-1W-fsU" kind="show" identifier="SegueCall" id="7FX-TK-z28"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="92" y="-56"/>
+            <point key="canvasLocation" x="92" y="-56.221889055472268"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tcx-7N-oBt">
@@ -257,9 +295,6 @@
                                     <constraint firstAttribute="width" constant="38" id="EjA-t9-azT"/>
                                 </constraints>
                                 <state key="normal" image="hangup"/>
-                                <connections>
-                                    <action selector="ọnHangUpButton:" destination="Yd4-1W-fsU" eventType="touchDown" id="ZF8-21-cRq"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -298,6 +333,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="background" width="2000" height="956"/>
+        <image name="findBgButton" width="130" height="130"/>
         <image name="hangup" width="32" height="32"/>
         <image name="microphone" width="24" height="24"/>
     </resources>

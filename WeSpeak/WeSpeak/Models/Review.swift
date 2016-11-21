@@ -20,4 +20,46 @@ class Review: Object {
         stats = Stats()
         gift = Gift()
     }
+    
+    func initReview(dictionary: NSDictionary) {
+        initReview()
+        
+        if let partner = dictionary["partner"] as? String {
+            self.partner = partner
+        }
+        
+        if let comment = dictionary["comment"] as? String {
+            self.comment = comment
+        }
+        
+        if let statsDictionary = dictionary["stats"] as? NSDictionary {
+            self.stats?.initStats(dictionary: statsDictionary)
+        }
+        
+        if let giftDictionary = dictionary["gift"] as? NSDictionary {
+            self.gift?.initGift(dictionary: giftDictionary)
+        }
+        
+        if let rating = dictionary["rating"] as? Double {
+            self.rating = rating
+        }
+    }
+    
+    func dictionary() -> NSDictionary {
+        let dict = NSDictionary()
+        dict.setValue(partner, forKey: "partner")
+        dict.setValue(comment, forKey: "comment")
+        
+        if let stats = stats {
+            dict.setValue(stats.dictionary(), forKey: "stats")
+        }
+        
+        if let gift = gift {
+            dict.setValue(gift.dictionary(), forKey: "gift")
+        }
+        
+        dict.setValue(rating, forKey: "rating")
+        
+        return dict
+    }
 }

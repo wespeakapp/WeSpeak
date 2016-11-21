@@ -9,7 +9,6 @@
 import Foundation
 import Firebase
 
-
 class FireBaseClient {
     static var shared: FireBaseClient!
     var dataReference: FIRDatabaseReference!
@@ -54,6 +53,7 @@ class FireBaseClient {
                         completion(sessionId, token)
                     }
                 })
+                self.dataReference.child("available/learners").child(User.current.uid).setValue(nil)
             }
         })
     }
@@ -78,5 +78,28 @@ class FireBaseClient {
                 completion(sessionId, token)
             }
         }
+    }
+    
+    func commitReview(sessionId: String, review: Review, completion: @escaping (_ session: String, _ token: String) -> Void) {
+        let dictionaryReview = review.dictionary()
+        
+        let typeUser = User.current.isSpeaker ? "learner" : "speaker"
+        
+        dataReference.child("sessions/\(sessionId)/\(typeUser)/rating").setValue(dictionaryReview)
+    }
+    
+    func handleReview(sessionId: String, completion: @escaping (_ review: Review?) -> Void) {
+        let typeUser = User.current.isSpeaker ? "speaker" : "learner"
+        
+        dataReference.child("sessions/\(sessionId)/\(typeUser)").observeSingleEvent(of: .childAdded, with: {snapshot in
+            if let reviewDictionary = snapshot.value as? NSDictionary {
+                let review = Review()
+                review.initReview(dictionary: reviewDictionary)
+                
+                completion(review)
+            } else {
+                completion(nil)
+            }
+        })
     }
 }

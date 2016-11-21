@@ -12,6 +12,7 @@ class Singleton{
     static let sharedInstance = Singleton()
     var partner:User!
     var tabBarController:UITabBarController!
+    var sessionIdOpenTok: String!
     fileprivate init(){
         partner = User()
         //createTabbar()

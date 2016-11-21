@@ -8,7 +8,22 @@
 
 import UIKit
 import RealmSwift
+
 class Gift: Object {
     dynamic var beer:Int = 0
     dynamic var coke:Int = 0
+    
+    func initGift(dictionary: NSDictionary) {
+        if let beer = dictionary["beer"] as? Int {
+            self.beer = beer
+        }
+        
+        if let coke = dictionary["coke"] as? Int {
+            self.coke = coke
+        }
+    }
+    
+    func dictionary() -> NSDictionary {
+        return ["bear": beer, "coke": coke]
+    }
 }
