@@ -21,6 +21,7 @@ class MatchViewController: UIViewController {
 //        matchButton.layer.borderWidth = 3
 //        matchButton.layer.borderColor = #colorLiteral(red: 0, green: 0.6823529412, blue: 0.6431372549, alpha: 1).cgColor
         matchButton.layer.cornerRadius = matchButton.frame.height / 2
+//        matchButtonBgImageView.layer.cornerRadius = matchButtonBgImageView.frame.height / 2
         
         // set title
         if !User.current.isSpeaker {
@@ -39,10 +40,18 @@ class MatchViewController: UIViewController {
         if !matched {
             matched = true
             
+//            let dialog = SpeakerSignInDialog()
+//            dialog.frame = view.bounds
+//            view.addSubview(dialog)
+            
             matchButtonBgImageView.image = #imageLiteral(resourceName: "findingBgButton")
             
             UIView.animate(withDuration: 1, delay: 0, options: [], animations: { 
                 self.blurView.alpha = 1
+                self.titleLabel.textColor = #colorLiteral(red: 0.4950980392, green: 0.5, blue: 0.5, alpha: 1)
+                
+                self.tabBarController?.tabBar.transform = CGAffineTransform(translationX: (self.tabBarController?.tabBar.frame.origin.x)!, y: (self.tabBarController?.tabBar.frame.height)!)
+                
             }, completion: nil)
             
             let animation = CABasicAnimation(keyPath: "transform.rotation")
@@ -51,6 +60,8 @@ class MatchViewController: UIViewController {
             animation.duration = 1
             animation.repeatCount = Float.infinity
             matchButtonBgImageView.layer.add(animation, forKey: "rotate")
+            
+            matchButton.setTitle("Finding...", for: .normal)
             
             if User.current.isSpeaker {
                 FireBaseClient.shared.onSpeakerMatch(completion: {(session, token) in
@@ -73,7 +84,11 @@ class MatchViewController: UIViewController {
             
             UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
                 self.blurView.alpha = 0
+                self.titleLabel.textColor = #colorLiteral(red: 0.7233663201, green: 0.7233663201, blue: 0.7233663201, alpha: 1)
+                self.tabBarController?.tabBar.transform = CGAffineTransform(translationX: (self.tabBarController?.tabBar.frame.origin.x)!, y: 0)
             }, completion: nil)
+            
+            matchButton.setTitle("Find", for: .normal)
         }
     }
     

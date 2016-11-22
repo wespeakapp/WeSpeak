@@ -161,16 +161,16 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LBQ-bW-YtO">
-                                <rect key="frame" x="16" y="255.5" width="343" height="156"/>
+                                <rect key="frame" x="16" y="246" width="343" height="176"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="findBgButton" translatesAutoresizingMaskIntoConstraints="NO" id="maO-Nn-DtD">
-                                        <rect key="frame" x="106.5" y="0.0" width="130" height="130"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="findBgButton" translatesAutoresizingMaskIntoConstraints="NO" id="maO-Nn-DtD">
+                                        <rect key="frame" x="97" y="0.0" width="150" height="150"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oxv-xR-c2S">
-                                        <rect key="frame" x="106.5" y="0.0" width="130" height="130"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oxv-xR-c2S">
+                                        <rect key="frame" x="97" y="0.0" width="150" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Oxv-xR-c2S" secondAttribute="height" multiplier="1:1" id="ZJE-L3-Amh"/>
-                                            <constraint firstAttribute="width" constant="130" id="gV9-IG-rrz"/>
+                                            <constraint firstAttribute="width" constant="150" id="gV9-IG-rrz"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="24"/>
                                         <state key="normal" title="Find">
@@ -181,7 +181,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let find a speaker and practice english" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1z-cE-MRB">
-                                        <rect key="frame" x="10" y="140" width="323" height="16"/>
+                                        <rect key="frame" x="10" y="160" width="323" height="16"/>
                                         <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="14"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -206,11 +206,11 @@
                         <constraints>
                             <constraint firstItem="9k6-GA-V6l" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Jzy-xv-6bU"/>
                             <constraint firstItem="9k6-GA-V6l" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="aDH-gS-dfe"/>
+                            <constraint firstAttribute="bottom" secondItem="9k6-GA-V6l" secondAttribute="bottom" id="fCr-QY-gGT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LBQ-bW-YtO" secondAttribute="trailing" id="qRp-YO-9ff"/>
                             <constraint firstItem="LBQ-bW-YtO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="rX4-9o-VVp"/>
                             <constraint firstItem="LBQ-bW-YtO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="s8g-hA-iq8"/>
                             <constraint firstAttribute="trailing" secondItem="9k6-GA-V6l" secondAttribute="trailing" id="sxe-1t-CD0"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9k6-GA-V6l" secondAttribute="bottom" id="tOk-JD-WG2"/>
                         </constraints>
                     </view>
                     <connections>
@@ -334,7 +334,7 @@
     </scenes>
     <resources>
         <image name="background" width="2000" height="956"/>
-        <image name="findBgButton" width="130" height="130"/>
+        <image name="findBgButton" width="150" height="150"/>
         <image name="hangup" width="32" height="32"/>
         <image name="microphone" width="24" height="24"/>
     </resources>
