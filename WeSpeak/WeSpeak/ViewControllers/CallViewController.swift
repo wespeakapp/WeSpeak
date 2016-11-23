@@ -42,6 +42,12 @@ class CallViewController: UIViewController {
         
     }
     
+    @IBAction func onHangUpButton(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Second", bundle: nil)
+        let controller = storyboard.instantiateInitialViewController()! as UIViewController
+        self.present(controller, animated: true, completion: nil)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         countdown()
         session = OTSession(apiKey: apiKey, sessionId: sessionId, delegate: self)

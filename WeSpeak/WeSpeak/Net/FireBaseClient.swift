@@ -80,7 +80,7 @@ class FireBaseClient {
         }
     }
     
-    func commitReview(sessionId: String, review: Review, completion: @escaping (_ session: String, _ token: String) -> Void) {
+    func commitReview(sessionId: String, review: Review) {
         let dictionaryReview = review.dictionary()
         
         let typeUser = User.current.isSpeaker ? "learner" : "speaker"

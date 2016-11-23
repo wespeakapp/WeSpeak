@@ -22,24 +22,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         // config firebase
         
-//        let user_type = UserDefaults.standard.string(forKey: Keys.type)
-//        if user_type != nil{
-//            let objects = try! realm.objects(User.self)
-//            if objects.count > 0{
-//                User.current = objects.first!
-//                try! realm.write {
-//                     User.current.review = Review()
-//                }
-//                if user_type == "learner"{
-//                    User.current.type = UserType.learner
-//          
-//                }
-//                else{
-//                    User.current.type = UserType.speaker
-//                }
-//            }
-//            self.window?.rootViewController = Singleton.getTabbar()
-//        }
+        let user_type = UserDefaults.standard.string(forKey: Keys.type)
+        if user_type != nil{
+            let objects = try! realm.objects(User.self)
+            if objects.count > 0{
+                User.current = objects.first!
+                try! realm.write {
+                    User.current.review = Review()
+                }
+                if user_type == "learner"{
+                    User.current.type = UserType.learner
+                    
+                }
+                else{
+                    User.current.type = UserType.speaker
+                }
+            }
+
+            self.window?.rootViewController = Singleton.getTabbar()
+        }
         
         FireBaseClient.configure()
         //        FireBaseClient.shared.signIn(email: "datlt@magik.vn", password: "123456789", completion: {(user, error) in

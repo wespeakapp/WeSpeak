@@ -27,7 +27,7 @@ class WelcomeViewController: UIViewController {
     @IBAction func onTeachButton(_ sender: AnyObject) {
         let email = "gabi@gmail.com"
         let password = "1"
-        saveSpeakerInfo(email , password: password, type: "speaker")
+        
         User.current.type = UserType.speaker
         User.current.email = email
         User.current.password = password
@@ -36,18 +36,19 @@ class WelcomeViewController: UIViewController {
         Singleton.sharedInstance.partner.type = UserType.learner
         
         FireBaseClient.shared.signIn(email: "datlt@magik.vn", password: "123456789", completion: {(user, error) in
-            if let userId = user?.uid {
-                User.current.uid = userId
+            try! realm.write {
+                if let userId = user?.uid {
+                    User.current.uid = userId
+                }
+                User.current.type = UserType.speaker
+                realm.add(User.current)
+                self.saveUserInfo(type: "speaker")
             }
-            User.current.type = UserType.speaker
-            
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.window?.rootViewController = Singleton.getTabbar()
         })
         
-//        try! realm.write {
-//            realm.add(User.current)
-//        }
+        
         
     }
     
@@ -59,7 +60,7 @@ class WelcomeViewController: UIViewController {
         //            self.view.addSubview(namePopup)
         //            visualEffectView.isHidden = false
         let name = "Huy Ngo"
-        saveLearnerInfo(name, type: "learner")
+       
         
         User.current.initUser()
         User.current.review?.initReview()
@@ -67,30 +68,27 @@ class WelcomeViewController: UIViewController {
         User.current.name = name
         Singleton.sharedInstance.partner.type = UserType.speaker
         FireBaseClient.shared.signIn(email: "datlt.uit@gmail.com", password: "123456789", completion: {(user, error) in
-            if let userId = user?.uid {
-                User.current.uid = userId
+            try! realm.write {
+                if let userId = user?.uid {
+                    User.current.uid = userId
+                }
+                User.current.type = UserType.learner
+                realm.add(User.current)
+                self.saveUserInfo(type: "learner")
             }
-            User.current.type = UserType.learner
+            
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.window?.rootViewController = Singleton.getTabbar()
         })
         
-//        try! realm.write {
-//            realm.add(User.current)
-//        }
+        
         
         
         
     }
     
-    func saveLearnerInfo(_ name:String, type:String){
+    func saveUserInfo(type:String){
         UserDefaults.standard.set(type, forKey:"type")
         //UserDefaults.standard.set(name, forKey: "name")
-    }
-    
-    func saveSpeakerInfo(_ email:String, password:String, type:String){
-        UserDefaults.standard.set(type, forKey:"type")
-        //UserDefaults.standard.set(email, forKey: "email")
-        //UserDefaults.standard.set(password, forKey: "password")
     }
 }

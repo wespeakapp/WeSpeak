@@ -13,7 +13,6 @@ class RatingViewController: UIViewController {
     
     @IBOutlet weak var reviewTableView: UITableView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -163,21 +162,16 @@ extension RatingViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func submitTouchDown(_ sender: UIButton){
-        //performSegue(withIdentifier: "SegueProfile", sender: self)
-        //let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        //appDelegate.window?.rootViewController = Singleton.getTabbar() //sharedInstance.tabBarController
-        //appDelegate.window?.makeKeyAndVisible()
+        //FireBaseClient.shared.commitReview(sessionId: Singleton.sharedInstance.sessionIdOpenTok, review: Singleton.sharedInstance.partner.review!)
         
-        //let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        //let tabbar = storyboard.instantiateViewController(withIdentifier: "MatchVC") as! MatchViewController
         if(User.current.type == UserType.learner){
             let review = Review()
             review.partner = "Gabi Diamond"
             review.comment = "He speaking english flucency but need to focus on pronounciation."
-            let l = arc4random_uniform(5)
-            let v = arc4random_uniform(5)
-            let p = arc4random_uniform(5)
-            let f = arc4random_uniform(5)
+            let l = 4//arc4random_uniform(5)
+            let v = 3//arc4random_uniform(5)
+            let p = 3//arc4random_uniform(5)
+            let f = 3//arc4random_uniform(5)
             let average = (l+v+p+f)/4
             review.rating = round(Double(average*2))/2
             review.stats = Stats(value: [l, p, f, v])
@@ -191,7 +185,7 @@ extension RatingViewController: UITableViewDelegate, UITableViewDataSource{
             let review = Review()
             review.partner = "Huy Ngo"
             review.comment = "She friendly and so cute. I love her accent, hope see you!"
-            let r = arc4random_uniform(5)
+            let r = 4//arc4random_uniform(5)
             review.rating = Double(r)
             try! realm.write {
                 User.current.reviews.append(review)

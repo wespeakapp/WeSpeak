@@ -144,42 +144,50 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
     
     func learnerAverageRating(reviews:List<Review>) -> Double{
         var rating:Double = 0
-        for review in reviews{
-            rating += (review.stats?.listening)! + (review.stats?.pronounciation)! + (review.stats?.fluency)! + (review.stats?.vocabulary)!
+        if reviews.count != 0{
+            for review in reviews{
+                rating += (review.stats?.listening)! + (review.stats?.pronounciation)! + (review.stats?.fluency)! + (review.stats?.vocabulary)!
+            }
+            rating /= Double(reviews.count)
         }
-        rating /= Double(reviews.count)
         return round(rating*2)/2
     }
     
     func learnerAvarageSkill(skill:Int, reviews:List<Review>)->Double{
         var rating:Double = 0
-        switch skill{
-        case 0:
-            for review in reviews{
-                rating += (review.stats?.listening)!
+        if reviews.count != 0{
+            switch skill{
+            case 0:
+                
+                for review in reviews{
+                    rating += (review.stats?.listening)!
+                }
+                print(reviews.count)
+                rating /= Double(reviews.count)
+                return round(rating*2)/2
+            case 1:
+                for review in reviews{
+                    rating += (review.stats?.pronounciation)!
+                }
+                rating /= Double(reviews.count)
+                return round(rating*2)/2
+            case 2:
+                for review in reviews{
+                    rating += (review.stats?.fluency)!
+                }
+                rating /= Double(reviews.count)
+                return round(rating*2)/2
+            case 3:
+                for review in reviews{
+                    rating += (review.stats?.vocabulary)!
+                }
+                rating /= Double(reviews.count)
+                return round(rating*2)/2
+            default:
+                return 0
             }
-            rating /= Double(reviews.count)
-            return round(rating*2)/2
-        case 1:
-            for review in reviews{
-                rating += (review.stats?.pronounciation)!
-            }
-            rating /= Double(reviews.count)
-            return round(rating*2)/2
-        case 2:
-            for review in reviews{
-                rating += (review.stats?.fluency)!
-            }
-            rating /= Double(reviews.count)
-            return round(rating*2)/2
-        case 3:
-            for review in reviews{
-                rating += (review.stats?.vocabulary)!
-            }
-            rating /= Double(reviews.count)
-            return round(rating*2)/2
-        default:
-            return 0
+
         }
+        return 0
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MatchViewController: UIViewController {
     @IBOutlet weak var matchButton: UIButton!
@@ -22,7 +23,6 @@ class MatchViewController: UIViewController {
 //        matchButton.layer.borderColor = #colorLiteral(red: 0, green: 0.6823529412, blue: 0.6431372549, alpha: 1).cgColor
         matchButton.layer.cornerRadius = matchButton.frame.height / 2
 //        matchButtonBgImageView.layer.cornerRadius = matchButtonBgImageView.frame.height / 2
-        
         // set title
         if !User.current.isSpeaker {
             titleLabel.text = WSString.matchViewLearnerTitle
@@ -31,6 +31,26 @@ class MatchViewController: UIViewController {
         }
     }
     
+    func loadDB(){
+        let user_type = UserDefaults.standard.string(forKey: Keys.type)
+        if user_type != nil{
+            let objects = try! realm.objects(User.self)
+            if objects.count > 0{
+                User.current = objects.first!
+                try! realm.write {
+                    User.current.review = Review()
+                }
+                if user_type == "learner"{
+                    User.current.type = UserType.learner
+                    
+                }
+                else{
+                    User.current.type = UserType.speaker
+                }
+            }
+        }
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -38,6 +58,7 @@ class MatchViewController: UIViewController {
     var matched = false
     @IBAction func onMatchButton(_ sender: UIButton) {
         if !matched {
+            Singleton.fakeData()
             matched = true
             
 //            let dialog = SpeakerSignInDialog()

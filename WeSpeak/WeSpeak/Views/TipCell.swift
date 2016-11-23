@@ -13,6 +13,8 @@ class TipCell: UITableViewCell {
 
     @IBOutlet weak var tipSegmented: UISegmentedControl!
     @IBOutlet weak var tipTitleLabel: UILabel!
+    var tipCoke:Bool = false
+    var tipBeer:Bool = false
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
@@ -29,11 +31,23 @@ class TipCell: UITableViewCell {
         print("index: \(index)")
         switch index {
         case 0:
-            Singleton.sharedInstance.partner.review?.gift?.coke += 1
+            if !tipCoke{
+                tipCoke = true
+                tipBeer = false
+            }
         case 1:
-            Singleton.sharedInstance.partner.review?.gift?.beer += 1
+            if !tipBeer{
+                tipBeer = true
+                tipCoke = false
+            }
         default:
             break
+        }
+        if tipCoke{
+            Singleton.sharedInstance.partner.review?.gift?.coke += 1
+        }
+        if tipBeer{
+            Singleton.sharedInstance.partner.review?.gift?.beer += 1
         }
     }
 }
