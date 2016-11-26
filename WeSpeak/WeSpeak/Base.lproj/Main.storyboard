@@ -295,6 +295,9 @@
                                     <constraint firstAttribute="width" constant="38" id="EjA-t9-azT"/>
                                 </constraints>
                                 <state key="normal" image="hangup"/>
+                                <connections>
+                                    <action selector="onTouchHangUpButton:" destination="Yd4-1W-fsU" eventType="touchUpInside" id="Vdi-Pr-Jkg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

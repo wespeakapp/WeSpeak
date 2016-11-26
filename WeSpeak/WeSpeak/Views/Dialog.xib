@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Dialog" customModule="WeSpeak" customModuleProvider="target">
             <connections>
+                <outlet property="indicatorWaitingConnection" destination="vNM-5y-b4B" id="Ags-Iw-1Cj"/>
                 <outlet property="partnerName" destination="D4B-ja-uaj" id="cXY-1H-leS"/>
                 <outlet property="partnerPhoto" destination="TRn-cS-Ns9" id="2Zh-3a-9GT"/>
                 <outlet property="partnerRating" destination="n4a-w9-eRT" id="6a1-Va-Yyv"/>
@@ -48,7 +49,7 @@
                                 <constraint firstAttribute="width" constant="100" id="Jkc-zh-jgo"/>
                             </constraints>
                         </imageView>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n4a-w9-eRT" customClass="CosmosView" customModule="Cosmos">
+                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n4a-w9-eRT" customClass="CosmosView" customModule="Cosmos">
                             <rect key="frame" x="60" y="192" width="120" height="20"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <userDefinedRuntimeAttributes>
@@ -75,6 +76,9 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="vNM-5y-b4B">
+                            <rect key="frame" x="110" y="230" width="20" height="20"/>
+                        </activityIndicatorView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qio-Ty-mJz">
                             <rect key="frame" x="45" y="222" width="150" height="36"/>
                             <color key="backgroundColor" red="0.14901960780000001" green="0.65098039220000004" blue="0.60784313729999995" alpha="0.89655172409999995" colorSpace="calibratedRGB"/>
@@ -85,12 +89,17 @@
                             <state key="normal" title="Start">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="onTouchStartButton:" destination="-1" eventType="touchUpInside" id="DRW-lW-HyE"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="Qio-Ty-mJz" firstAttribute="top" secondItem="n4a-w9-eRT" secondAttribute="bottom" constant="10" id="0Wb-nx-Olh"/>
+                        <constraint firstItem="vNM-5y-b4B" firstAttribute="centerX" secondItem="Qio-Ty-mJz" secondAttribute="centerX" id="4vc-ke-uXW"/>
                         <constraint firstItem="TRn-cS-Ns9" firstAttribute="centerX" secondItem="Tuw-4U-gH8" secondAttribute="centerX" id="8iD-uG-0iB"/>
+                        <constraint firstItem="vNM-5y-b4B" firstAttribute="centerY" secondItem="Qio-Ty-mJz" secondAttribute="centerY" id="Akt-dD-HG4"/>
                         <constraint firstItem="n4a-w9-eRT" firstAttribute="top" secondItem="D4B-ja-uaj" secondAttribute="bottom" constant="10" id="I6A-As-5hO"/>
                         <constraint firstAttribute="bottom" secondItem="Qio-Ty-mJz" secondAttribute="bottom" constant="20" id="MK7-Tg-KLf"/>
                         <constraint firstItem="TRn-cS-Ns9" firstAttribute="top" secondItem="zye-Xw-22h" secondAttribute="bottom" constant="10" id="Nis-ae-s5S"/>

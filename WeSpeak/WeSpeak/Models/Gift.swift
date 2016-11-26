@@ -23,7 +23,8 @@ class Gift: Object {
         }
     }
     
-    func dictionary() -> NSDictionary {
-        return ["bear": beer, "coke": coke]
+    func dictionary() -> [String: AnyObject] {
+        return ["bear": beer as AnyObject,
+                "coke": coke as AnyObject]
     }
 }

@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LearnerSignInDialog" customModule="WeSpeak" customModuleProvider="target">
             <connections>
                 <outlet property="closeButton" destination="YgL-ln-p5P" id="QEd-If-umG"/>
+                <outlet property="nameTextField" destination="VJR-qX-JGF" id="XaW-8S-swN"/>
                 <outlet property="okButton" destination="PwY-vw-D04" id="Ype-LX-Jzp"/>
                 <outlet property="panelDialog" destination="fCH-qZ-bVr" id="ZXp-pi-86h"/>
                 <outlet property="wraperDialog" destination="Cdz-Fa-HsM" id="bV1-Zf-qWF"/>
@@ -61,6 +62,9 @@
                                     <state key="normal" title="OK">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="onTouchOKButton:" destination="-1" eventType="touchUpInside" id="euL-eC-0Bk"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -79,6 +83,9 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <inset key="contentEdgeInsets" minX="3" minY="3" maxX="3" maxY="3"/>
                             <state key="normal" image="cancel"/>
+                            <connections>
+                                <action selector="onTouchCloseButton:" destination="-1" eventType="touchUpInside" id="jGS-TW-z3z"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
@@ -91,7 +98,6 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="AEJ-ax-Dlq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="7JK-cp-DK0"/>
                 <constraint firstAttribute="trailing" secondItem="AEJ-ax-Dlq" secondAttribute="trailing" id="MGV-Jq-pD0"/>

@@ -45,20 +45,21 @@ class Review: Object {
         }
     }
     
-    func dictionary() -> NSDictionary {
-        let dict = NSDictionary()
-        dict.setValue(partner, forKey: "partner")
-        dict.setValue(comment, forKey: "comment")
+    func dictionary() -> [String: AnyObject] {
+        var dict = [String: AnyObject]()
+        
+        dict.updateValue(partner as AnyObject, forKey: "partner")
+        dict.updateValue(comment as AnyObject, forKey: "comment")
         
         if let stats = stats {
-            dict.setValue(stats.dictionary(), forKey: "stats")
+            dict.updateValue(stats.dictionary() as AnyObject, forKey: "stats")
         }
         
         if let gift = gift {
-            dict.setValue(gift.dictionary(), forKey: "gift")
+            dict.updateValue(gift.dictionary() as AnyObject, forKey: "gift")
         }
         
-        dict.setValue(rating, forKey: "rating")
+        dict.updateValue(rating as AnyObject, forKey: "rating")
         
         return dict
     }

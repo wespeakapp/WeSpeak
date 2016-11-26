@@ -163,14 +163,15 @@ extension RatingViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func submitTouchDown(_ sender: UIButton){
-        //performSegue(withIdentifier: "SegueProfile", sender: self)
-        //let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        //appDelegate.window?.rootViewController = Singleton.getTabbar() //sharedInstance.tabBarController
-        //appDelegate.window?.makeKeyAndVisible()
-        
-        //let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        //let tabbar = storyboard.instantiateViewController(withIdentifier: "MatchVC") as! MatchViewController
+        //send review to server
+        Singleton.sharedInstance.partner.review?.partner = User.current.name
+        FireBaseClient.shared.commitReview(review: Singleton.sharedInstance.partner.review!)
+        present(Singleton.getTabbar(), animated: true, completion: nil)
+    }
+    
+    func fakeData(){
         if(User.current.type == UserType.learner){
+            
             let review = Review()
             review.partner = "Gabi Diamond"
             review.comment = "He speaking english flucency but need to focus on pronounciation."
@@ -184,8 +185,9 @@ extension RatingViewController: UITableViewDelegate, UITableViewDataSource{
             try! realm.write {
                 User.current.reviews.append(review)
                 User.current.conversations += 1
+                
             }
-
+            
         }
         else{
             let review = Review()
@@ -199,7 +201,7 @@ extension RatingViewController: UITableViewDelegate, UITableViewDataSource{
             }
             
         }
-        present(Singleton.getTabbar(), animated: true, completion: nil)
+
     }
 
 }

@@ -25,72 +25,81 @@ class WelcomeViewController: UIViewController {
     }
     
     @IBAction func onTeachButton(_ sender: AnyObject) {
-        let email = "gabi@gmail.com"
-        let password = "1"
-        saveSpeakerInfo(email , password: password, type: "speaker")
-        User.current.type = UserType.speaker
-        User.current.email = email
-        User.current.password = password
-        User.current.profilePhoto = "gabi"
-        User.current.name = "Gabi Diamond"
-        Singleton.sharedInstance.partner.type = UserType.learner
-        
-        FireBaseClient.shared.signIn(email: "datlt@magik.vn", password: "123456789", completion: {(user, error) in
-            if let userId = user?.uid {
-                User.current.uid = userId
-            }
-            User.current.type = UserType.speaker
-            
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.window?.rootViewController = Singleton.getTabbar()
-        })
-        
-//        try! realm.write {
-//            realm.add(User.current)
-//        }
-        
+        let dialog = SpeakerSignInDialog()
+        dialog.delegate = self
+        dialog.frame = view.bounds
+        view.addSubview(dialog)
     }
     
     //var namePopup:LeanerSignIn
     @IBAction func onLearnButton(_ sender: AnyObject) {
-        //performSegue(withIdentifier: SegueIdentifier.SegueMatch, sender: self)
-        
-        //            let namePopup = LearnerSignIn(frame: CGRect(x: 16, y: 200, width: 220, height: 205))
-        //            self.view.addSubview(namePopup)
-        //            visualEffectView.isHidden = false
-        let name = "Huy Ngo"
-        saveLearnerInfo(name, type: "learner")
-        
-        User.current.initUser()
-        User.current.review?.initReview()
-        User.current.type = UserType.learner
-        User.current.name = name
-        Singleton.sharedInstance.partner.type = UserType.speaker
-        FireBaseClient.shared.signIn(email: "datlt.uit@gmail.com", password: "123456789", completion: {(user, error) in
-            if let userId = user?.uid {
-                User.current.uid = userId
-            }
-            User.current.type = UserType.learner
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.window?.rootViewController = Singleton.getTabbar()
-        })
-        
-//        try! realm.write {
-//            realm.add(User.current)
-//        }
-        
-        
-        
+        let dialog = LearnerSignInDialog()
+        dialog.delegate = self
+        dialog.frame = view.bounds
+        view.addSubview(dialog)
     }
     
-    func saveLearnerInfo(_ name:String, type:String){
+    func saveUserInfo(type:String){
         UserDefaults.standard.set(type, forKey:"type")
         //UserDefaults.standard.set(name, forKey: "name")
     }
+}
+
+extension WelcomeViewController: SignInDialogDelegate {
+    func signInDialog(learnerDialog: UIView, name: String?) {
+        if let name = name, !name.isEmpty {
+            ProgressHUD.show(view: view)
+            
+            User.current.name = name
+            
+            FireBaseClient.shared.signIn(completion: { (user, error) in
+                if let user = user {
+                    User.current.initUser()
+                    User.current.review?.initReview()
+                    User.current.type = UserType.learner
+                    User.current.uid = user.uid
+                    self.saveUserInfo(type: "learner")
+                    Singleton.sharedInstance.partner.type = UserType.speaker
+                    
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    appDelegate.window?.rootViewController = Singleton.getTabbar()
+                }
+            })
+        } else {
+            let alert = UIAlertController(title: "Alert", message: "Please enter name", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+    }
     
-    func saveSpeakerInfo(_ email:String, password:String, type:String){
-        UserDefaults.standard.set(type, forKey:"type")
-        //UserDefaults.standard.set(email, forKey: "email")
-        //UserDefaults.standard.set(password, forKey: "password")
+    func signInDialog(speakerDialog: UIView, email: String?, password: String?) {
+        if let email = email, let password = password, !email.isEmpty, !password.isEmpty {
+            ProgressHUD.show(view: view)
+            
+            FireBaseClient.shared.signIn(email: email, password: password, completion: {(user, error) in
+                if let userId = user?.uid {
+                    User.current.uid = userId
+                    self.saveUserInfo(type: "speaker")
+                    User.current.type = UserType.speaker
+                    User.current.email = email
+                    User.current.password = password
+                    User.current.profilePhoto = "gabi"
+                    User.current.name = "Gabi Diamond"
+                    Singleton.sharedInstance.partner.type = UserType.learner
+                    
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    appDelegate.window?.rootViewController = Singleton.getTabbar()
+                } else {
+                    let alert = UIAlertController(title: "Error", message: "Invalid email or password", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            })
+
+        } else {
+            let alert = UIAlertController(title: "Alert", message: "Please enter email and password", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
     }
 }

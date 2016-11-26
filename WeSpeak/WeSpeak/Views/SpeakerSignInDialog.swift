@@ -13,7 +13,11 @@ class SpeakerSignInDialog: UIView {
     @IBOutlet weak var panelDialog: UIView!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var okButton: UIButton!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
 
+    weak var delegate: SignInDialogDelegate!
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initSubviews()
@@ -31,8 +35,16 @@ class SpeakerSignInDialog: UIView {
         addSubview(view)
         
         panelDialog.layer.cornerRadius = 6
+        panelDialog.layer.shadowColor = UIColor.black.cgColor
+        panelDialog.layer.shadowOpacity = 1
+        panelDialog.layer.shadowOffset = CGSize.zero
+        panelDialog.layer.shadowRadius = 5
+        
         okButton.layer.cornerRadius = 6
         closeButton.layer.cornerRadius = closeButton.frame.height / 2
+        
+        emailTextField.text = "datlt@magik.vn"
+        passwordTextField.text = "123456789"
         
         showAnimation()
     }
@@ -48,4 +60,10 @@ class SpeakerSignInDialog: UIView {
         }, completion: nil)
     }
     
+    @IBAction func onTouchOKButton(_ sender: UIButton) {
+        delegate.signInDialog(speakerDialog: self, email: emailTextField.text, password: passwordTextField.text)
+    }
+    @IBAction func onTouchCloseButton(_ sender: UIButton) {
+        self.removeFromSuperview()
+    }
 }

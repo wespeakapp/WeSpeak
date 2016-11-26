@@ -23,7 +23,10 @@ class CallViewController: UIViewController {
     var token: String!
     var session: OTSession!
     var publisher: OTPublisher!
-    var subcriber: OTSubscriber!
+    var subscriber: OTSubscriber!
+    var isPublish = false
+    var isSubscribe = false
+    let dialog = Dialog()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +42,14 @@ class CallViewController: UIViewController {
         // set countdown
         countdownLabel.text = "10:00"
         
-        
+//        dialog.frame = view.bounds
+//        view.addSubview(dialog)
+    }
+    
+    @IBAction func onHangUpButton(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Second", bundle: nil)
+        let controller = storyboard.instantiateInitialViewController()! as UIViewController
+        self.present(controller, animated: true, completion: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -73,6 +83,15 @@ class CallViewController: UIViewController {
         let witdhPublisherView = (150 / publisherView.frame.height) * publisherView.frame.width
         publisher?.view.frame = CGRect(x: publisherView.frame.width - witdhPublisherView - 20, y: publisherView.frame.height - 170, width: witdhPublisherView, height: 150)
     }
+    
+    func connected() {
+        if isSubscribe && isPublish {
+            dialog.showStartButton()
+        }
+    }
+    @IBAction func onTouchHangUpButton(_ sender: UIButton) {
+        session.disconnect(nil)
+    }
 }
 
 extension CallViewController: OTSessionDelegate {
@@ -83,6 +102,9 @@ extension CallViewController: OTSessionDelegate {
     
     func sessionDidDisconnect(_ session: OTSession!) {
         print("session disconnect")
+        let storyboard = UIStoryboard(name: "Second", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "RatingViewController") as! RatingViewController
+        present(vc, animated: true, completion: nil)
     }
     
     func session(_ session: OTSession!, didFailWithError error: OTError!) {
@@ -90,8 +112,8 @@ extension CallViewController: OTSessionDelegate {
     }
     
     func session(_ session: OTSession!, streamCreated stream: OTStream!) {
-        subcriber = OTSubscriber(stream: stream, delegate: self)
-        session.subscribe(subcriber, error: nil)
+        subscriber = OTSubscriber(stream: stream, delegate: self)
+        session.subscribe(subscriber, error: nil)
     }
     
     func session(_ session: OTSession!, streamDestroyed stream: OTStream!) {
@@ -104,19 +126,23 @@ extension CallViewController: OTPublisherDelegate {
         print("publish fail")
     }
     func publisher(_ publisher: OTPublisherKit!, streamCreated stream: OTStream!) {
+        isPublish = true
+        connected()
     }
 }
 
 extension CallViewController: OTSubscriberDelegate {
     func subscriberDidConnect(toStream subscriber: OTSubscriberKit!) {
         print("subscribe connect")
+        isSubscribe = true
+        connected()
     }
     func subscriber(_ subscriber: OTSubscriberKit!, didFailWithError error: OTError!) {
         print("subscibe fail")
     }
     func subscriberVideoDataReceived(_ subscriber: OTSubscriber!) {
-        subcriber.view.frame = CGRect(x: 0, y: 0, width: subcriberView.frame.width, height: subcriberView.frame.height)
-        subcriberView.addSubview(subcriber.view)
+        subscriber.view.frame = CGRect(x: 0, y: 0, width: subcriberView.frame.width, height: subcriberView.frame.height)
+        subcriberView.addSubview(subscriber.view)
     }
 }
 

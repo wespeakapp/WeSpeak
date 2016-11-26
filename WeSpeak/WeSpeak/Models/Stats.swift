@@ -23,7 +23,7 @@ class Stats: Object{
             self.pronounciation = pronounciation
         }
         
-        if let fluency = dictionary["listefluencyning"] as? Double {
+        if let fluency = dictionary["fluency"] as? Double {
             self.fluency = fluency
         }
         
@@ -32,7 +32,10 @@ class Stats: Object{
         }
     }
     
-    func dictionary() -> NSDictionary {
-        return ["listening": listening, "pronounciation": pronounciation, "fluency": fluency, "vocabulary": vocabulary]
+    func dictionary() -> [String: AnyObject] {
+        return ["listening": listening as AnyObject,
+                "pronounciation": pronounciation as AnyObject,
+                "fluency": fluency as AnyObject,
+                "vocabulary": vocabulary as AnyObject]
     }
 }

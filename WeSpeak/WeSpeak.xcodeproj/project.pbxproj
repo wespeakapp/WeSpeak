@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		000B6F041DE83BCD009C4FC3 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000B6F031DE83BCD009C4FC3 /* ProgressHUD.swift */; };
 		009858141DE423E6000F5EB6 /* Dialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009858131DE423E6000F5EB6 /* Dialog.xib */; };
 		009858161DE4247B000F5EB6 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009858151DE4247B000F5EB6 /* Dialog.swift */; };
 		00A6BECE1DE197AC00BB8A8A /* HerokuClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6BECD1DE197AC00BB8A8A /* HerokuClient.swift */; };
@@ -65,6 +66,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		000B6F031DE83BCD009C4FC3 /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressHUD.swift; path = Helpers/ProgressHUD.swift; sourceTree = "<group>"; };
 		009858131DE423E6000F5EB6 /* Dialog.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Dialog.xib; path = Views/Dialog.xib; sourceTree = "<group>"; };
 		009858151DE4247B000F5EB6 /* Dialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dialog.swift; path = Views/Dialog.swift; sourceTree = "<group>"; };
 		00A6BECD1DE197AC00BB8A8A /* HerokuClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HerokuClient.swift; path = Net/HerokuClient.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				5ABF90FB1DD5BA6600EC0655 /* Keys.swift */,
 				5A005A0D1DD9E92F00A7BDA3 /* Singleton.swift */,
 				00C113821DDA26BB00EB329D /* Constant.swift */,
+				000B6F031DE83BCD009C4FC3 /* ProgressHUD.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				00F130BE1DD2237D0017C6EC /* Message.swift in Sources */,
 				5A44269F1DD57CFF00B7C398 /* SubmitCell.swift in Sources */,
 				5AE8A3BC1DD6D11300F2C8B9 /* SperkerRatingCell.swift in Sources */,
+				000B6F041DE83BCD009C4FC3 /* ProgressHUD.swift in Sources */,
 				00BF184F1DE4504A00088F75 /* SpeakerSignInDialog.swift in Sources */,
 				5AFBB0191DD8BE2100F4C720 /* TestViewController.swift in Sources */,
 				5AECDABC1DD556D400770F1F /* RatingViewController.swift in Sources */,
@@ -579,8 +583,10 @@
 			baseConfigurationReference = 05408D933F175F93A914647F /* Pods-WeSpeak.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = WeSpeak/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.WeSpeak.WeSpeak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -593,8 +599,10 @@
 			baseConfigurationReference = 1826582A4073FF8DAE502F50 /* Pods-WeSpeak.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = WeSpeak/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.WeSpeak.WeSpeak;
 				PRODUCT_NAME = "$(TARGET_NAME)";

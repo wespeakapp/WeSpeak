@@ -25,6 +25,7 @@ class User: Object {
     dynamic var profilePhoto:String = "huy"
     dynamic var conversations: Int = 0
     dynamic var totalHours: Double = 0
+    dynamic var rating: Double = 0
     dynamic var review:Review? 
     var reviews = List<Review>()
     
@@ -36,5 +37,27 @@ class User: Object {
     
     func initUser(){
        review = Review()
+    }
+    
+    func speakerAverageRatings() -> Double{
+        var rating:Double = 0
+        if reviews.count != 0{
+            for review in reviews{
+                print(review.rating)
+                rating += review.rating
+            }
+            rating /= Double(reviews.count > 0 ? reviews.count : 1)
+        }
+        
+        return round(rating*2)/2
+    }
+    
+    func learnerAverageRating() -> Double{
+        var rating:Double = 0
+        for review in reviews{
+            rating += (review.stats?.listening)! + (review.stats?.pronounciation)! + (review.stats?.fluency)! + (review.stats?.vocabulary)!
+        }
+        rating /= Double(reviews.count > 0 ? reviews.count : 1)
+        return round(rating*2)/2
     }
 }

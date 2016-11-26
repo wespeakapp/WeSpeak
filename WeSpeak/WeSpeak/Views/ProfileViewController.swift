@@ -21,6 +21,20 @@ class ProfileViewController: UIViewController {
         profileTableView.reloadData()
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        FireBaseClient.shared.loadReviews { (reviews) in
+            if let reviews = reviews {
+//                try! realm.write {
+                    for review in reviews{
+                        User.current.reviews.append(review)
+                        User.current.conversations += 1
+                    }
+                    self.profileTableView.reloadData()
+//                }
+            }
+        }
+    }
 
     func loadNib(){
         profileTableView.register(UINib(nibName: "InfoCell", bundle: nil), forCellReuseIdentifier: "InfoCell")
@@ -77,7 +91,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
         case 2:
             if User.current.type == UserType.learner{
                  let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.AverageRatingCell) as! AverageRatingCell
-                cell.pointsLabel.text = "3.5"
+                cell.pointsLabel.text = "\(learnerAverageRating(reviews: User.current.reviews))"
                 cell.totalRatingsLabel.text = "\(User.current.conversations)"
                 return cell
             }
@@ -144,42 +158,48 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
     
     func learnerAverageRating(reviews:List<Review>) -> Double{
         var rating:Double = 0
-        for review in reviews{
-            rating += (review.stats?.listening)! + (review.stats?.pronounciation)! + (review.stats?.fluency)! + (review.stats?.vocabulary)!
+        if reviews.count != 0{
+            for review in reviews{
+                rating += (review.stats?.listening)! + (review.stats?.pronounciation)! + (review.stats?.fluency)! + (review.stats?.vocabulary)!
+            }
+            rating /= Double(reviews.count*4)
+
         }
-        rating /= Double(reviews.count)
         return round(rating*2)/2
     }
     
     func learnerAvarageSkill(skill:Int, reviews:List<Review>)->Double{
         var rating:Double = 0
-        switch skill{
-        case 0:
-            for review in reviews{
-                rating += (review.stats?.listening)!
+        if reviews.count != 0{
+            switch skill{
+            case 0:
+                for review in reviews{
+                    rating += (review.stats?.listening)!
+                }
+                rating /= Double(reviews.count)
+                return round(rating*2)/2
+            case 1:
+                for review in reviews{
+                    rating += (review.stats?.pronounciation)!
+                }
+                rating /= Double(reviews.count)
+                return round(rating*2)/2
+            case 2:
+                for review in reviews{
+                    rating += (review.stats?.fluency)!
+                }
+                rating /= Double(reviews.count)
+                return round(rating*2)/2
+            case 3:
+                for review in reviews{
+                    rating += (review.stats?.vocabulary)!
+                }
+                rating /= Double(reviews.count)
+                return round(rating*2)/2
+            default:
+                return 0
             }
-            rating /= Double(reviews.count)
-            return round(rating*2)/2
-        case 1:
-            for review in reviews{
-                rating += (review.stats?.pronounciation)!
-            }
-            rating /= Double(reviews.count)
-            return round(rating*2)/2
-        case 2:
-            for review in reviews{
-                rating += (review.stats?.fluency)!
-            }
-            rating /= Double(reviews.count)
-            return round(rating*2)/2
-        case 3:
-            for review in reviews{
-                rating += (review.stats?.vocabulary)!
-            }
-            rating /= Double(reviews.count)
-            return round(rating*2)/2
-        default:
-            return 0
         }
+         return rating
     }
 }

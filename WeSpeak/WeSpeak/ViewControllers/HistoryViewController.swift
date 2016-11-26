@@ -31,6 +31,20 @@ class HistoryViewController: UIViewController {
         let index = historyTableView.indexPathForSelectedRow?.row
         vc.review = User.current.reviews[index!]
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        FireBaseClient.shared.loadReviews { (reviews) in
+//            if let reviews = reviews {
+////                try! realm.write {
+//                    for review in reviews{
+//                        User.current.reviews.append(review)
+//                        User.current.conversations += 1
+//                    }
+//                    self.historyTableView.reloadData()
+////                }
+//            }
+//        }
+//    }
 
 }
 
