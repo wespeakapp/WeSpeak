@@ -50,6 +50,8 @@ class Dialog: UIView {
         startButton.isHidden = true
         
         partnerName.text = Singleton.sharedInstance.partner.name
+        Singleton.sharedInstance.partner.setUserPhotoView(view: partnerPhoto)
+        partnerRating.rating = Singleton.sharedInstance.partner.rating
         
         indicatorWaitingConnection.startAnimating()
         

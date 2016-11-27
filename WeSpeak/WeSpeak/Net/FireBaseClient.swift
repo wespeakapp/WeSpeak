@@ -22,6 +22,42 @@ class FireBaseClient {
         dataReference = FIRDatabase.database().reference()
     }
     
+    func saveUserData() {
+        let data = NSKeyedArchiver.archivedData(withRootObject: User.current)
+        let stringData = data.base64EncodedString()
+        
+        DataStorage.saveUser()
+        dataReference.child("data/\(User.current.uid!)").setValue(stringData)
+    }
+    
+    func loadUserData(completion: @escaping (Bool) -> Void) {
+        dataReference.child("data/\(User.current.uid!)").observeSingleEvent(of: .value, with: {(snapshot) in
+            if let dataString = snapshot.value as? String, let data = NSData(base64Encoded: dataString, options: []) {
+                User.current = NSKeyedUnarchiver.unarchiveObject(with: data as Data) as! User
+                completion(true)
+            } else {
+                completion(false)
+            }
+        })
+    }
+    
+    func loadUserSpeaker(completion: @escaping (Bool) -> Void) {
+        loadUserData(completion: {(exist) in
+            if !exist {
+                completion(false)
+            } else {
+                self.dataReference.child("speakers/\(User.current.uid!)").observeSingleEvent(of: .value, with: {(snapshot) in
+                    if let dictionary = snapshot.value as? NSDictionary {
+                        User.current.name = dictionary["name"] as! String
+                        User.current.profilePhoto = dictionary["photo"] as! String
+                        print(User.current.profilePhoto)
+                        completion(true)
+                    }
+                })
+            }
+        })
+    }
+    
     func signIn(completion: @escaping (FIRUser?, Error?) -> Void) {
         FIRAuth.auth()?.signInAnonymously(completion: { (user, error) in
             if let user = user {
@@ -37,7 +73,20 @@ class FireBaseClient {
     
     func signIn(email: String, password: String, completion: @escaping (FIRUser?, Error?) -> Void) {
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
-            completion(user, error)
+            if let user = user {
+                User.current.uid = user.uid
+                User.current.type = UserType.speaker
+                User.current.email = email
+                User.current.password = password
+                self.loadUserSpeaker(completion: { (exist) in
+                    if !exist {
+                        self.saveUserData()
+                    }
+                })
+                completion(user, error)
+            } else {
+                completion(user, error)
+            }
         })
     }
     
@@ -57,9 +106,10 @@ class FireBaseClient {
     func onLearnerMatch(completion: @escaping (_ session: String, _ token: String) -> Void) {
         let learnerInfo = ["uid": User.current.uid,
                            "name": User.current.name,
+                           "photo": User.current.profilePhoto,
                            "rating": User.current.learnerAverageRating(),
                            "matched": false] as [String : Any]
-        dataReference.child("available/learners/\(User.current.uid)").updateChildValues(learnerInfo)
+        dataReference.child("available/learners/\(User.current.uid!)").updateChildValues(learnerInfo)
         handleSpeakerAvailable(completion: completion)
     }
     
@@ -71,11 +121,13 @@ class FireBaseClient {
                         Singleton.sharedInstance.partner.uid = dictionary["speakerUid"] as! String
                         Singleton.sharedInstance.partner.name = dictionary["speakerName"] as! String
                         Singleton.sharedInstance.partner.rating = dictionary["speakerRating"] as! Double
+                        Singleton.sharedInstance.partner.profilePhoto = dictionary["speakerPhoto"] as! String
+                        Singleton.sharedInstance.partner.type = UserType.speaker
                         Singleton.sharedInstance.sessionIdOpenTok = sessionId
                         completion(sessionId, dictionary["token"] as! String)
                     }
                 })
-                self.dataReference.child("available/learners/\(User.current.uid)").setValue(nil)
+                self.dataReference.child("available/learners/\(User.current.uid!)").setValue(nil)
             }
             
         })
@@ -93,6 +145,8 @@ class FireBaseClient {
                     Singleton.sharedInstance.partner.name = learnerInfo["name"] as! String
                     Singleton.sharedInstance.partner.rating = learnerInfo["rating"] as! Double
                     Singleton.sharedInstance.partner.uid = learnerInfo["uid"] as! String
+                    Singleton.sharedInstance.partner.profilePhoto = learnerInfo["photo"] as! String
+                    Singleton.sharedInstance.partner.type = UserType.learner
                     self.createSession(completion: completion)
                 }
             } else {
@@ -106,9 +160,9 @@ class FireBaseClient {
     }
     
     func createSession(completion: @escaping (_ session: String, _ token: String) -> Void) {
-        dataReference.child("learners/\(Singleton.sharedInstance.partner.uid)/name").observeSingleEvent(of: .value, with: {snapshot in
-            Singleton.sharedInstance.partner.name = snapshot.value as! String
-        })
+//        dataReference.child("learners/\(Singleton.sharedInstance.partner.uid!)/name").observeSingleEvent(of: .value, with: {snapshot in
+//            Singleton.sharedInstance.partner.name = snapshot.value as! String
+//        })
         
         HerokuClient.shared.getSession { (dictionary, error) in
             if let dictionary = dictionary {
@@ -122,9 +176,10 @@ class FireBaseClient {
                                   "learnerRating": Singleton.sharedInstance.partner.rating,
                                   "speakerUid": User.current.uid,
                                   "speakerName": User.current.name,
-                                  "speakerRating": User.current.speakerAverageRatings()] as [String : Any]
+                                  "speakerRating": User.current.speakerAverageRatings(),
+                                  "speakerPhoto": User.current.profilePhoto] as [String : Any]
                 self.dataReference.child("sessions/\(sessionId)").updateChildValues(dictionary)
-                self.dataReference.child("available/learners/\(Singleton.sharedInstance.partner.uid)").updateChildValues(["matched": sessionId])
+                self.dataReference.child("available/learners/\(Singleton.sharedInstance.partner.uid!)").updateChildValues(["matched": sessionId])
                 completion(sessionId, token)
             }
         }
@@ -133,21 +188,21 @@ class FireBaseClient {
     func commitReview(review: Review) {
         let dictionaryReview = review.dictionary()
         
-        dataReference.child("rating/\(Singleton.sharedInstance.partner.uid)/\(Singleton.sharedInstance.sessionIdOpenTok!)").setValue(dictionaryReview)
+        dataReference.child("rating/\(Singleton.sharedInstance.partner.uid!)/\(Singleton.sharedInstance.sessionIdOpenTok!)").setValue(dictionaryReview)
     }
     
     func loadReviews(completion: @escaping (_ reviews: [Review]?) -> Void) {
-        dataReference.child("rating/\(User.current.uid)").observeSingleEvent(of: .value, with: {snapshot in
+        dataReference.child("rating/\(User.current.uid!)").observeSingleEvent(of: .value, with: {snapshot in
             print(User.current.uid)
-            self.dataReference.child("rating/\(User.current.uid)").setValue(nil)
+            self.dataReference.child("rating/\(User.current.uid!)").setValue(nil)
             if let reviewsDictionary = snapshot.value as? NSDictionary {
                 var reviews = [Review]()
                 for index in 0 ..< reviewsDictionary.count {
-                    let review = Review()
-                    review.initReview(dictionary: reviewsDictionary[reviewsDictionary.allKeys[index]] as! NSDictionary)
+                    let review = Review(dictionary: reviewsDictionary[reviewsDictionary.allKeys[index]] as! NSDictionary)
                     reviews.append(review)
                 }
                 completion(reviews)
+                self.saveUserData()
             } else {
                 completion(nil)
             }

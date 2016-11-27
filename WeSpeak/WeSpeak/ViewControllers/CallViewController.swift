@@ -42,8 +42,8 @@ class CallViewController: UIViewController {
         // set countdown
         countdownLabel.text = "10:00"
         
-//        dialog.frame = view.bounds
-//        view.addSubview(dialog)
+        dialog.frame = view.bounds
+        view.addSubview(dialog)
     }
     
     @IBAction func onHangUpButton(_ sender: Any) {
@@ -118,6 +118,7 @@ extension CallViewController: OTSessionDelegate {
     
     func session(_ session: OTSession!, streamDestroyed stream: OTStream!) {
         print("stream destroyed")
+        session.disconnect(nil)
     }
 }
 

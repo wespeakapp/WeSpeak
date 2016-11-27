@@ -36,6 +36,7 @@ class WelcomeViewController: UIViewController {
         let dialog = LearnerSignInDialog()
         dialog.delegate = self
         dialog.frame = view.bounds
+        dialog.viewController = self
         view.addSubview(dialog)
     }
     
@@ -54,15 +55,18 @@ extension WelcomeViewController: SignInDialogDelegate {
             
             FireBaseClient.shared.signIn(completion: { (user, error) in
                 if let user = user {
-                    User.current.initUser()
-                    User.current.review?.initReview()
                     User.current.type = UserType.learner
                     User.current.uid = user.uid
-                    self.saveUserInfo(type: "learner")
+//                    self.saveUserInfo(type: "learner")
                     Singleton.sharedInstance.partner.type = UserType.speaker
                     
-                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                    appDelegate.window?.rootViewController = Singleton.getTabbar()
+                    FireBaseClient.shared.loadUserData(completion: { (exist) in
+                        if !exist {
+                            FireBaseClient.shared.saveUserData()
+                        }
+                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        appDelegate.window?.rootViewController = Singleton.getTabbar()
+                    })
                 }
             })
         } else {
@@ -77,15 +81,14 @@ extension WelcomeViewController: SignInDialogDelegate {
             ProgressHUD.show(view: view)
             
             FireBaseClient.shared.signIn(email: email, password: password, completion: {(user, error) in
-                if let userId = user?.uid {
-                    User.current.uid = userId
-                    self.saveUserInfo(type: "speaker")
-                    User.current.type = UserType.speaker
-                    User.current.email = email
-                    User.current.password = password
-                    User.current.profilePhoto = "gabi"
-                    User.current.name = "Gabi Diamond"
+                if user != nil {
+//                    User.current.type = UserType.speaker
+//                    User.current.email = email
+//                    User.current.password = password
+//                    User.current.profilePhoto = "gabi"
+//                    User.current.name = "Gabi Diamond"
                     Singleton.sharedInstance.partner.type = UserType.learner
+                    DataStorage.saveUser()
                     
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     appDelegate.window?.rootViewController = Singleton.getTabbar()

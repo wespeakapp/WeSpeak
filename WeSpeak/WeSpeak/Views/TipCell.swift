@@ -29,9 +29,9 @@ class TipCell: UITableViewCell {
         print("index: \(index)")
         switch index {
         case 0:
-            Singleton.sharedInstance.partner.review?.gift?.coke += 1
+            Singleton.sharedInstance.partner.review?.gift.coke = Singleton.sharedInstance.partner.review.gift.coke + 1
         case 1:
-            Singleton.sharedInstance.partner.review?.gift?.beer += 1
+            Singleton.sharedInstance.partner.review?.gift?.beer = Singleton.sharedInstance.partner.review.gift.beer + 1
         default:
             break
         }

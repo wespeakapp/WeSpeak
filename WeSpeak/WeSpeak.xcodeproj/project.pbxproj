@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		000B6F041DE83BCD009C4FC3 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000B6F031DE83BCD009C4FC3 /* ProgressHUD.swift */; };
+		00126B311DEB523000FE7833 /* PickPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00126B301DEB523000FE7833 /* PickPhotoViewController.swift */; };
 		009858141DE423E6000F5EB6 /* Dialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009858131DE423E6000F5EB6 /* Dialog.xib */; };
 		009858161DE4247B000F5EB6 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009858151DE4247B000F5EB6 /* Dialog.swift */; };
 		00A6BECE1DE197AC00BB8A8A /* HerokuClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6BECD1DE197AC00BB8A8A /* HerokuClient.swift */; };
+		00A8B5281DE9D29E00FC8000 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A8B5271DE9D29E00FC8000 /* LoadingViewController.swift */; };
+		00A8B52C1DE9DB5800FC8000 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A8B52B1DE9DB5800FC8000 /* DataStorage.swift */; };
 		00BF18471DE4491A00088F75 /* LearnerSignInDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF18461DE4491A00088F75 /* LearnerSignInDialog.swift */; };
 		00BF18491DE4492C00088F75 /* LearnerSignInDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00BF18481DE4492C00088F75 /* LearnerSignInDialog.xib */; };
 		00BF184D1DE4503A00088F75 /* SpeakerSignInDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00BF184C1DE4503A00088F75 /* SpeakerSignInDialog.xib */; };
@@ -67,9 +70,12 @@
 
 /* Begin PBXFileReference section */
 		000B6F031DE83BCD009C4FC3 /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressHUD.swift; path = Helpers/ProgressHUD.swift; sourceTree = "<group>"; };
+		00126B301DEB523000FE7833 /* PickPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickPhotoViewController.swift; path = ViewControllers/PickPhotoViewController.swift; sourceTree = "<group>"; };
 		009858131DE423E6000F5EB6 /* Dialog.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Dialog.xib; path = Views/Dialog.xib; sourceTree = "<group>"; };
 		009858151DE4247B000F5EB6 /* Dialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dialog.swift; path = Views/Dialog.swift; sourceTree = "<group>"; };
 		00A6BECD1DE197AC00BB8A8A /* HerokuClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HerokuClient.swift; path = Net/HerokuClient.swift; sourceTree = "<group>"; };
+		00A8B5271DE9D29E00FC8000 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingViewController.swift; path = ViewControllers/LoadingViewController.swift; sourceTree = "<group>"; };
+		00A8B52B1DE9DB5800FC8000 /* DataStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataStorage.swift; path = Helpers/DataStorage.swift; sourceTree = "<group>"; };
 		00BF18461DE4491A00088F75 /* LearnerSignInDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LearnerSignInDialog.swift; path = Views/LearnerSignInDialog.swift; sourceTree = "<group>"; };
 		00BF18481DE4492C00088F75 /* LearnerSignInDialog.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LearnerSignInDialog.xib; path = Views/LearnerSignInDialog.xib; sourceTree = "<group>"; };
 		00BF184C1DE4503A00088F75 /* SpeakerSignInDialog.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SpeakerSignInDialog.xib; path = Views/SpeakerSignInDialog.xib; sourceTree = "<group>"; };
@@ -245,6 +251,8 @@
 				00C113801DDA253B00EB329D /* MatchViewController.swift */,
 				00C113841DDA2CC200EB329D /* CallViewController.swift */,
 				5A7AB2451DDAB311002D7510 /* WelcomeViewController.swift */,
+				00A8B5271DE9D29E00FC8000 /* LoadingViewController.swift */,
+				00126B301DEB523000FE7833 /* PickPhotoViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -256,6 +264,7 @@
 				5A005A0D1DD9E92F00A7BDA3 /* Singleton.swift */,
 				00C113821DDA26BB00EB329D /* Constant.swift */,
 				000B6F031DE83BCD009C4FC3 /* ProgressHUD.swift */,
+				00A8B52B1DE9DB5800FC8000 /* DataStorage.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -321,6 +330,7 @@
 				TargetAttributes = {
 					00F1308B1DD20E6D0017C6EC = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = TW9QQRUDNE;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -425,6 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00126B311DEB523000FE7833 /* PickPhotoViewController.swift in Sources */,
 				5A44269B1DD5778900B7C398 /* CommentCell.swift in Sources */,
 				5AE8A3C01DD6D7CA00F2C8B9 /* DetailsViewController.swift in Sources */,
 				5ABF90FC1DD5BA6600EC0655 /* Keys.swift in Sources */,
@@ -436,6 +447,7 @@
 				5AE8A3BE1DD6D44900F2C8B9 /* HistoryViewController.swift in Sources */,
 				5ABF90FE1DD5BB6200EC0655 /* Skills.swift in Sources */,
 				5A7AB2461DDAB311002D7510 /* WelcomeViewController.swift in Sources */,
+				00A8B5281DE9D29E00FC8000 /* LoadingViewController.swift in Sources */,
 				00BF18471DE4491A00088F75 /* LearnerSignInDialog.swift in Sources */,
 				5ACC0ABD1DD711DC00C4CED1 /* PlayRecordCell.swift in Sources */,
 				00C113831DDA26BB00EB329D /* Constant.swift in Sources */,
@@ -450,6 +462,7 @@
 				00C113811DDA253B00EB329D /* MatchViewController.swift in Sources */,
 				00C113851DDA2CC200EB329D /* CallViewController.swift in Sources */,
 				00F130BE1DD2237D0017C6EC /* Message.swift in Sources */,
+				00A8B52C1DE9DB5800FC8000 /* DataStorage.swift in Sources */,
 				5A44269F1DD57CFF00B7C398 /* SubmitCell.swift in Sources */,
 				5AE8A3BC1DD6D11300F2C8B9 /* SperkerRatingCell.swift in Sources */,
 				000B6F041DE83BCD009C4FC3 /* ProgressHUD.swift in Sources */,
@@ -584,7 +597,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = TW9QQRUDNE;
 				INFOPLIST_FILE = WeSpeak/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -600,7 +613,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = TW9QQRUDNE;
 				INFOPLIST_FILE = WeSpeak/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

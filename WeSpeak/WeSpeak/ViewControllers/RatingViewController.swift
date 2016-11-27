@@ -92,7 +92,12 @@ extension RatingViewController: UITableViewDelegate, UITableViewDataSource{
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell") as! InfoCell
                 cell.nameLabel.text = Singleton.sharedInstance.partner.name
-                 cell.profileImageView.image = UIImage(named: Singleton.sharedInstance.partner.profilePhoto)
+                
+                if User.current.isSpeaker {
+                    cell.profileImageView.image = UIImage(named: User.current.reviews[indexPath.row].photoPartner)
+                } else {
+                    cell.profileImageView.setImageWith(URL(string: User.current.reviews[indexPath.row].photoPartner)!)
+                }
                 return cell
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionCell") as! QuestionCell
@@ -165,43 +170,44 @@ extension RatingViewController: UITableViewDelegate, UITableViewDataSource{
     func submitTouchDown(_ sender: UIButton){
         //send review to server
         Singleton.sharedInstance.partner.review?.partner = User.current.name
+        Singleton.sharedInstance.partner.review.photoPartner = User.current.profilePhoto
         FireBaseClient.shared.commitReview(review: Singleton.sharedInstance.partner.review!)
         present(Singleton.getTabbar(), animated: true, completion: nil)
     }
     
-    func fakeData(){
-        if(User.current.type == UserType.learner){
-            
-            let review = Review()
-            review.partner = "Gabi Diamond"
-            review.comment = "He speaking english flucency but need to focus on pronounciation."
-            let l = arc4random_uniform(5)
-            let v = arc4random_uniform(5)
-            let p = arc4random_uniform(5)
-            let f = arc4random_uniform(5)
-            let average = (l+v+p+f)/4
-            review.rating = round(Double(average*2))/2
-            review.stats = Stats(value: [l, p, f, v])
-            try! realm.write {
-                User.current.reviews.append(review)
-                User.current.conversations += 1
-                
-            }
-            
-        }
-        else{
-            let review = Review()
-            review.partner = "Huy Ngo"
-            review.comment = "She friendly and so cute. I love her accent, hope see you!"
-            let r = arc4random_uniform(5)
-            review.rating = Double(r)
-            try! realm.write {
-                User.current.reviews.append(review)
-                User.current.conversations += 1
-            }
-            
-        }
-
-    }
+//    func fakeData(){
+//        if(User.current.type == UserType.learner){
+//            
+//            let review = Review()
+//            review.partner = "Gabi Diamond"
+//            review.comment = "He speaking english flucency but need to focus on pronounciation."
+//            let l = arc4random_uniform(5)
+//            let v = arc4random_uniform(5)
+//            let p = arc4random_uniform(5)
+//            let f = arc4random_uniform(5)
+//            let average = (l+v+p+f)/4
+//            review.rating = round(Double(average*2))/2
+//            review.stats = Stats(value: [l, p, f, v])
+//            try! realm.write {
+//                User.current.reviews.append(review)
+//                User.current.conversations += 1
+//                
+//            }
+//            
+//        }
+//        else{
+//            let review = Review()
+//            review.partner = "Huy Ngo"
+//            review.comment = "She friendly and so cute. I love her accent, hope see you!"
+//            let r = arc4random_uniform(5)
+//            review.rating = Double(r)
+//            try! realm.write {
+//                User.current.reviews.append(review)
+//                User.current.conversations += 1
+//            }
+//            
+//        }
+//
+//    }
 
 }

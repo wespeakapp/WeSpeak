@@ -123,10 +123,10 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XYx-ON-ypq" id="sqt-n0-LfK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kaity" translatesAutoresizingMaskIntoConstraints="NO" id="dTA-Va-0Nm">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dTA-Va-0Nm">
                                                     <rect key="frame" x="20" y="11" width="55" height="55"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="55" id="BBu-O8-j50"/>
@@ -242,7 +242,4 @@
             <point key="canvasLocation" x="2544.8000000000002" y="-125.4872563718141"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="kaity" width="632" height="633"/>
-    </resources>
 </document>

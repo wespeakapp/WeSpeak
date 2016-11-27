@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFNetworking
 
 class InfoCell: UITableViewCell {
 
@@ -17,7 +18,7 @@ class InfoCell: UITableViewCell {
     var user:User?{
         didSet{
             nameLabel.text = user?.name
-            profileImageView.image = UIImage(named: (user?.profilePhoto)!)
+            user?.setUserPhotoView(view: profileImageView)
         }
     }
     override func awakeFromNib() {

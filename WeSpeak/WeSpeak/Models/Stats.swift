@@ -7,28 +7,61 @@
 //
 
 import UIKit
-import RealmSwift
-class Stats: Object{
-    dynamic var listening: Double = 0
-    dynamic var pronounciation: Double = 0
-    dynamic var fluency: Double = 0
-    dynamic var vocabulary: Double = 0
+
+class Stats: NSObject, NSCoding {
+    var listening: Double!
+    var pronounciation: Double!
+    var fluency: Double!
+    var vocabulary: Double!
     
-    func initStats(dictionary: NSDictionary) {
+    override init() {
+        super.init()
+        
+        listening = 0
+        pronounciation = 0
+        fluency = 0
+        vocabulary = 0
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(listening, forKey: "listening")
+        aCoder.encode(pronounciation, forKey: "pronounciation")
+        aCoder.encode(fluency, forKey: "fluency")
+        aCoder.encode(vocabulary, forKey: "vocabulary")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        listening = aDecoder.decodeObject(forKey: "listening") as! Double
+        pronounciation = aDecoder.decodeObject(forKey: "pronounciation") as! Double
+        fluency = aDecoder.decodeObject(forKey: "fluency") as! Double
+        vocabulary = aDecoder.decodeObject(forKey: "vocabulary") as! Double
+    }
+    
+    init(dictionary: NSDictionary) {
+        super.init()
+        
         if let listening = dictionary["listening"] as? Double {
             self.listening = listening
+        } else {
+            listening = 0
         }
         
         if let pronounciation = dictionary["pronounciation"] as? Double {
             self.pronounciation = pronounciation
+        } else {
+            pronounciation = 0
         }
         
         if let fluency = dictionary["fluency"] as? Double {
             self.fluency = fluency
+        } else {
+            fluency = 0
         }
         
         if let vocabulary = dictionary["vocabulary"] as? Double {
             self.vocabulary = vocabulary
+        } else {
+            vocabulary = 0
         }
     }
     

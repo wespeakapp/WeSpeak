@@ -34,12 +34,12 @@ class MatchViewController: UIViewController {
     func loadDB(){
         let user_type = UserDefaults.standard.string(forKey: Keys.type)
         if user_type != nil{
-            let objects = try! realm.objects(User.self)
-            if objects.count > 0{
-                User.current = objects.first!
-                try! realm.write {
+//            let objects = try! realm.objects(User.self)
+//            if objects.count > 0{
+//                User.current = objects.first!
+//                try! realm.write {
                     User.current.review = Review()
-                }
+//                }
                 if user_type == "learner"{
                     User.current.type = UserType.learner
                     
@@ -47,7 +47,7 @@ class MatchViewController: UIViewController {
                 else{
                     User.current.type = UserType.speaker
                 }
-            }
+//            }
         }
         
     }
@@ -58,7 +58,7 @@ class MatchViewController: UIViewController {
     var matched = false
     @IBAction func onMatchButton(_ sender: UIButton) {
         if !matched {
-            Singleton.fakeData()
+//            Singleton.fakeData()
             matched = true
             
             matchButtonBgImageView.image = #imageLiteral(resourceName: "findingBgButton")
@@ -78,7 +78,7 @@ class MatchViewController: UIViewController {
             animation.repeatCount = Float.infinity
             matchButtonBgImageView.layer.add(animation, forKey: "rotate")
             
-            matchButton.setTitle("Finding...", for: .normal)
+            matchButton.setTitle("Finding", for: .normal)
             
             if User.current.isSpeaker {
                 FireBaseClient.shared.onSpeakerMatch(completion: {(session, token) in

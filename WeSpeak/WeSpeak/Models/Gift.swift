@@ -7,19 +7,39 @@
 //
 
 import UIKit
-import RealmSwift
 
-class Gift: Object {
-    dynamic var beer:Int = 0
-    dynamic var coke:Int = 0
+class Gift: NSObject, NSCoding {
+    var beer:Int!
+    var coke:Int!
     
-    func initGift(dictionary: NSDictionary) {
+    override init() {
+        super.init()
+        
+        beer = 0
+        coke = 0
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(beer, forKey: "beer")
+        aCoder.encode(coke, forKey: "coke")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        beer = aDecoder.decodeObject(forKey: "beer") as! Int
+        coke = aDecoder.decodeObject(forKey: "coke") as! Int
+    }
+    
+    init(dictionary: NSDictionary) {
         if let beer = dictionary["beer"] as? Int {
             self.beer = beer
+        } else {
+            beer = 0
         }
         
         if let coke = dictionary["coke"] as? Int {
             self.coke = coke
+        } else {
+            coke = 0
         }
     }
     

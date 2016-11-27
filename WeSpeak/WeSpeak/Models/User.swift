@@ -7,27 +7,26 @@
 //
 
 import UIKit
-import RealmSwift
 
-enum UserType {
+enum UserType: Int {
     case learner
     case speaker
 }
 
-class User: Object {
+class User: NSObject, NSCoding {
     static var current: User = User()
-    dynamic var uid: String = ""
-    var type: UserType?
-    dynamic var name: String = ""
-    dynamic var email: String = ""
-    dynamic var password: String = ""
+    var uid: String!
+    var type: UserType!
+    var name: String!
+    var email: String!
+    var password: String!
     //var _photoUrl: URL?
-    dynamic var profilePhoto:String = "huy"
-    dynamic var conversations: Int = 0
-    dynamic var totalHours: Double = 0
-    dynamic var rating: Double = 0
-    dynamic var review:Review? 
-    var reviews = List<Review>()
+    var profilePhoto:String!
+    var conversations: Int!
+    var totalHours: Double!
+    var rating: Double!
+    var review:Review!
+    var reviews: [Review]!
     
     var isSpeaker: Bool {
         get{
@@ -35,8 +34,60 @@ class User: Object {
         }
     }
     
-    func initUser(){
-       review = Review()
+    override init() {
+        super.init()
+        
+        uid = ""
+        type = UserType.learner
+        name = ""
+        email = ""
+        password = ""
+        profilePhoto = ""
+        conversations = 0
+        totalHours = 0
+        rating = 0
+        review = Review()
+        reviews = [Review]()
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(uid, forKey: "uid")
+        aCoder.encode(type?.hashValue, forKey: "type")
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(email, forKey: "email")
+        aCoder.encode(password, forKey: "password")
+        aCoder.encode(profilePhoto, forKey: "profilePhoto")
+        aCoder.encode(conversations, forKey: "conversations")
+        aCoder.encode(totalHours, forKey: "totalHours")
+        aCoder.encode(rating, forKey: "rating")
+        aCoder.encode(review, forKey: "review")
+        aCoder.encode(reviews, forKey: "reviews")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        uid = aDecoder.decodeObject(forKey: "uid") as! String
+        type = UserType(rawValue: aDecoder.decodeObject(forKey: "type") as! Int)
+        name = aDecoder.decodeObject(forKey: "name") as! String
+        email = aDecoder.decodeObject(forKey: "email") as! String
+        password = aDecoder.decodeObject(forKey: "password") as! String
+        profilePhoto = aDecoder.decodeObject(forKey: "profilePhoto") as! String
+        conversations = aDecoder.decodeObject(forKey: "conversations") as! Int
+        totalHours = aDecoder.decodeObject(forKey: "totalHours") as! Double
+        rating = aDecoder.decodeObject(forKey: "rating") as! Double
+        review = aDecoder.decodeObject(forKey: "review") as! Review
+        reviews = aDecoder.decodeObject(forKey: "reviews") as! [Review]
+    }
+    
+//    func initUser(){
+//       review = Review()
+//    }
+    
+    func setUserPhotoView(view: UIImageView) {
+        if isSpeaker {
+            view.setImageWith(URL(string: profilePhoto)!)
+        } else {
+            view.image = UIImage(named: profilePhoto)
+        }
     }
     
     func speakerAverageRatings() -> Double{
@@ -59,5 +110,22 @@ class User: Object {
         }
         rating /= Double(reviews.count > 0 ? reviews.count : 1)
         return round(rating*2)/2
+    }
+    
+    func dictionary() -> [String: AnyObject] {
+        var dict = [String: AnyObject]()
+        dict["uid"] = uid as AnyObject
+        dict["type"] = type as AnyObject
+        dict["name"] = name as AnyObject
+        dict["email"] = email as AnyObject
+        dict["password"] = password as AnyObject
+        dict["profilePhoto"] = profilePhoto as AnyObject
+        dict["conversations"] = conversations as AnyObject
+        dict["totalHours"] = totalHours as AnyObject
+        dict["rating"] = rating as AnyObject
+        dict["review"] = review?.dictionary() as AnyObject
+        dict["reviews"] = Review.arrayDictionary(reviews: reviews) as AnyObject
+        
+        return dict
     }
 }

@@ -56,6 +56,11 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell") as! HistoryCell
         cell.nameLabel.text = User.current.reviews[indexPath.row].partner
+        if User.current.isSpeaker {
+            cell.profileImageView.image = UIImage(named: User.current.reviews[indexPath.row].photoPartner)
+        } else {
+            cell.profileImageView.setImageWith(URL(string: User.current.reviews[indexPath.row].photoPartner)!)
+        }
         return cell
     }
     

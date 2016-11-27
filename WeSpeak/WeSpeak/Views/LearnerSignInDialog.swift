@@ -20,8 +20,11 @@ class LearnerSignInDialog: UIView {
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var okButton: UIButton!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var photoView: UIImageView!
     
     weak var delegate: SignInDialogDelegate!
+    
+    var viewController: WelcomeViewController!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -48,6 +51,8 @@ class LearnerSignInDialog: UIView {
         okButton.layer.cornerRadius = 6
         closeButton.layer.cornerRadius = closeButton.frame.height / 2
         
+        photoView.layer.cornerRadius = photoView.frame.height / 2
+        
         showAnimation()
     }
 
@@ -67,5 +72,23 @@ class LearnerSignInDialog: UIView {
     
     @IBAction func onTouchCloseButton(_ sender: UIButton) {
         self.removeFromSuperview()
+    }
+    
+    @IBAction func onTouchPhotoButton(_ sender: UIButton) {
+        let nextVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PickPhotoViewController") as! PickPhotoViewController
+        nextVC.delegate = self
+        viewController.present(nextVC, animated: true, completion: nil)
+    }
+    @IBAction func onNameEditingDidBegin(_ sender: UITextField) {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.wraperDialog.transform = CGAffineTransform(translationX: 0, y: -120)
+        })
+    }
+}
+
+extension LearnerSignInDialog: PickPhotoViewControllerDelegate {
+    func pickPhoto(namePhoto: String) {
+        photoView.image = UIImage(named: namePhoto)
+        User.current.profilePhoto = namePhoto
     }
 }

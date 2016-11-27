@@ -28,7 +28,7 @@ class ProfileViewController: UIViewController {
 //                try! realm.write {
                     for review in reviews{
                         User.current.reviews.append(review)
-                        User.current.conversations += 1
+                        User.current.conversations = User.current.conversations + 1
                     }
                     self.profileTableView.reloadData()
 //                }
@@ -92,13 +92,13 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
             if User.current.type == UserType.learner{
                  let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.AverageRatingCell) as! AverageRatingCell
                 cell.pointsLabel.text = "\(learnerAverageRating(reviews: User.current.reviews))"
-                cell.totalRatingsLabel.text = "\(User.current.conversations)"
+                cell.totalRatingsLabel.text = "\(User.current.conversations!)"
                 return cell
             }
             else{
                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.SpeakerRatingCell) as! SperkerRatingCell
                 cell.ratingControl.rating = speakerAverageRatings(reviews: User.current.reviews)
-                cell.totalRatingsLabel.text = "\(User.current.conversations)"
+                cell.totalRatingsLabel.text = "\(User.current.conversations!)"
                 return cell
             }
             
@@ -143,7 +143,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
         }
     }
     
-    func speakerAverageRatings(reviews: List<Review>) -> Double{
+    func speakerAverageRatings(reviews: [Review]) -> Double{
         var rating:Double = 0
         if reviews.count != 0{
             for review in reviews{
@@ -156,7 +156,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
         return round(rating*2)/2
     }
     
-    func learnerAverageRating(reviews:List<Review>) -> Double{
+    func learnerAverageRating(reviews: [Review]) -> Double{
         var rating:Double = 0
         if reviews.count != 0{
             for review in reviews{
@@ -168,7 +168,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
         return round(rating*2)/2
     }
     
-    func learnerAvarageSkill(skill:Int, reviews:List<Review>)->Double{
+    func learnerAvarageSkill(skill:Int, reviews: [Review])->Double{
         var rating:Double = 0
         if reviews.count != 0{
             switch skill{
