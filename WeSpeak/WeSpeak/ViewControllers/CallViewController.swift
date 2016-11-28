@@ -11,7 +11,8 @@ import OpenTok
 
 class CallViewController: UIViewController {
     @IBOutlet weak var hangUpButton: UIButton!
-    @IBOutlet weak var muteButton: UIButton!
+    @IBOutlet weak var microphoneButton: UIButton!
+    @IBOutlet weak var videoCallButton: UIButton!
     @IBOutlet weak var partnerNameLabel: UILabel!
     @IBOutlet weak var countdownLabel: UILabel!
     @IBOutlet weak var subcriberView: UIView!
@@ -34,9 +35,10 @@ class CallViewController: UIViewController {
         // setup hang up button
         hangUpButton.layer.cornerRadius = hangUpButton.frame.height / 2
         // setup mute button
-        muteButton.layer.cornerRadius = muteButton.frame.height / 2
-        muteButton.layer.borderColor = #colorLiteral(red: 0.6606677175, green: 0.660764873, blue: 0.6606466174, alpha: 1).cgColor
-        muteButton.layer.borderWidth = 2
+        microphoneButton.layer.cornerRadius = microphoneButton.frame.height / 2
+        videoCallButton.layer.cornerRadius = videoCallButton.frame.height / 2
+        microphoneButton.layer.borderColor = #colorLiteral(red: 0.6606677175, green: 0.660764873, blue: 0.6606466174, alpha: 1).cgColor
+        microphoneButton.layer.borderWidth = 2
         // set partner's name
         partnerNameLabel.text = Singleton.sharedInstance.partner.name
         // set countdown
@@ -91,6 +93,12 @@ class CallViewController: UIViewController {
     }
     @IBAction func onTouchHangUpButton(_ sender: UIButton) {
         session.disconnect(nil)
+    }
+    @IBAction func onMicrophoneButton(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+    }
+    @IBAction func onVideoCallButton(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
     }
 }
 

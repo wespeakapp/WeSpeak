@@ -67,6 +67,8 @@ extension WelcomeViewController: SignInDialogDelegate {
                         let appDelegate = UIApplication.shared.delegate as! AppDelegate
                         appDelegate.window?.rootViewController = Singleton.getTabbar()
                     })
+                } else {
+                    ProgressHUD.hide(view: self.view)
                 }
             })
         } else {
@@ -93,6 +95,7 @@ extension WelcomeViewController: SignInDialogDelegate {
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     appDelegate.window?.rootViewController = Singleton.getTabbar()
                 } else {
+                    ProgressHUD.hide(view: self.view)
                     let alert = UIAlertController(title: "Error", message: "Invalid email or password", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                     self.present(alert, animated: true, completion: nil)

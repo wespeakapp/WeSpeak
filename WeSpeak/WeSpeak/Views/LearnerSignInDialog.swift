@@ -54,6 +54,7 @@ class LearnerSignInDialog: UIView {
         photoView.layer.cornerRadius = photoView.frame.height / 2
         
         showAnimation()
+        User.current.profilePhoto = "man"
     }
 
     func showAnimation() {

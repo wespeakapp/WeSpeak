@@ -458,11 +458,6 @@
                                 </constraints>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tul-v1-PEG">
-                                <rect key="frame" x="274" y="36" width="30" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="microphone"/>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcX-qy-M2a">
                                 <rect key="frame" x="16" y="258" width="288" height="52"/>
                                 <subviews>
@@ -489,6 +484,24 @@
                                     <constraint firstAttribute="trailing" secondItem="hB8-pN-rNR" secondAttribute="trailing" constant="15" id="qRm-uV-Phu"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tul-v1-PEG">
+                                <rect key="frame" x="274" y="36" width="30" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="microphone"/>
+                                <state key="selected" image="block_microphone"/>
+                                <connections>
+                                    <action selector="onMicrophoneButton:" destination="Yd4-1W-fsU" eventType="touchUpInside" id="O63-vd-qtQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUG-bE-ppy">
+                                <rect key="frame" x="234" y="36" width="30" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="video_call"/>
+                                <state key="selected" image="block_video_call"/>
+                                <connections>
+                                    <action selector="onVideoCallButton:" destination="Yd4-1W-fsU" eventType="touchUpInside" id="PdQ-Cy-BDa"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eH9-qZ-T0t">
                                 <rect key="frame" x="16" y="36" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.92549020049999997" green="0.23529411850000001" blue="0.1019607857" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -515,9 +528,13 @@
                             <constraint firstItem="Tul-v1-PEG" firstAttribute="width" secondItem="eH9-qZ-T0t" secondAttribute="width" id="MYI-v6-XtU"/>
                             <constraint firstItem="xcX-qy-M2a" firstAttribute="centerY" secondItem="2mg-gW-GGj" secondAttribute="centerY" id="Pnz-Au-WN1"/>
                             <constraint firstItem="eH9-qZ-T0t" firstAttribute="leading" secondItem="2mg-gW-GGj" secondAttribute="leadingMargin" id="RYZ-s6-Dpr"/>
+                            <constraint firstItem="qUG-bE-ppy" firstAttribute="top" secondItem="eH9-qZ-T0t" secondAttribute="top" id="Uuo-fy-0ta"/>
                             <constraint firstItem="8Oa-gz-kJd" firstAttribute="top" secondItem="BP1-75-NYh" secondAttribute="bottom" id="Ux4-Nv-o94"/>
+                            <constraint firstItem="qUG-bE-ppy" firstAttribute="height" secondItem="eH9-qZ-T0t" secondAttribute="height" id="Vnd-Ks-bZG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xcX-qy-M2a" secondAttribute="trailing" id="W4F-hL-nwX"/>
                             <constraint firstAttribute="trailing" secondItem="mHk-hq-S5e" secondAttribute="trailing" id="d5g-1v-Pk1"/>
+                            <constraint firstItem="qUG-bE-ppy" firstAttribute="width" secondItem="eH9-qZ-T0t" secondAttribute="width" id="dbJ-oo-ICN"/>
+                            <constraint firstItem="Tul-v1-PEG" firstAttribute="leading" secondItem="qUG-bE-ppy" secondAttribute="trailing" constant="10" id="etF-xv-Cpi"/>
                             <constraint firstAttribute="trailing" secondItem="BP1-75-NYh" secondAttribute="trailing" id="nEi-SC-vo8"/>
                             <constraint firstItem="mHk-hq-S5e" firstAttribute="top" secondItem="2mg-gW-GGj" secondAttribute="top" id="sBf-oq-lDp"/>
                             <constraint firstItem="BP1-75-NYh" firstAttribute="leading" secondItem="2mg-gW-GGj" secondAttribute="leading" id="soc-wF-66L"/>
@@ -529,10 +546,11 @@
                     <connections>
                         <outlet property="countdownLabel" destination="oiq-iN-Yxx" id="jPn-G5-laa"/>
                         <outlet property="hangUpButton" destination="eH9-qZ-T0t" id="yux-KA-mKv"/>
-                        <outlet property="muteButton" destination="Tul-v1-PEG" id="k0T-KJ-3ac"/>
+                        <outlet property="microphoneButton" destination="Tul-v1-PEG" id="Lhs-Rb-Nr9"/>
                         <outlet property="partnerNameLabel" destination="hB8-pN-rNR" id="vYi-j5-wsE"/>
                         <outlet property="publisherView" destination="BP1-75-NYh" id="1bH-SL-tKE"/>
                         <outlet property="subcriberView" destination="iim-9J-2s0" id="FFp-Yp-N1F"/>
+                        <outlet property="videoCallButton" destination="qUG-bE-ppy" id="7Mu-CI-HB6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SBx-Vi-fek" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -542,6 +560,8 @@
     </scenes>
     <resources>
         <image name="background" width="2000" height="956"/>
+        <image name="block_microphone" width="24" height="24"/>
+        <image name="block_video_call" width="24" height="24"/>
         <image name="boy" width="256" height="256"/>
         <image name="findBgButton" width="150" height="150"/>
         <image name="girl" width="256" height="256"/>
@@ -551,5 +571,6 @@
         <image name="hangup" width="24" height="24"/>
         <image name="man" width="256" height="256"/>
         <image name="microphone" width="24" height="24"/>
+        <image name="video_call" width="24" height="24"/>
     </resources>
 </document>
