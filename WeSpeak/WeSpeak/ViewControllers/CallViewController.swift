@@ -38,7 +38,7 @@ class CallViewController: UIViewController {
         muteButton.layer.borderColor = #colorLiteral(red: 0.6606677175, green: 0.660764873, blue: 0.6606466174, alpha: 1).cgColor
         muteButton.layer.borderWidth = 2
         // set partner's name
-        partnerNameLabel.text = "Girgez"
+        partnerNameLabel.text = Singleton.sharedInstance.partner.name
         // set countdown
         countdownLabel.text = "10:00"
         

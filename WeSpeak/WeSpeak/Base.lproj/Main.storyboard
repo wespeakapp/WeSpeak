@@ -459,20 +459,21 @@
                                 <blurEffect style="light"/>
                             </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tul-v1-PEG">
-                                <rect key="frame" x="266" y="30" width="38" height="38"/>
+                                <rect key="frame" x="274" y="36" width="30" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="microphone"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcX-qy-M2a">
-                                <rect key="frame" x="16" y="258.5" width="288" height="51"/>
+                                <rect key="frame" x="16" y="258" width="288" height="52"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xu ka" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hB8-pN-rNR">
-                                        <rect key="frame" x="15" y="0.0" width="258" height="20.5"/>
+                                        <rect key="frame" x="15" y="0.0" width="258" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9:59" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oiq-iN-Yxx">
-                                        <rect key="frame" x="15" y="30.5" width="258" height="20.5"/>
+                                        <rect key="frame" x="15" y="31" width="258" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -489,11 +490,11 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eH9-qZ-T0t">
-                                <rect key="frame" x="16" y="30" width="38" height="38"/>
+                                <rect key="frame" x="16" y="36" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.92549020049999997" green="0.23529411850000001" blue="0.1019607857" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="eH9-qZ-T0t" secondAttribute="height" multiplier="1:1" id="CVy-kw-Z5I"/>
-                                    <constraint firstAttribute="width" constant="38" id="EjA-t9-azT"/>
+                                    <constraint firstAttribute="width" constant="30" id="EjA-t9-azT"/>
                                 </constraints>
                                 <state key="normal" image="hangup"/>
                                 <connections>
@@ -505,7 +506,7 @@
                         <constraints>
                             <constraint firstItem="iim-9J-2s0" firstAttribute="top" secondItem="2mg-gW-GGj" secondAttribute="top" id="20j-TP-HA6"/>
                             <constraint firstItem="iim-9J-2s0" firstAttribute="leading" secondItem="2mg-gW-GGj" secondAttribute="leading" id="4w2-pM-eJ6"/>
-                            <constraint firstItem="eH9-qZ-T0t" firstAttribute="top" secondItem="9AZ-fU-E7F" secondAttribute="bottom" constant="10" id="AZd-Aa-iCF"/>
+                            <constraint firstItem="eH9-qZ-T0t" firstAttribute="top" secondItem="9AZ-fU-E7F" secondAttribute="bottom" constant="16" id="AZd-Aa-iCF"/>
                             <constraint firstItem="Tul-v1-PEG" firstAttribute="height" secondItem="eH9-qZ-T0t" secondAttribute="height" id="CWP-p8-QHD"/>
                             <constraint firstItem="xcX-qy-M2a" firstAttribute="leading" secondItem="2mg-gW-GGj" secondAttribute="leadingMargin" id="EUI-E6-mGX"/>
                             <constraint firstItem="mHk-hq-S5e" firstAttribute="leading" secondItem="2mg-gW-GGj" secondAttribute="leading" id="Ee1-hg-h3Z"/>
@@ -547,7 +548,7 @@
         <image name="girl1" width="256" height="256"/>
         <image name="girl2" width="256" height="256"/>
         <image name="girl3" width="256" height="256"/>
-        <image name="hangup" width="32" height="32"/>
+        <image name="hangup" width="24" height="24"/>
         <image name="man" width="256" height="256"/>
         <image name="microphone" width="24" height="24"/>
     </resources>

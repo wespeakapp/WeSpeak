@@ -92,12 +92,8 @@ extension RatingViewController: UITableViewDelegate, UITableViewDataSource{
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell") as! InfoCell
                 cell.nameLabel.text = Singleton.sharedInstance.partner.name
+                cell.user = Singleton.sharedInstance.partner
                 
-                if User.current.isSpeaker {
-                    cell.profileImageView.image = UIImage(named: User.current.reviews[indexPath.row].photoPartner)
-                } else {
-                    cell.profileImageView.setImageWith(URL(string: User.current.reviews[indexPath.row].photoPartner)!)
-                }
                 return cell
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionCell") as! QuestionCell
