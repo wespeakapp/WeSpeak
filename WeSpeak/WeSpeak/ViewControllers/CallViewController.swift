@@ -31,7 +31,7 @@ class CallViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // setup hang up button
         hangUpButton.layer.cornerRadius = hangUpButton.frame.height / 2
         // setup mute button
@@ -61,12 +61,16 @@ class CallViewController: UIViewController {
     }
     
     func countdown() {
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (Timer) in
-            self.countdownSecond -= 1
-            let m = self.countdownSecond / 60
-            let s = self.countdownSecond - 60 * m
-            self.countdownLabel.text = "0\(m):" + (s > 9 ? "\(s)" : "0\(s)")
-        })
+        if #available(iOS 10.0, *) {
+            Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (Timer) in
+                self.countdownSecond -= 1
+                let m = self.countdownSecond / 60
+                let s = self.countdownSecond - 60 * m
+                self.countdownLabel.text = "0\(m):" + (s > 9 ? "\(s)" : "0\(s)")
+            })
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     override func didReceiveMemoryWarning() {

@@ -44,6 +44,7 @@ class SpeakerSignInDialog: UIView {
         closeButton.layer.cornerRadius = closeButton.frame.height / 2
         
         emailTextField.text = "datlt@magik.vn"
+//        emailTextField.text = "datlt.uit@gmail.com"
         passwordTextField.text = "123456789"
         
         showAnimation()

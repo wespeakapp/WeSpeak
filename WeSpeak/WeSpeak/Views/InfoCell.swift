@@ -23,7 +23,7 @@ class InfoCell: UITableViewCell {
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        selectionStyle = .none
+//        selectionStyle = .none
         //backgroundColor = UIColor(colorLiteralRed: 14/255, green: 160/255, blue: 147/255, alpha: 0.45)
         
         setImageCircular()
@@ -34,6 +34,7 @@ class InfoCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
     func setImageCircular(){
         profileImageView.clipsToBounds = true
         profileImageView.layer.cornerRadius = 50//profileImageView.frame.height/2

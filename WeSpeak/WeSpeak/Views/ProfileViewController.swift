@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 class ProfileViewController: UIViewController {
 
@@ -19,6 +18,7 @@ class ProfileViewController: UIViewController {
         profileTableView.delegate = self
         profileTableView.dataSource = self
         profileTableView.reloadData()
+        UINavigationBar.appearance().tintColor = UIColor.red
         // Do any additional setup after loading the view.
     }
     
@@ -37,7 +37,7 @@ class ProfileViewController: UIViewController {
     }
 
     func loadNib(){
-        profileTableView.register(UINib(nibName: "InfoCell", bundle: nil), forCellReuseIdentifier: "InfoCell")
+        profileTableView.register(UINib(nibName: "infoProfileCell", bundle: nil), forCellReuseIdentifier: "infoProfileCell")
         profileTableView.register(UINib(nibName: CellIdentifier.ItemCell, bundle: nil), forCellReuseIdentifier: CellIdentifier.ItemCell)
         
          profileTableView.register(UINib(nibName: CellIdentifier.RatingCell, bundle: nil), forCellReuseIdentifier: CellIdentifier.RatingCell)
@@ -80,11 +80,11 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell") as! InfoCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "infoProfileCell") as! infoProfileCell
             cell.user = User.current
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.ItemCell) as! ItemCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.ItemCell) as! GItemCell
             cell.user = User.current
             return cell
 
@@ -135,7 +135,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 170
+            return 241
+        case 1:
+            return 69
         case 2:
             return 110
         default:

@@ -48,6 +48,7 @@ class FireBaseClient {
             } else {
                 self.dataReference.child("speakers/\(User.current.uid!)").observeSingleEvent(of: .value, with: {(snapshot) in
                     if let dictionary = snapshot.value as? NSDictionary {
+                        
                         User.current.name = dictionary["name"] as! String
                         User.current.profilePhoto = dictionary["photo"] as! String
                         print(User.current.profilePhoto)

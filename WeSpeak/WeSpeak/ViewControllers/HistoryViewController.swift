@@ -15,7 +15,8 @@ class HistoryViewController: UIViewController {
         historyTableView.delegate = self
         historyTableView.dataSource = self
         historyTableView.reloadData()
-        // Do any additional setup after loading the view.
+        
+        historyTableView.estimatedRowHeight = 250
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,6 +57,19 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell") as! HistoryCell
         cell.nameLabel.text = User.current.reviews[indexPath.row].partner
+//        switch indexPath.row {
+//        case 0:
+//            cell.profileImageView.image = #imageLiteral(resourceName: "dat")
+//        case 1:
+//            cell.profileImageView.image = #imageLiteral(resourceName: "avatar1")
+//        case 2:
+//            cell.profileImageView.image = #imageLiteral(resourceName: "avatar2")
+//        case 4:
+//            cell.profileImageView.image = #imageLiteral(resourceName: "avatar3")
+//        default:
+//            cell.profileImageView.image = #imageLiteral(resourceName: "man")
+//        }
+//        cell.profileImageView.image = #imageLiteral(resourceName: "dat")
         if User.current.isSpeaker {
             cell.profileImageView.image = UIImage(named: User.current.reviews[indexPath.row].photoPartner)
         } else {

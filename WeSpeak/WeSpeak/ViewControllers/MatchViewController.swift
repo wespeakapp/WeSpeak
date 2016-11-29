@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 class MatchViewController: UIViewController {
     @IBOutlet weak var matchButton: UIButton!

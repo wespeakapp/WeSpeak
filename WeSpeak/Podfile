@@ -10,8 +10,9 @@ target 'WeSpeak' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
-  pod 'RealmSwift'
+#  pod 'RealmSwift'
   pod 'AFNetworking', '~> 3.1'
   pod 'MBProgressHUD', '~> 1.0'
   pod 'Cosmos', '~> 7.0'
+  pod 'SwiftMessages', '~> 3.0'
 end

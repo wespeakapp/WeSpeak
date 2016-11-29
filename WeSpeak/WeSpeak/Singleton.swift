@@ -35,7 +35,7 @@ class Singleton{
         historyVC.tabBarItem.title = "My Conversations"
         historyVC.tabBarItem.image = UIImage(named: "history")
         
-        let profileVC = secondStoryboard.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileViewController
+        let profileVC = secondStoryboard.instantiateViewController(withIdentifier: "ProfileVC") as! GProfileViewController
         profileVC.tabBarItem.title = "Profile"
         profileVC.tabBarItem.image = UIImage(named: "profile")
        
@@ -58,7 +58,7 @@ class Singleton{
         historyVC.tabBarItem.title = "My Conversations"
         historyVC.tabBarItem.image = UIImage(named: "history")
         
-        let profileVC = secondStoryboard.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileViewController
+        let profileVC = secondStoryboard.instantiateViewController(withIdentifier: "ProfileVC") as! GProfileViewController
         profileVC.tabBarItem.title = "Profile"
         profileVC.tabBarItem.image = UIImage(named: "profile")
         

@@ -24,12 +24,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Realm.xcscheme</key>
+		<key>SwiftMessages-SwiftMessages.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>RealmSwift.xcscheme</key>
+		<key>SwiftMessages.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,22 +42,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>33B48F84AAEB42974816926234BE3257</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>522BC0D072B3C47AF6A35F56061DA347</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>608B49B5DDACC601EE8044A1931993F9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ABFEBD46F395A24D7E962BD518678385</key>
+		<key>7A79D5E3457D0C83040A2D6E831A2FA0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>84092B2EAA9E57B23CBF75C80BDC3518</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9D1967E59213C19D27F55C255235DA65</key>
 		<dict>
 			<key>primary</key>
 			<true/>

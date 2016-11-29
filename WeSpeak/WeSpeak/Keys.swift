@@ -23,7 +23,7 @@ struct CellIdentifier{
     static let SubmitCell = "SubmitCell"
     static let RatingCell = "RatingCell"
     static let AverageRatingCell = "AverageRating"
-    static let ItemCell = "ItemCell"
+    static let ItemCell = "GItemCell"
     static let SpeakerRatingCell = "SpeakerRatingCell"
     static let PlayRecordCell = "PlayRecord"
     

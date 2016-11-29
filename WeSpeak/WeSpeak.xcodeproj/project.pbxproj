@@ -21,6 +21,13 @@
 		00C113811DDA253B00EB329D /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C113801DDA253B00EB329D /* MatchViewController.swift */; };
 		00C113831DDA26BB00EB329D /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C113821DDA26BB00EB329D /* Constant.swift */; };
 		00C113851DDA2CC200EB329D /* CallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C113841DDA2CC200EB329D /* CallViewController.swift */; };
+		00C98CDC1DED220400FE3B71 /* GItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C98CDA1DED220400FE3B71 /* GItemCell.swift */; };
+		00C98CDD1DED220400FE3B71 /* GItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C98CDB1DED220400FE3B71 /* GItemCell.xib */; };
+		00C98CDF1DED336E00FE3B71 /* GProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C98CDE1DED336E00FE3B71 /* GProfileViewController.swift */; };
+		00C98CE21DED3EA500FE3B71 /* SpeakerStatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C98CE01DED3EA500FE3B71 /* SpeakerStatsTableViewCell.swift */; };
+		00C98CE31DED3EA500FE3B71 /* SpeakerStatsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C98CE11DED3EA500FE3B71 /* SpeakerStatsTableViewCell.xib */; };
+		00ED25321DEC2BEE00B00954 /* infoProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ED25301DEC2BEE00B00954 /* infoProfileCell.swift */; };
+		00ED25331DEC2BEE00B00954 /* infoProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00ED25311DEC2BEE00B00954 /* infoProfileCell.xib */; };
 		00F130901DD20E6E0017C6EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F1308F1DD20E6E0017C6EC /* AppDelegate.swift */; };
 		00F130951DD20E6E0017C6EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00F130931DD20E6E0017C6EC /* Main.storyboard */; };
 		00F130981DD20E6E0017C6EC /* WeSpeak.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 00F130961DD20E6E0017C6EC /* WeSpeak.xcdatamodeld */; };
@@ -83,6 +90,13 @@
 		00C113801DDA253B00EB329D /* MatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MatchViewController.swift; path = ViewControllers/MatchViewController.swift; sourceTree = "<group>"; };
 		00C113821DDA26BB00EB329D /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constant.swift; path = Helpers/Constant.swift; sourceTree = "<group>"; };
 		00C113841DDA2CC200EB329D /* CallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CallViewController.swift; path = ViewControllers/CallViewController.swift; sourceTree = "<group>"; };
+		00C98CDA1DED220400FE3B71 /* GItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GItemCell.swift; path = Views/GItemCell.swift; sourceTree = "<group>"; };
+		00C98CDB1DED220400FE3B71 /* GItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GItemCell.xib; path = Views/GItemCell.xib; sourceTree = "<group>"; };
+		00C98CDE1DED336E00FE3B71 /* GProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GProfileViewController.swift; path = ViewControllers/GProfileViewController.swift; sourceTree = "<group>"; };
+		00C98CE01DED3EA500FE3B71 /* SpeakerStatsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeakerStatsTableViewCell.swift; path = Views/SpeakerStatsTableViewCell.swift; sourceTree = "<group>"; };
+		00C98CE11DED3EA500FE3B71 /* SpeakerStatsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SpeakerStatsTableViewCell.xib; path = Views/SpeakerStatsTableViewCell.xib; sourceTree = "<group>"; };
+		00ED25301DEC2BEE00B00954 /* infoProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = infoProfileCell.swift; path = Views/infoProfileCell.swift; sourceTree = "<group>"; };
+		00ED25311DEC2BEE00B00954 /* infoProfileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = infoProfileCell.xib; path = Views/infoProfileCell.xib; sourceTree = "<group>"; };
 		00F1308C1DD20E6E0017C6EC /* WeSpeak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeSpeak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F1308F1DD20E6E0017C6EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00F130941DD20E6E0017C6EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -236,6 +250,12 @@
 				00BF18461DE4491A00088F75 /* LearnerSignInDialog.swift */,
 				00BF184C1DE4503A00088F75 /* SpeakerSignInDialog.xib */,
 				00BF184E1DE4504A00088F75 /* SpeakerSignInDialog.swift */,
+				00ED25301DEC2BEE00B00954 /* infoProfileCell.swift */,
+				00ED25311DEC2BEE00B00954 /* infoProfileCell.xib */,
+				00C98CDA1DED220400FE3B71 /* GItemCell.swift */,
+				00C98CDB1DED220400FE3B71 /* GItemCell.xib */,
+				00C98CE01DED3EA500FE3B71 /* SpeakerStatsTableViewCell.swift */,
+				00C98CE11DED3EA500FE3B71 /* SpeakerStatsTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -245,6 +265,7 @@
 			children = (
 				5AECDABB1DD556D400770F1F /* RatingViewController.swift */,
 				5A4426A01DD582E600B7C398 /* ProfileViewController.swift */,
+				00C98CDE1DED336E00FE3B71 /* GProfileViewController.swift */,
 				5AE8A3BD1DD6D44900F2C8B9 /* HistoryViewController.swift */,
 				5AE8A3BF1DD6D7CA00F2C8B9 /* DetailsViewController.swift */,
 				5AFBB0181DD8BE2100F4C720 /* TestViewController.swift */,
@@ -330,7 +351,7 @@
 				TargetAttributes = {
 					00F1308B1DD20E6D0017C6EC = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = TW9QQRUDNE;
+						DevelopmentTeam = 8EMHN296FT;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -365,11 +386,14 @@
 				5AEACF631DD61F3A002482AA /* RatingCell.xib in Resources */,
 				5ABF90F81DD5AEDA00EC0655 /* TipCell.xib in Resources */,
 				5AEACF6B1DD631FE002482AA /* ItemCell.xib in Resources */,
+				00ED25331DEC2BEE00B00954 /* infoProfileCell.xib in Resources */,
 				5ABF90F61DD5ADBD00EC0655 /* QuestionCell.xib in Resources */,
+				00C98CE31DED3EA500FE3B71 /* SpeakerStatsTableViewCell.xib in Resources */,
 				00BF18491DE4492C00088F75 /* LearnerSignInDialog.xib in Resources */,
 				00F130AE1DD211F70017C6EC /* GoogleService-Info.plist in Resources */,
 				5AEACF671DD6299B002482AA /* AverageRating.xib in Resources */,
 				00F1309A1DD20E6E0017C6EC /* Assets.xcassets in Resources */,
+				00C98CDD1DED220400FE3B71 /* GItemCell.xib in Resources */,
 				5A44269D1DD57C5200B7C398 /* SubmitCell.xib in Resources */,
 				5AE8A3BA1DD6D05F00F2C8B9 /* SpeakerRatingCell.xib in Resources */,
 				5ABF90FA1DD5B54B00EC0655 /* CommentCell.xib in Resources */,
@@ -450,9 +474,11 @@
 				00A8B5281DE9D29E00FC8000 /* LoadingViewController.swift in Sources */,
 				00BF18471DE4491A00088F75 /* LearnerSignInDialog.swift in Sources */,
 				5ACC0ABD1DD711DC00C4CED1 /* PlayRecordCell.swift in Sources */,
+				00C98CE21DED3EA500FE3B71 /* SpeakerStatsTableViewCell.swift in Sources */,
 				00C113831DDA26BB00EB329D /* Constant.swift in Sources */,
 				5A005A0E1DD9E92F00A7BDA3 /* Singleton.swift in Sources */,
 				00F130BA1DD2181A0017C6EC /* Stats.swift in Sources */,
+				00C98CDC1DED220400FE3B71 /* GItemCell.swift in Sources */,
 				00A6BECE1DE197AC00BB8A8A /* HerokuClient.swift in Sources */,
 				00F130BC1DD2195C0017C6EC /* Review.swift in Sources */,
 				5AEACF651DD62048002482AA /* RatingCell.swift in Sources */,
@@ -465,10 +491,12 @@
 				00A8B52C1DE9DB5800FC8000 /* DataStorage.swift in Sources */,
 				5A44269F1DD57CFF00B7C398 /* SubmitCell.swift in Sources */,
 				5AE8A3BC1DD6D11300F2C8B9 /* SperkerRatingCell.swift in Sources */,
+				00C98CDF1DED336E00FE3B71 /* GProfileViewController.swift in Sources */,
 				000B6F041DE83BCD009C4FC3 /* ProgressHUD.swift in Sources */,
 				00BF184F1DE4504A00088F75 /* SpeakerSignInDialog.swift in Sources */,
 				5AFBB0191DD8BE2100F4C720 /* TestViewController.swift in Sources */,
 				5AECDABC1DD556D400770F1F /* RatingViewController.swift in Sources */,
+				00ED25321DEC2BEE00B00954 /* infoProfileCell.swift in Sources */,
 				5A4426971DD5655800B7C398 /* QuestionCell.swift in Sources */,
 				00F130981DD20E6E0017C6EC /* WeSpeak.xcdatamodeld in Sources */,
 				5A4426991DD56D2A00B7C398 /* TipCell.swift in Sources */,
@@ -597,13 +625,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = TW9QQRUDNE;
+				DEVELOPMENT_TEAM = 8EMHN296FT;
 				INFOPLIST_FILE = WeSpeak/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.WeSpeak.WeSpeak;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Girgez.WeSpeak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -613,13 +642,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = TW9QQRUDNE;
+				DEVELOPMENT_TEAM = 8EMHN296FT;
 				INFOPLIST_FILE = WeSpeak/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.WeSpeak.WeSpeak;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Girgez.WeSpeak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
