@@ -21,28 +21,30 @@ class LoadingViewController: UIViewController {
                 FireBaseClient.shared.signIn(email: User.current.email, password: User.current.password, completion: { (user, error) in
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     appDelegate.window?.rootViewController = Singleton.getTabbar()
+                    FireBaseClient.shared.handleReviews()
                 })
             } else {
                 FireBaseClient.shared.signIn(completion: { (user, error) in
-                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                    appDelegate.window?.rootViewController = Singleton.getTabbar()
+                    Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { (timer) in
+                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        appDelegate.window?.rootViewController = Singleton.getTabbar()
+                        FireBaseClient.shared.handleReviews()
+                    })
                 })
             }
         } else {
             let nextVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeViewController")
             (UIApplication.shared.delegate as! AppDelegate).window?.rootViewController = nextVC
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
+        
+        loadingIndicator.startAnimating()
         UIView.animate(withDuration: 0.5, animations: {
             self.logoLabel.transform = CGAffineTransform(translationX: 0, y: -40)
             self.sloganLabel.transform = CGAffineTransform(translationX: 0, y: -40)
         }, completion: {finished in
-            UIView.animate(withDuration: 0.3, animations: {
+            UIView.animate(withDuration: 0.3, animations: { 
                 self.loadingIndicator.layer.opacity = 1
             })
         })
-        loadingIndicator.startAnimating()
     }
 }

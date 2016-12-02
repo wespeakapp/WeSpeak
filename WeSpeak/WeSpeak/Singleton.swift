@@ -13,6 +13,18 @@ class Singleton{
     var partner: User!
     var tabBarController:UITabBarController!
     var sessionIdOpenTok: String!
+    var historyViewController: HistoryViewController?
+    var profileViewController: GProfileViewController?
+    
+    func reloadProfileHistory() {
+        if let hvc = historyViewController {
+            hvc.historyTableView.reloadData()
+        }
+        
+        if let pvc = profileViewController {
+            pvc.profileTableView.reloadData()
+        }
+    }
     
     fileprivate init(){
         partner = User()

@@ -34,6 +34,7 @@ class DetailsViewController: UIViewController {
         
     }
     @IBAction func onBackButton(_ sender: UIBarButtonItem) {
+        Record.shared.pause()
         dismiss(animated: true, completion: nil)
     }
 }
@@ -93,6 +94,8 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource{
                 return cell
             case 3:
                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.PlayRecordCell) as! PlayRecordCell
+                cell.fileName = review?.recordFileName
+                print(cell.fileName)
                 return cell
             default:
                 return UITableViewCell()
@@ -112,6 +115,8 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource{
                 return cell
             case 2:
                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.PlayRecordCell) as! PlayRecordCell
+                cell.fileName = review?.recordFileName
+                print(cell.fileName)
                 return cell
             default:
                 return UITableViewCell()
@@ -128,6 +133,8 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource{
                 return 90
             case 2:
                 return 120
+            case 3:
+                return 80
             default:
                 return 40
             }
@@ -138,6 +145,8 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource{
                 return 80
             case 1:
                 return 120
+            case 2:
+                return 80
             default:
                 return 60
             }

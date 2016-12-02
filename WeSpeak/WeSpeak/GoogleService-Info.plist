@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>128660299656-jaov0mt0de0ggj185alr7ptu7ba058gk.apps.googleusercontent.com</string>
+	<string>128660299656-47gl5nl5n9blmilcf2v6jeg7h7qkavqp.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.128660299656-jaov0mt0de0ggj185alr7ptu7ba058gk</string>
+	<string>com.googleusercontent.apps.128660299656-47gl5nl5n9blmilcf2v6jeg7h7qkavqp</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBaTW7CNURxxaV1SpItMRmp8NxEfUbozUQ</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.Girgez.WeSpeak</string>
+	<string>com.WeSpeak.WeSpeak</string>
 	<key>PROJECT_ID</key>
 	<string>shareandlearn-17cc0</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:128660299656:ios:50f5b1773b9c423c</string>
+	<string>1:128660299656:ios:c9aa1ff0eca6a285</string>
 	<key>DATABASE_URL</key>
 	<string>https://shareandlearn-17cc0.firebaseio.com</string>
 </dict>

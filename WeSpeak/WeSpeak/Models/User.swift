@@ -84,6 +84,7 @@ class User: NSObject, NSCoding {
     
     func setUserPhotoView(view: UIImageView) {
         if isSpeaker {
+            print(profilePhoto)
             view.setImageWith(URL(string: profilePhoto)!)
         } else {
             view.image = UIImage(named: profilePhoto)
@@ -100,7 +101,7 @@ class User: NSObject, NSCoding {
             rating /= Double(reviews.count > 0 ? reviews.count : 1)
         }
         
-        return round(rating*2)/2
+        return round(rating*10)/10
     }
     
     func learnerAverageRating() -> Double{
@@ -109,7 +110,7 @@ class User: NSObject, NSCoding {
             rating += (review.stats?.listening)! + (review.stats?.pronounciation)! + (review.stats?.fluency)! + (review.stats?.vocabulary)!
         }
         rating /= Double(reviews.count > 0 ? reviews.count : 1)
-        return round(rating*2)/2
+        return round(rating*10)/10
     }
     
     func dictionary() -> [String: AnyObject] {

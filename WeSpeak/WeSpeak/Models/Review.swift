@@ -15,6 +15,7 @@ class Review: NSObject, NSCoding {
     var stats: Stats!
     var gift: Gift!
     var rating: Double!
+    var recordFileName: String!
     
     override init() {
         super.init()
@@ -25,6 +26,7 @@ class Review: NSObject, NSCoding {
         stats = Stats()
         gift = Gift()
         rating = 0
+        recordFileName = ""
     }
     
     func encode(with aCoder: NSCoder) {
@@ -34,6 +36,7 @@ class Review: NSObject, NSCoding {
         aCoder.encode(stats, forKey: "stats")
         aCoder.encode(gift, forKey: "gift")
         aCoder.encode(rating, forKey: "rating")
+        aCoder.encode(recordFileName, forKey: "recordFileName")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -43,6 +46,7 @@ class Review: NSObject, NSCoding {
         stats = aDecoder.decodeObject(forKey: "stats") as! Stats
         gift = aDecoder.decodeObject(forKey: "gift") as! Gift
         rating = aDecoder.decodeObject(forKey: "rating") as! Double
+        recordFileName = aDecoder.decodeObject(forKey: "recordFileName") as! String
     }
     
     init(dictionary: NSDictionary) {
@@ -83,6 +87,12 @@ class Review: NSObject, NSCoding {
         } else {
             rating = 0
         }
+        
+        if let recordFileName = dictionary["recordFileName"] as? String {
+            self.recordFileName = recordFileName
+        } else {
+            recordFileName = ""
+        }
     }
     
 //    func initReview(){
@@ -118,7 +128,9 @@ class Review: NSObject, NSCoding {
         var dict = [String: AnyObject]()
         
         dict.updateValue(partner as AnyObject, forKey: "partner")
+        
         dict.updateValue(photoPartner as AnyObject, forKey: "photo_partner")
+        
         dict.updateValue(comment as AnyObject, forKey: "comment")
         
         if let stats = stats {
@@ -130,6 +142,8 @@ class Review: NSObject, NSCoding {
         }
         
         dict.updateValue(rating as AnyObject, forKey: "rating")
+        
+        dict.updateValue(recordFileName as AnyObject, forKey: "recordFileName")
         
         return dict
     }

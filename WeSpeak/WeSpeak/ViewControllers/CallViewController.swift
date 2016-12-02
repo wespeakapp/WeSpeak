@@ -19,7 +19,7 @@ class CallViewController: UIViewController {
     @IBOutlet weak var publisherView: UIView!
     
     var countdownSecond = 600
-    var apiKey: String = "45711502"
+    var apiKey: String = "45728512"
     var sessionId: String!
     var token: String!
     var session: OTSession!
@@ -27,6 +27,9 @@ class CallViewController: UIViewController {
     var subscriber: OTSubscriber!
     var isPublish = false
     var isSubscribe = false
+    var isReceivedData = false
+    var isConnected = false
+    var subscriverVideo = true
     let dialog = Dialog()
     
     override func viewDidLoad() {
@@ -37,8 +40,8 @@ class CallViewController: UIViewController {
         // setup mute button
         microphoneButton.layer.cornerRadius = microphoneButton.frame.height / 2
         videoCallButton.layer.cornerRadius = videoCallButton.frame.height / 2
-        microphoneButton.layer.borderColor = #colorLiteral(red: 0.6606677175, green: 0.660764873, blue: 0.6606466174, alpha: 1).cgColor
-        microphoneButton.layer.borderWidth = 2
+//        microphoneButton.layer.borderColor = #colorLiteral(red: 0.6606677175, green: 0.660764873, blue: 0.6606466174, alpha: 1).cgColor
+//        microphoneButton.layer.borderWidth = 2
         // set partner's name
         partnerNameLabel.text = Singleton.sharedInstance.partner.name
         // set countdown
@@ -46,6 +49,9 @@ class CallViewController: UIViewController {
         
         dialog.frame = view.bounds
         view.addSubview(dialog)
+        
+        session = OTSession(apiKey: apiKey, sessionId: sessionId, delegate: self)
+        doConnect()
     }
     
     @IBAction func onHangUpButton(_ sender: Any) {
@@ -55,9 +61,6 @@ class CallViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        countdown()
-        session = OTSession(apiKey: apiKey, sessionId: sessionId, delegate: self)
-        doConnect()
     }
     
     func countdown() {
@@ -91,18 +94,24 @@ class CallViewController: UIViewController {
     }
     
     func connected() {
-        if isSubscribe && isPublish {
+        if isSubscribe && isPublish && isReceivedData {
+//            isConnected = true
             dialog.showStartButton()
+            countdown()
         }
     }
+    
     @IBAction func onTouchHangUpButton(_ sender: UIButton) {
         session.disconnect(nil)
     }
     @IBAction func onMicrophoneButton(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
+        publisher.publishAudio = !publisher.publishAudio
     }
     @IBAction func onVideoCallButton(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
+        publisher.publishVideo = !publisher.publishVideo
+        publisherView.isHidden = !publisher.publishVideo
     }
 }
 
@@ -114,6 +123,7 @@ extension CallViewController: OTSessionDelegate {
     
     func sessionDidDisconnect(_ session: OTSession!) {
         print("session disconnect")
+        Record.shared.stop()
         let storyboard = UIStoryboard(name: "Second", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "RatingViewController") as! RatingViewController
         present(vc, animated: true, completion: nil)
@@ -154,8 +164,28 @@ extension CallViewController: OTSubscriberDelegate {
         print("subscibe fail")
     }
     func subscriberVideoDataReceived(_ subscriber: OTSubscriber!) {
-        subscriber.view.frame = CGRect(x: 0, y: 0, width: subcriberView.frame.width, height: subcriberView.frame.height)
-        subcriberView.addSubview(subscriber.view)
+        if subscriverVideo {
+            subscriber.view.frame = CGRect(x: 0, y: 0, width: subcriberView.frame.width, height: subcriberView.frame.height)
+            subcriberView.addSubview(subscriber.view)
+        }
+        
+        if !isReceivedData {
+            isReceivedData = true
+            connected()
+        }
+    }
+    
+    func subscriberVideoDisabled(_ subscriber: OTSubscriberKit!, reason: OTSubscriberVideoEventReason) {
+//        let view1 = UIView(frame: subcriberView.bounds)
+//        let blur = UIBlurEffect
+        subscriverVideo = false
+        for subView in subcriberView.subviews {
+            subView.removeFromSuperview()
+        }
+    }
+    
+    func subscriberVideoEnabled(_ subscriber: OTSubscriberKit!, reason: OTSubscriberVideoEventReason) {
+        subscriverVideo = true
     }
 }
 

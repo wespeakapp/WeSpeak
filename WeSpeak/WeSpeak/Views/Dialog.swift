@@ -73,6 +73,7 @@ class Dialog: UIView {
         }, completion: nil)
     }
     @IBAction func onTouchStartButton(_ sender: UIButton) {
+        Record.shared.start(nameFile: Singleton.sharedInstance.sessionIdOpenTok)
         removeFromSuperview()
     }
     

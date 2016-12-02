@@ -17,6 +17,12 @@ class HistoryViewController: UIViewController {
         historyTableView.reloadData()
         
         historyTableView.estimatedRowHeight = 250
+        
+        Singleton.sharedInstance.historyViewController = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+//        historyTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {

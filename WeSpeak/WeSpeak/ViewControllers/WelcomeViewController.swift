@@ -57,13 +57,13 @@ extension WelcomeViewController: SignInDialogDelegate {
                 if let user = user {
                     User.current.type = UserType.learner
                     User.current.uid = user.uid
-//                    self.saveUserInfo(type: "learner")
                     Singleton.sharedInstance.partner.type = UserType.speaker
                     
                     FireBaseClient.shared.loadUserData(completion: { (exist) in
                         if !exist {
                             FireBaseClient.shared.saveUserData()
                         }
+                        FireBaseClient.shared.handleReviews()
                         let appDelegate = UIApplication.shared.delegate as! AppDelegate
                         appDelegate.window?.rootViewController = Singleton.getTabbar()
                     })
@@ -91,9 +91,11 @@ extension WelcomeViewController: SignInDialogDelegate {
 //                    User.current.name = "Gabi Diamond"
                     Singleton.sharedInstance.partner.type = UserType.learner
                     DataStorage.saveUser()
-                    
-                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                    appDelegate.window?.rootViewController = Singleton.getTabbar()
+                    FireBaseClient.shared.handleReviews()
+                    Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { (timer) in
+                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        appDelegate.window?.rootViewController = Singleton.getTabbar()
+                    })
                 } else {
                     ProgressHUD.hide(view: self.view)
                     let alert = UIAlertController(title: "Error", message: "Invalid email or password", preferredStyle: .alert)

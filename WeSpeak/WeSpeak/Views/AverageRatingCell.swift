@@ -18,9 +18,8 @@ class AverageRatingCell: UITableViewCell {
     var review:Review?{
         didSet{
             let point = ((review?.stats?.listening)! + (review?.stats?.listening)! + (review?.stats?.fluency)! + (review?.stats?.vocabulary)!)/4
-            let roundedPoint = round(point*2)/2
+            let roundedPoint = round(point * 10) / 10
             pointsLabel.text = "\(roundedPoint)"
-            
             //totalRatingsLabel.text = review
         }
         

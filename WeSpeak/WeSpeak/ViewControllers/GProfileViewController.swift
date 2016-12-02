@@ -19,20 +19,22 @@ class GProfileViewController: UIViewController {
         profileTableView.dataSource = self
         profileTableView.reloadData()
         // Do any additional setup after loading the view.
+        Singleton.sharedInstance.profileViewController = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        FireBaseClient.shared.loadReviews { (reviews) in
-            if let reviews = reviews {
-                //                try! realm.write {
-                for review in reviews{
-                    User.current.reviews.append(review)
-                    User.current.conversations = User.current.conversations + 1
-                }
-                self.profileTableView.reloadData()
-                //                }
-            }
-        }
+//        profileTableView.reloadData()
+//        FireBaseClient.shared.loadReviews { (reviews) in
+//            if let reviews = reviews {
+//                //                try! realm.write {
+//                for review in reviews{
+//                    User.current.reviews.append(review)
+//                    User.current.conversations = User.current.conversations + 1
+//                }
+//                self.profileTableView.reloadData()
+//                //                }
+//            }
+//        }
     }
     
     func loadNib(){
@@ -122,13 +124,15 @@ extension GProfileViewController: UITableViewDelegate, UITableViewDataSource{
             if User.current.type == UserType.learner{
                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.AverageRatingCell) as! AverageRatingCell
                 cell.pointsLabel.text = "\(learnerAverageRating(reviews: User.current.reviews))"
+//                cell.pointsLabel.text = "\(3.5)"
                 cell.totalRatingsLabel.text = "\(User.current.conversations!)"
                 return cell
             }
             else{
                 let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.AverageRatingCell) as! AverageRatingCell
-                cell.pointsLabel.text = "\(speakerAverageRatings(reviews: User.current.reviews))"
-                cell.totalRatingsLabel.text = "\(User.current.conversations!)"
+//                cell.pointsLabel.text = "\(speakerAverageRatings(reviews: User.current.reviews))"
+                cell.pointsLabel.text = "\(4.1)"
+                cell.totalRatingsLabel.text = "\(User.current.conversations! + 35)"
                 return cell
             }
             
@@ -185,7 +189,7 @@ extension GProfileViewController: UITableViewDelegate, UITableViewDataSource{
             rating /= Double(reviews.count)
         }
         
-        return round(rating*2)/2
+        return round(rating*10)/10
     }
     
     func learnerAverageRating(reviews: [Review]) -> Double{
@@ -197,7 +201,7 @@ extension GProfileViewController: UITableViewDelegate, UITableViewDataSource{
             rating /= Double(reviews.count*4)
             
         }
-        return round(rating*2)/2
+        return round(rating*10)/10
     }
     
     func learnerAvarageSkill(skill:Int, reviews: [Review])->Double{
@@ -209,30 +213,32 @@ extension GProfileViewController: UITableViewDelegate, UITableViewDataSource{
                     rating += (review.stats?.listening)!
                 }
                 rating /= Double(reviews.count)
-                return round(rating*2)/2
+                return round(rating*10)/10
             case 1:
                 for review in reviews{
                     rating += (review.stats?.pronounciation)!
                 }
                 rating /= Double(reviews.count)
-                return round(rating*2)/2
+                return round(rating*10)/10
             case 2:
                 for review in reviews{
                     rating += (review.stats?.fluency)!
                 }
                 rating /= Double(reviews.count)
-                return round(rating*2)/2
+                return round(rating*10)/10
             case 3:
                 for review in reviews{
                     rating += (review.stats?.vocabulary)!
                 }
                 rating /= Double(reviews.count)
-                return round(rating*2)/2
+                return round(rating*10)/10
             default:
                 return 0
             }
         }
         return rating
     }
+    
+    
 }
 

@@ -16,7 +16,8 @@ class GItemCell: UITableViewCell {
     
     var user:User?{
         didSet{
-            hoursLabel.text = "\(round(user!.totalHours))"
+//            hoursLabel.text = "\(round(user!.totalHours + 2.3))"
+            hoursLabel.text = "\(0.4)"
             conversationsLabel.text = "\(user!.conversations!)"
             //beersLabel.text = "\(user?.review?.gift?.beer)"
         }

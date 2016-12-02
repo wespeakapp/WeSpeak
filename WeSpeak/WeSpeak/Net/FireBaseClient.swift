@@ -101,6 +101,7 @@ class FireBaseClient {
     }
     
     func onSpeakerMatch(completion: @escaping (_ session: String, _ token: String) -> Void) {
+        print("on speaker match")
         handleLearnerAvailable(completion: completion)
     }
     
@@ -140,6 +141,7 @@ class FireBaseClient {
     }
     
     func handleLearnerAvailable(completion: @escaping (_ session: String, _ token: String) -> Void) {
+        print("in handle")
         dataReference.child("available/learners").observeSingleEvent(of: .value, with: {snapshot in
             if let learners = snapshot.value as? NSDictionary {
                 if let learnerInfo = learners[learners.allKeys[0]] as? NSDictionary {
@@ -206,6 +208,30 @@ class FireBaseClient {
                 self.saveUserData()
             } else {
                 completion(nil)
+            }
+        })
+    }
+    
+    func handleReviews() {
+        dataReference.child("rating/\(User.current.uid!)").observe(.value, with: {(snapshot) in
+            print(snapshot.value)
+            if snapshot.value is NSNull {
+                return
+            }
+            
+            self.dataReference.child("rating/\(User.current.uid!)").setValue(nil)
+            if let reviewsDictionary = snapshot.value as? NSDictionary {
+//                var reviews = [Review]()
+                for index in 0 ..< reviewsDictionary.count {
+                    let review = Review(dictionary: reviewsDictionary[reviewsDictionary.allKeys[index]] as! NSDictionary)
+                    User.current.reviews.insert(review, at: 0)
+                    User.current.conversations = User.current.conversations + 1
+                }
+//                completion(reviews)
+                SystemMessage.show(body: "You have new review.")
+                self.saveUserData()
+            } else {
+//                completion(nil)
             }
         })
     }

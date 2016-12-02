@@ -9,7 +9,11 @@
 import UIKit
 
 class PlayRecordCell: UITableViewCell {
-
+    
+    var fileName: String!
+    var isPlaying = false
+    @IBOutlet weak var playButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,5 +26,17 @@ class PlayRecordCell: UITableViewCell {
     }
 
     @IBAction func onRecordButtonTouch(_ sender: AnyObject) {
+        print("record button")
+        if isPlaying {
+            Record.shared.pause()
+            playButton.setBackgroundImage(#imageLiteral(resourceName: "play"), for: .normal)
+            print("stop")
+        } else {
+            Record.shared.play(nameFile: fileName)
+            playButton.setBackgroundImage(#imageLiteral(resourceName: "pause"), for: .normal)
+            print("play")
+        }
+        
+        isPlaying = !isPlaying
     }
 }

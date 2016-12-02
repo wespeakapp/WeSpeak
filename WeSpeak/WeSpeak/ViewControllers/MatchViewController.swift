@@ -17,6 +17,10 @@ class MatchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if User.current.reviews.count == 0 && !User.current.isSpeaker {
+            fake()
+        }
+        
         // setup match button
 //        matchButton.layer.borderWidth = 3
 //        matchButton.layer.borderColor = #colorLiteral(red: 0, green: 0.6823529412, blue: 0.6431372549, alpha: 1).cgColor
@@ -80,6 +84,7 @@ class MatchViewController: UIViewController {
             matchButton.setTitle("Finding", for: .normal)
             
             if User.current.isSpeaker {
+                print("speaker finding")
                 FireBaseClient.shared.onSpeakerMatch(completion: {(session, token) in
                     self.sessionId = session
                     self.token = token
@@ -124,5 +129,45 @@ class MatchViewController: UIViewController {
             callViewController.sessionId = sessionId
             callViewController.token = token
         }
+    }
+    
+    func fake() {
+        let stats1 = Stats()
+        stats1.listening = 4
+        stats1.pronounciation = 3
+        stats1.fluency = 3
+        stats1.vocabulary = 3
+        let review1 = Review()
+        review1.stats = stats1
+        review1.partner = "Keny N"
+        review1.photoPartner = "https://firebasestorage.googleapis.com/v0/b/shareandlearn-17cc0.appspot.com/o/avatar2.png?alt=media&token=0f8e2df3-440d-4e21-b66b-dc639675c5cc"
+        review1.comment = "You have good listening skill, it will perfect if you foncus on your pronounciation."
+        
+        let stats2 = Stats()
+        stats2.listening = 3
+        stats2.pronounciation = 3
+        stats2.fluency = 3
+        stats2.vocabulary = 3
+        let review2 = Review()
+        review2.stats = stats2
+        review2.partner = "Linda"
+        review2.photoPartner = "https://firebasestorage.googleapis.com/v0/b/shareandlearn-17cc0.appspot.com/o/avatar1.png?alt=media&token=f061c825-2c70-4942-bcf0-054932ef3c32"
+        review2.comment = "Your english speaking is good, you know alot of idoms. Hope to see you!"
+        
+        let stats3 = Stats()
+        stats3.listening = 4
+        stats3.pronounciation = 1
+        stats3.fluency = 4
+        stats3.vocabulary = 4
+        let review3 = Review()
+        review3.stats = stats3
+        review3.partner = "YoMi"
+        review3.photoPartner = "https://firebasestorage.googleapis.com/v0/b/shareandlearn-17cc0.appspot.com/o/avatar3.png?alt=media&token=e845ae6d-3909-4025-b0ef-16c9892775e7"
+        review3.comment = "Your english skill is good. You should spend more time."
+        
+        User.current.reviews.append(review3)
+        User.current.reviews.append(review2)
+        User.current.reviews.append(review1)
+        User.current.conversations = 3
     }
 }
