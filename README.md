@@ -16,6 +16,7 @@ The following **required** functionality is completed:
  The following **optional** features are implemented: 
  - Screen: Ranking board ( Top 50 learners).
  - Notifications: noti user for remind them use app.
+ 
 ## Intro Video
 https://youtu.be/vOAlpUFb4cY
 
